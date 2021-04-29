@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+    <section class="home col-12" style="font-family: 'Raleway';">
+    <div class="home-header  text-center" >
+        <h1 class="" style="font-weight: bold; font-family: 'Raleway';">Simples. Rápido.</h1>
+        <p style="text-align: center;">Plataforma projetada por quem entende, para explicar de<br>
+            forma simples e rápida o mercado financeiro
+        </p>
+        <button type="button" class="btn btn-danger offset-0" style="font-weight: bold;" ><a href="login" style="color: white;">CRIE SUA CONTA</a></button>
+    </div>
+    <div class="home-nosso-time " style="font-family: 'Raleway';">
+        <h1 style="font-weight: bold;">Nosso time</h1>
+        <p >Repleto de profissionais prontos para lhe auxiliar,<br>
+            a Merlin Research busca conciliar conhecimento<br>
+            técnico aliado a uma linguagem simples e prática,<br>
+            guiando você até o seu objetivo
+        </p>
+    </div>
+    <div class="home-3-colunas">
+    <div class="row offset-1">
+    <div class="card col-3" style="width: 18rem; background-color: black;">
+        <img class="card-img-top" src="{% static 'django_project/img/home/alessandro.png' %}" alt="Card image cap">
+        <div class="card-body" >
+          <h5 class="card-title text-center" style="font-weight: bold;">Alessandro</h5>
+          <p class="text-center">CEO da Merlin</p>
+          
+        </div>
+    </div>
+    <div class="card col-3" style="width: 18rem; background-color: black;">
+        <img class="card-img-top" src="{% static 'django_project/img/home/jose.png' %}" alt="Card image cap">
+        <div class="card-body" >
+          <h5 class="card-title text-center" style="font-weight: bold;">José</h5>
+          <p class="text-center">Assistente Financeiro</p>
+          
+        </div>
+    </div>
+    <div class="card col-3" style="width: 18rem; background-color: black;">
+        <img class="card-img-top" src="{% static 'django_project/img/home/pedro.png' %}" alt="Card image cap">
+        <div class="card-body" >
+          <h5 class="card-title text-center" style="font-weight: bold;">Pedro</h5>
+          <p class="text-center">Head de Renda Variável</p>
+          
+        </div>
+    </div>
+</div>
+</div>
+<div>
+<div class="row">
+    <p class="offset-1" ><span style="color:rgba(238, 191, 73, 0.979); font-weight: bold;">Agilidade.</span> No mundo atual,<br>
+        quem não tem agilidade fica<br>
+         para trás. Portanto, aqui na<br>
+         Merlin nós focamos em ensino<br>
+         e não burocracias
+    </p>
+    <div class="card col-2 offset-4" style="width: 18rem; background-color: black;">
+        <img class="card-img-top" src="{% static 'django_project/img/home/agilidade.png' %}" alt="Card image cap">
+    </div>
+</div>
+<br>
+<div class="row">
+    
+    <div class="card col-2 offset-1" style="width: 18rem; background-color: black;">
+        <img class="card-img-top" src="{% static 'django_project/img/home/simplicidade.png' %}" alt="Card image cap">
+    </div>
+
+    <p class="col-3 offset-4"><span style="color:palevioletred; font-weight: bold;">Simplicidade.</span> Tudo o que fazemos<br>
+        aqui, é para você, e nada disso<br>
+         funcionaria se nossa linguagem fosse<br>
+         exclusiva para profissionais da área.<br>
+         Portanto, não se preocupe, nossa <br>
+         linguagem é simples e feita para você
+    </p>
+</div>
+
+</div>
+
+<p class="text-center" style="color: white; padding-top: 10%; padding-bottom: 3%;font-weight: bold; font-size:larger;">Se interessou pelo nosso serviço? <br>
+    Dá uma olhada nas nossas assinaturas.</p>
+    <div class="row offset-3" style="padding-bottom: 1.5%;">
+
+        <div class="home-small">
+
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body" style="max-height: 9rem;">
+            <img class="card-img-top offset-3" style="max-width: 2rem;"  src="{% static 'django_project/img/home/SmallCaps_Icon.png' %}" alt="Card image cap">
+          <h5 class="card-title">Smaal Caps</h5>
+          <button type="button" class="btn btn-danger offset-0">CONHEÇA</button>
+        </div>
+    </div>
+
+        </div>
+
+
+        <div class="home-dividendos">
+
+            
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body" style="max-height: 9rem;">
+            <img class="card-img-top offset-3" style="max-width: 1.8rem;"  src="{% static 'django_project/img/home/Dividendos_Icon.png' %}" alt="Card image cap">
+          <h5 class="card-title">Dividendos</h5>
+          <button type="button" class="btn btn-danger offset-0">CONHEÇA</button>
+        </div>
+    </div>
+
+        </div>
+
+        
+
+        <div class="home-acoes">
+
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body" style="max-height: 9rem;">
+            <img class="card-img-top offset-3" style="max-width: 3.8rem;" src="{% static 'django_project/img/home/Ações_Icon.png' %}" alt="Card image cap">            
+          <h5 class="card-title offset-2">Ações</h5>
+          <button type="button" class="btn btn-danger offset-0">CONHEÇA</button>
+        </div>
+    </div>
+
+        </div>
+
+    </div>
+
+    <div class="row offset-3">
+
+        <div class="home-fiis">
+
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            
+            <div class="card-body" style="max-height: 9rem;">
+                <img class="card-img-top offset-3" style="max-width: 2rem;"  src="{% static 'django_project/img/home/FIIS_Icon.png' %}" alt="Card image cap">
+              <h5 class="card-title offset-3">FIIS</h5>
+              <button type="button" class="btn btn-danger offset-0">CONHEÇA</button>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="home-trader">
+    
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            
+            <div class="card-body" style="max-height: 9rem;">
+                <img class="card-img-top offset-4" style="max-width: 2rem;"  src="{% static 'django_project/img/home/Trader_Icon.png' %}" alt="Card image cap">
+              <h5 class="card-title offset-3">Trader</h5>
+              <button type="button" class="btn btn-danger offset-0">CONHEÇA</button>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="home-completo">
+    
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            
+            <div class="card-body" style="max-height: 9rem;">
+                <img class="card-img-top offset-4" style="max-width: 2rem;"  src="{% static 'django_project/img/home/completo.png' %}" alt="Card image cap">
+              <h5 class="card-title offset-1">Completo</h5>
+              <button type="button" class="btn btn-danger offset-0">CONHEÇA</button>
+            </div>
+        </div>
+        </div>
+
+        </div>
+
+        <h4 class="text-center offset-0 " style="color: white; padding-top: 13%; padding-bottom: 5%; font-weight: bold;">O que as pessoas falam da Merlin Research</h4>
+        <img class="card-img-top offset-3" style="max-width: 2rem;"  src="{% static 'django_project/img/home/aspas-abre.png' %}" alt="Card image cap">
+        <p class="text-justify offset-4" style="padding-bottom: 10%; color: white;">
+            
+            <br>Desde quando comecei a utilizar a plataforma, sempre recebi o melhor<br>
+            atendimento possível, além disso, as lives são incríveis e ajudam demais<br>
+            no aprendizado. Valeu a pena cada centavo!<br>
+            <img class="card-img-top offset-8" style="max-width: 2rem;"  src="{% static 'django_project/img/home/aspas-fecha.png' %}" alt="Card image cap">
+            <br>
+            <span class="offset-2" style="color: palevioletred;">Rodrigo, 33 anos</span>
+        </p>
+        <div class="text-center" style="color: white;padding-bottom: 10%; font-weight: bold; ">
+        <p style="font-size: 2rem;">Além das assinaturas, você pode receber nossos<br>
+        conteúdos <span style="color:rgba(238, 191, 73, 0.979); font-weight: bold;">gratuitamente</span> no seu email</p>
+        <input type="text"  placeholder="Coloque aqui o seu melhor email">
+        <button type="button" class="btn btn-danger">ENVIAR</button>
+        </div>
+
+        <div class="vamos_conversar" style="color: white;">
+            <p class="text-center" style="font-weight: bold; font-size: 2rem;">VAMOS CONVERSAR?</p>
+            <p class="text-center">Está com alguma dúvida ou precisando de ajuda? Nos mande uma mensagem </p>
+
+            
+
+        </div>
+
+        
+    </section>
+{% endblock %}

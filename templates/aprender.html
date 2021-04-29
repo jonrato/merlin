@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static%}
+
+
+{% block content %}
+<section class="image-header-aprender" style="font-family: 'Raleway';">
+<div class="card bg-dark text-white">
+    <img class="card-img-aprender" src="{% static 'django_project/img/aprender/homeheader.png' %}" alt="Card image">
+    <div class="card-img-overlay offset-1" style="padding-top: 15%;">
+      <h1 class="card-title" style="font-size: 3rem; font-weight: bold;">Quer investir, mas<br>
+        não sabe como?
+      </h1>
+      <p class="card-text" style="font-size: 1.3rem;">Confira nosso curso online de introdução<br> à bolsa de valores</p>
+      <input type="button" class="btn btn-danger" value="ACESSAR AGORA" style="font-weight: bold;">
+    </div>
+  </div>
+</section>
+<section class="cursos-aprender" style="font-family: 'Raleway';">
+<div class="title-cursos offset-1">
+    <h1 style="font-weight: bold;">CURSOS</h1>
+</div>
+
+<div class="row">
+    <div class="coluna-3-cursos col-sm-3 offset-1">
+      <div class="card" style="color:blanchedalmond; background-color:black">
+        <div class="card-body">
+          <img class="img offset-0"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/intro.png' %}" alt="Card image cap">
+          <p class="card-title offset-0" style="font-weight: bold; font-size: 1.3rem;">introdução à bolsa de valores</p>
+          <p class="card-text">Professor José Carlos</p>
+          <p class="card-text">R$ <span style="font-weight: bold; font-size: 2rem;">250</span></p>
+          <p class="card-text">ou 12x de R$ <span style="font-weight: bold; font-size: 2rem;">20,00</span></p>
+          <a href="#" class="btn btn-primary btn-danger">SAIBA MAIS</a>
+        </div>
+      </div>
+    </div>
+    <div class=" coluna-3-cursos col-sm-3 offset-0.5">
+      <div class="card" style="color:blanchedalmond; background-color:black">
+        <div class="card-body">
+          <img class="img offset-1"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/lobo.png' %}" alt="Card image cap">
+          <p class="card-title offset-1" style="font-weight: bold; font-size: 1.3rem;">Investindo como um lobo</p>
+          <div class="offset-1">
+            <p class="card-text">Professor José Carlos</p>
+            <p class="card-text">R$ <span style="font-weight: bold; font-size: 2rem;">250</span></p>
+          <p class="card-text">ou 12x de R$ <span style="font-weight: bold; font-size: 2rem;">20,00</span></p>
+              <a href="#" class="btn btn-primary btn-danger">SAIBA MAIS</a>
+              </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="coluna-3-cursos col-sm-3 offset-0.5">
+        <div class="card" style="color:blanchedalmond; background-color:black">
+          <div class="card-body">
+            <img class="img offset-1"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/milaomilhao.png' %}" alt="Card image cap">
+            <p class="card-title offset-1" style="font-weight: bold; font-size: 1.3rem;">Do mil ao milhão</p>
+            <div class="offset-1">
+              <p class="card-text">Professor José Carlos</p>
+              <p class="card-text">R$ <span style="font-weight: bold; font-size: 2rem;">250</span></p>
+          <p class="card-text">ou 12x de R$ <span style="font-weight: bold; font-size: 2rem;">20,00</span></p>
+                <a href="#" class="btn btn-primary btn-danger">SAIBA MAIS</a>
+                </div>
+            
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+  <div class="row">
+    <div class="coluna-3-cursos col-sm-3 offset-1">
+      <div class="card" style="color:blanchedalmond; background-color:black">
+        <div class="card-body">
+          <img class="img offset-0"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/fiis.png' %}" alt="Card image cap">
+          <p class="card-title offset-0" style="font-weight: bold; font-size: 1.3rem;">Descomplicando o FIIS</p>
+          <p class="card-text">Professor José Carlos</p>
+          <p class="card-text">R$ <span style="font-weight: bold; font-size: 2rem;">250</span></p>
+          <p class="card-text">ou 12x de R$ <span style="font-weight: bold; font-size: 2rem;">20,00</span></p>
+          <a href="#" class="btn btn-primary btn-danger">SAIBA MAIS</a>
+        </div>
+      </div>
+    </div>
+    <div class="coluna-3-cursos col-sm-3 offset-0.5">
+      <div class="card" style="color:blanchedalmond; background-color:black">
+        <div class="card-body">
+          <img class="img offset-1"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/trader.png' %}" alt="Card image cap">
+          <p class="card-title offset-1" style="font-weight: bold; font-size: 1.3rem;">Intensivo de Trader: como se tornar um</p>
+          <div class="offset-1">
+            <p class="card-text">Professor José Carlos</p>
+            <p class="card-text">R$ <span style="font-weight: bold; font-size: 2rem;">250</span></p>
+          <p class="card-text">ou 12x de R$ <span style="font-weight: bold; font-size: 2rem;">20,00</span></p>
+              <a href="#" class="btn btn-primary btn-danger">SAIBA MAIS</a>
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="coluna-3-cursos col-sm-3 offset-0.5">
+        <div class="card" style="color:blanchedalmond; background-color:black">
+          <div class="card-body">
+            <img class="img offset-1"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/gestores.png' %}" alt="Card image cap">
+            <p class="card-title offset-1" style="font-weight: bold; font-size: 1.3rem;">Investimento para gestores</p>
+            <div class="offset-1">
+          <p class="card-text">Professor José Carlos</p>
+          <p class="card-text">R$ <span style="font-weight: bold; font-size: 2rem;">250</span></p>
+          <p class="card-text">ou 12x de R$ <span style="font-weight: bold; font-size: 2rem;">20,00</span></p>
+            <a href="#" class="btn btn-primary btn-danger">SAIBA MAIS</a>
+            </div>
+          </div>
+        </div><section class="cursos-aprender">
+          
+      </div>
+  </div>
+
+  <div class="title-ebook offset-1">
+    <h1 style="font-weight: bold;">E-BOOK</h1>
+</div>
+
+
+<div class="row">
+  <div class="coluna-3-cursos col-sm-3 offset-1">
+    <div class="card" style="color:blanchedalmond; background-color:black">
+      <div class="card-body">
+        <img class="img offset-0"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/book1.png' %}" alt="Card image cap">
+      </div>
+    </div>
+  </div>
+  <div class="coluna-3-cursos col-sm-3 offset-0.5">
+    <div class="card" style="color:blanchedalmond; background-color:black">
+      <div class="card-body">
+        <img class="img offset-1"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/book2.png' %}" alt="Card image cap">
+      </div>
+    </div>
+  </div>
+  <div class=" coluna-3-cursos col-sm-3 offset-0.5">
+      <div class="card" style="color:blanchedalmond; background-color:black">
+        <div class="card-body">
+          <img class="img offset-1"  style="padding-right: 1rem;" src="{% static 'django_project/img/aprender/book3.png' %}" alt="Card image cap">
+        </div>
+      
+</div>
+
+
+</section>
+{% endblock %}

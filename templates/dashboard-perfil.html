@@ -1,0 +1,30 @@
+{% extends 'base-dashboard.html' %}
+{% load static %}
+
+
+{%block content%}
+
+<section>
+
+    <div>
+
+        <div class="row" style="color: black;">
+            <div class="col-4 offset-1">
+             <h1>MEU PERFIL</h1>
+             <p>
+                 Edite seu perfil e acesse<br>
+                 quando quiser
+            </p>
+            </div>
+
+            <div>
+                <img class="card-img-top offset-4"  style="max-width: 20rem;"  src="{% static 'django_project/img/dashboard/meu_perfil.png' %}" alt="Card image cap">
+            </div>
+            
+        </div>
+
+    </div>
+
+</section>
+
+{%endblock%}

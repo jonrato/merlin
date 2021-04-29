@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+<body>
+  {% block content %}
+
+    <div class="register col-6 offset-1">
+      {% if registered %}
+        
+      {% else %}
+      <h1>CRIAR CONTA</h1>
+      <br>
+      <br>
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          <input  type="submit" value="Entrar" class="btn btn-danger">
+          
+        </form>
+        
+      {% endif %}
+    </div>
+  
+  {%endblock%}
+</body>

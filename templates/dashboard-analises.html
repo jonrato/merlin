@@ -1,0 +1,60 @@
+{% extends 'base-dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<section class="offset-1">
+    <div class="row">
+
+    <div style="color: black; padding-top: 15%;">
+
+    <h1 style="font-family: 'Raleway'; font-size: 4rem;">ANÁLISES</h1>
+    <p style="font-family: 'Raleway'; ">
+        Suas análises de forma simples, <br>
+         rápida e objetiva
+    </p>
+
+    </div>
+
+
+    <div class="col-6" style="padding-bottom: 10%;">
+        <img class="card-img-top offset-4"  style="max-width: 20rem;"  src="{% static 'django_project/img/dashboard/analises.png' %}" alt="Card image cap">
+    </div>
+
+    </div>
+    <div class="row col-12">
+    <div class="btn-group col-3 ">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Data
+        </button>
+        <div class="dropdown-menu dropdown-menu">
+          <button class="dropdown-item" type="button">12/03/2021</button>
+          <button class="dropdown-item" type="button">12/03/2021</button>
+          <button class="dropdown-item" type="button">12/03/2021</button>
+        </div>
+      </div>
+
+<p style="color:black;margin-left: 5%; text-align: center;" >à</p>
+
+      <div class="btn-group col-3 ">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Data
+        </button>
+        <div class="dropdown-menu dropdown-menu"> 
+            <button class="dropdown-item" type="button">12/03/2021</button>
+            <button class="dropdown-item" type="button">12/03/2021</button>
+            <button class="dropdown-item" type="button">12/03/2021</button>
+        </div>
+      </div>
+
+      <div>
+
+        <button type="button" class="btn btn-primary offset-9">PESQUISAR</button>
+
+    </div>
+
+    </div>
+      
+    
+</section>
+
+{% endblock %}

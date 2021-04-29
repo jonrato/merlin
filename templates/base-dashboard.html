@@ -1,0 +1,116 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'django_project/css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+
+  </head>
+
+
+  <body>
+    
+
+    <section class="dashboard">
+      <div class="row">
+        <div class="sidebar col-1">
+          <a href="/dashboard" style=" padding-bottom: 1rem;"><img class="card-img-top offset-3" style="max-width: 2rem;"  src="{% static 'django_project/img/dashboard/icon0.png' %}" alt="Card image cap"> </a>
+          <a href="/dashboard-analises" style="padding-bottom: 1rem;"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon1.png' %}" alt="Card image cap"> </a>
+          <a href="/dashboard-noticias" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon2.png' %}" alt="Card image cap"> </a>
+          <a href="/dashboard-assinaturas" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon3.png' %}" alt="Card image cap"> </a>
+          <a href="/dashboard-especialista" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon4.png' %}" alt="Card image cap"> </a>
+          <a href="/dashboard-videos" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon5.png' %}" alt="Card image cap"> </a>
+          <a href="/dashboard-perfil" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon6.png' %}" alt="Card image cap"> </a>
+          <a href="#contact" style="padding-bottom: 18rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon7.png' %}" alt="Card image cap"> </a>
+          <a href="#contact"><img class="card-img-top offset-3" style="max-width: 1.5rem;"  src="{% static 'django_project/img/dashboard/icon8.png' %}" alt="Card image cap"> </a>
+        </div>
+      
+      {% block content %}
+  
+      {% endblock %}
+      </div>
+      </section>
+
+    
+    
+    
+  
+
+    
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+  </body>
+  
+  <footer class="footer">
+    <div class="container col-12  mr-auto">
+      <div class="row">
+        <div class=" col-3 col-expando-sm text-center">
+          <span><img src="{% static 'django_project/img/merlin_logo.png' %}" class="text-center"/></span>
+          
+              <p>Nossas redes sociais</p>
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-twitter"></i>
+                <p>Faça parte do time Merlin</p>
+                <i class="fa fa-linkedin"></i>
+          
+        </div>
+
+        
+              <div class="footer-content col-1 col-expando-sm">
+                <h6>ASSINATURAS</h6>
+                  <p class="p-footer">Small Caps</p>
+                  <p class="p-footer">Dividendos</p>
+                  <p class="p-footer">Ações</p>
+                  <p class="p-footer">FIIS</p>
+                  <p class="p-footer">Trader</p>
+                  <p class="p-footer">Completo</p>
+              </div>
+              <div class="footer-content col-1 col-expando-sm offset-1">
+                <h6>APRENDER</h6>
+                  <p class="p-footer">Cursos</p>
+                  <p class="p-footer">Fórum</p>
+              </div>
+            
+              <div class="footer-content col-1 col-expando-sm offset-1">
+                <h6>SOBRE</h6>
+                  <p class="p-footer">Quem somos</p>
+              </div>
+              <div class="footer-content col-1 col-expando-sm offset-0">
+                <h6>NOTÍCIAS</h6>
+                  </div>
+                
+              <div class="footer-content col-2 offset-1 col-expando-sm">
+                PRECISA DE AJUDA?
+              </div>
+            
+          </div>
+          </div>    
+  </footer>
+    
+  
+
+</html>

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="sobre-content" style="padding-top: 5%;">
+    <div class="card bg-dark text-white" >
+        <img class="card-img-aprender"  src="{% static 'django_project/img/sobre/homeheader.png' %}" alt="Card image">
+        <div class="card-img-overlay offset-0" style="padding-top: 20%; ">
+          <h1 class="card-title">O QUE NOS MOVE,<br> É AJUDAR VOCÊ
+          </h1>
+          
+        </div>
+      </div>
+    <h1 class="offset-1" style="color: white; padding-top: 10%;">Como surgiu a Merlin?</h1>
+    <br>
+    <p class="offset-1" style="color: white;">Surgimos com uma proposta diferente. Depois de ver como o mercado<br>
+      fuciona e dar de cara com diversos problemas graves e que acabavam com<br>
+       a experiência do usuário, nós vimos a necessidade de criar uma casa de<br>
+        análise onde a agilidade, a transparência e o cuidado com os clientes seriam<br>
+         nosso foco. Desde o começo focamos nisso, e é que o trazemos no nosso<br>
+          DNA, e graças à você que nós estamos aqui hoje e queremos sempre trazer<br>
+           o melhor que podemos entregar para que você sinta que valeu a pena estar<br>
+            conosco.</p>
+    <p></p>
+    <img src="">
+    
+    <div class="row">
+        <img class="card-img-aprender offset-1"  src="{% static 'django_project/img/sobre/quemsomos.png' %}" alt="Card image" style="padding-right: 2%;">
+        <div>
+        <h1 class="offset-0">Quem somos?</h1>
+        <br>
+        <p>
+          Sempre tivemos bom humor, e isso é refletido em tudo que fazemos, nós<br>
+          sempre prezamos pela boa convivência entre todos e isso faz com que o<br>
+          nosso diferencial seja ainda mais presente. Aqui na Merlin, não temos um<br>
+          chefe, mas sim, colaboradores dedicados a fazer o melhor para você, e no<br>
+          final é isso que importa. Todos os colaboradores da Merlin sabem da<br> importância que damos para a qualidade do ensino e da facilidade que<br>
+          temos que passar para o aluno, sem isso, nada do que temos seria<br>
+          possível.
+        </p>
+      </div>
+    </div>
+    <section style="padding-top: 5%;" class="offset2">
+    <div class="home-nosso-time " style="font-family: 'Raleway'; padding-bottom: 5%;">
+      <h1 style="font-weight: bold;" class="text-center">Nosso time</h1>
+
+  </div>
+  <div class="home-3-colunas">
+  <div class="row offset-1">
+  <div class="card col-3" style="width: 18rem; background-color: black;">
+      <img class="card-img-top" src="{% static 'django_project/img/home/alessandro.png' %}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title text-center" style="font-weight: bold;">Alessandro</h5>
+        <p class="text-center">CEO da Merlin</p>
+        
+      </div>
+  </div>
+  <div class="card col-3" style="width: 18rem; background-color: black;">
+      <img class="card-img-top" src="{% static 'django_project/img/home/jose.png' %}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title text-center" style="font-weight: bold;">José</h5>
+        <p class="text-center">Assistente Financeiro</p>
+        
+      </div>
+  </div>
+  <div class="card col-3" style="width: 18rem; background-color: black;">
+      <img class="card-img-top" src="{% static 'django_project/img/home/pedro.png' %}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title text-center" style="font-weight: bold;">Pedro</h5>
+        <p class="text-center">Head de Renda Variável</p>
+        
+      </div>
+  </div>
+</div>
+</div>
+</section>
+{% endblock %}

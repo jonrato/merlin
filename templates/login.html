@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%block content%}
+<section class="row-login col-12 mr-auto" style="font-family: 'Raleway';">
+<div class="content-register col-5">
+<h1>Ainda não tem cadastro?</h1>
+<p>Para acessar todos os benefícios da Merlin
+    Research é necessário possuir cadastro, mas
+    não se preocupe, é rápido e fácil se cadastrar.
+</p>
+<button type="button" class="btn btn-danger"> CRIAR CONTA </button>
+</div>
+<div class="login col-3">
+    <h1>Fazer login</h1>
+<form method="post" action="{% url 'user_login' %}">
+    {% csrf_token %}
+    {# A more "HTML" way of creating the login form#}
+    
+    <input class="text-login" type="text" name="username" placeholder="Usuario" expand-sm>
+    <br>
+    <br>
+    <input class="text-login" type="password" name="password" placeholder="Senha">
+    <br>
+    <br>
+    <input class="btn btn-danger" type="submit" value="Entrar">
+</form>
+</div>
+</section>
+{%endblock%}
