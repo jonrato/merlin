@@ -34,8 +34,11 @@ ALLOWED_HOSTS = []
 
 # Application definition
 #SITE_ID=1
-
+TAWKTO_ID_SITE='https://tawk.to/chat/6091e39f185beb22b30a11de/1f4su2aac'
 INSTALLED_APPS = [
+    
+    'django_project.apps.SuitConfig',
+    'tawkto',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +53,8 @@ INSTALLED_APPS = [
     'login',
     'dashboard',
     'sobre',
+    
+    
     
     
 
@@ -92,6 +97,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        
         'DIRS': [
             MACHINA_MAIN_TEMPLATE_DIR,
             os.path.join(BASE_DIR, 'templates'),
@@ -107,6 +113,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'machina.core.context_processors.metadata',
+                'grappelli_extras.context_processors.applist',
             ],
             
         },

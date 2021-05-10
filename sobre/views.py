@@ -7,7 +7,7 @@ def sobre(request):
     return render(request, 'sobre.html')
 
 #sobre
-def sobre(request, sobre_id):
-    sobre = Sobre.objects.get(pk=sobre_id)
+def sobre(request):
+    sobre = Sobre.objects.get
     return render(request, 'sobre.html', {'sobre': sobre})
 #end sobre

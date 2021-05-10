@@ -1,0 +1,79 @@
+#header {
+    
+    
+}
+
+div #content-main {
+    
+    background-color: gray;
+    padding-top: 5%;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+div #content-related {
+    padding-top: 5%;
+    background-color: gray;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+
+#branding h1{
+    
+    max-width: 100%;
+}
+
+div.breadcrumbs {
+    background: #0c0c0c;
+    color: white;
+    
+}
+
+body.suit_layout_vertical #suit-nav {
+background-color: black;
+border-radius: 5px;
+font-weight: bold;
+}
+
+body.suit_layout_vertical #suit-nav ul .has-children{
+    margin-top: 10%;
+    border-color: blanchedalmond;
+    text-align: center;
+    border-color: blanchedalmond;
+    }
+
+body.suit_layout_vertical #header .suit-user-tools {
+background: black;
+}
+
+div #user-tools {
+    border-radius: 5px;
+    margin-bottom: 5%;
+    max-height: 15%;
+    
+}
+
+
+.user-links{
+ max-width: 100%;       
+}
+
+.login .submit-row {
+    padding: 0px im !important;
+}
+
+.button, 
+input[type=submit], 
+input[type=button], 
+.submit-row input, 
+a.button{
+    width: 100%;
+    background: black;
+}
+
+.module h2, 
+.module caption, 
+.inline-group h2{
+    background: black;
+}
