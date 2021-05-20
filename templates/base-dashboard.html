@@ -20,13 +20,13 @@
   </head>
 
 
-  <body>
+  <body >
 
     
     
     
 
-    <section class="dashboard">
+    <section class="dashboard" >
       <div class="row">
         <div class="sidebar col-1">
           <a href="/dashboard" style=" padding-bottom: 1rem;"><img class="card-img-top offset-3" style="max-width: 2rem;"  src="{% static 'django_project/img/dashboard/icon0.png' %}" alt="Card image cap"> </a>
@@ -36,7 +36,7 @@
           <a href="/dashboard-especialista" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon4.png' %}" alt="Card image cap"> </a>
           <a href="/dashboard-videos" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon5.png' %}" alt="Card image cap"> </a>
           <a href="/dashboard-perfil" style="padding-bottom: 1rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon6.png' %}" alt="Card image cap"> </a>
-          <a href="#contact" style="padding-bottom: 18rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon7.png' %}" alt="Card image cap"> </a>
+          <a href="{% url 'logout' %}" style="padding-bottom: 18rem"><img class="card-img-top offset-3" style="max-width: 1.5rem; "  src="{% static 'django_project/img/dashboard/icon7.png' %}" alt="Card image cap"> </a>
           <a href="#contact"><img class="card-img-top offset-3" style="max-width: 1.5rem;"  src="{% static 'django_project/img/dashboard/icon8.png' %}" alt="Card image cap"> </a>
         </div>
       

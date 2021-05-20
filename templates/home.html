@@ -26,6 +26,9 @@
     <div class="row offset-1">
     <div class="card col-3" style="width: 18rem; background-color: black;">
         <img class="card-img-top" src="{% static 'django_project/img/home/alessandro.png' %}" alt="Card image cap">
+        {% for h in home %}
+        {{h.image_professional1}}
+        {% endfor %}
         <div class="card-body" >
           <h5 class="card-title text-center" style="font-weight: bold;">Alessandro</h5>
           <p class="text-center">CEO da Merlin</p>

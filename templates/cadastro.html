@@ -1,24 +1,25 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 <body>
   {% block content %}
 
-    <div class="register col-6 offset-1">
+    <div class="register col-6 offset-1" style="background-color: black; font-family: 'Raleway';">
       {% if registered %}
         
       {% else %}
       <h1>CRIAR CONTA</h1>
       <br>
       <br>
-        <form enctype="multipart/form-data" method="POST">
+      <div class="bg-gradient-primary" >
+        <form method="POST">
           {% csrf_token %}
-          {{ user_form.as_p }}
-          {{ profile_form.as_p }}
-          <input  type="submit" value="Entrar" class="btn btn-danger">
-          
+          {{form|crispy}}
+          <button type="submit" class="btn btn-danger">Cadastrar</button>
         </form>
         
       {% endif %}
+    </div>
     </div>
   
   {%endblock%}

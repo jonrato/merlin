@@ -36,7 +36,11 @@ ALLOWED_HOSTS = []
 #SITE_ID=1
 TAWKTO_ID_SITE='https://tawk.to/chat/6091e39f185beb22b30a11de/1f4su2aac'
 INSTALLED_APPS = [
-    
+    'admindashboard',
+    'common',
+    'Profile',
+    'userprofile',
+    'django_cleanup',
     'django_project.apps.SuitConfig',
     'tawkto',
     'django.contrib.admin',
@@ -46,13 +50,15 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'django_app',
     'blog_noticias',
     'ckeditor',
     'ckeditor_uploader',
-    'login',
+    
     'dashboard',
     'sobre',
+    
     
     
     
@@ -77,6 +83,16 @@ INSTALLED_APPS = [
     'machina.apps.forum_member',
     'machina.apps.forum_permission',
 ]
+
+
+MACHINA_FORUM_NAME = 'FÓRUM - MERLIN RESEARCH'
+
+MACHINA_TOPIC_ANSWER_SUBJECT_PREFIX = 'Reposta'
+
+MACHINA_FORUM_TOPICS_NUMBER_PER_PAGE = 5
+
+MACHINA_PROFILE_RECENT_POSTS_NUMBER = 5
+
 
 
 MACHINA_MARKUP_WIDGET = 'ckeditor.widgets.CKEditorWidget'
@@ -114,7 +130,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'machina.core.context_processors.metadata',
                 'grappelli_extras.context_processors.applist',
+                
+
             ],
+
             
         },
     },
@@ -207,3 +226,7 @@ HAYSTACK_CONNECTIONS = {
 }
 
 SITE_ID=1
+
+LOGIN_REDIRECT_URL = 'dashboard'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
