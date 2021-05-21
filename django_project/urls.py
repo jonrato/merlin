@@ -31,6 +31,7 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('', include('admindashboard.urls')),
+    path('', include('assinaturas.urls')),
     path('', include('aprender.urls')),
     path('', include('dashboard.urls')),
     path('forum/', include(machina_urls)),
