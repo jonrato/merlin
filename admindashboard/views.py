@@ -1,5 +1,16 @@
+from typing import List
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.views.generic.list import ListView
+from userprofile.models import Profile
+
+#Listar Usuários Cadastrados
+class CampoList(ListView):
+    model = Profile
+    template = "dashboard-admin/usuarios.html"
+#End Listar Usuários Cadastrados
+
 
 
 #DASHBOARD HOME
