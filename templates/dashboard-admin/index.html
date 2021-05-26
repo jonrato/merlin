@@ -1,7 +1,6 @@
-{%load static%}
-
 <!DOCTYPE html>
 <html lang="en">
+  {%load static%}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,7 +65,8 @@
               ></i>
               <div class="card_inner">
                 <p class="text-primary-p">Nº de Usuários</p>
-                <span class="font-bold text-title">578</span>
+                
+                <span class="font-bold text-title">{{usuarios_contagem}}</span>
               </div>
             </div>
 
@@ -90,13 +90,10 @@
             </div>
 
             <div class="card">
-              <i
-                class="fa fa-thumbs-up fa-2x text-green"
-                aria-hidden="true"
-              ></i>
+              <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
               <div class="card_inner">
-                <p class="text-primary-p">Nº de Visualizações</p>
-                <span class="font-bold text-title">645</span>
+                <p class="text-primary-p">Nº de Visitas</p>
+                <span class="font-bold text-title">{{count}}</span>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ from admindashboard import views
 from .views import CampoList
 urlpatterns = [
     path('admin-dashboard/', views.admin_dashboard, name=('admin-dashboard')),
+    
     path('analitico-dashboard/', views.analitico_dashboard, name=('analitico-dashboard')),
     path('artigos-dashboard/', views.artigos_dashboard, name=('artigos-dashboard')),
     path('forum-dashboard/', views.forum_dashboard, name=('forum-dashboard')),

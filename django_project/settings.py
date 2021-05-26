@@ -36,12 +36,13 @@ ALLOWED_HOSTS = []
 #SITE_ID=1
 TAWKTO_ID_SITE='https://tawk.to/chat/6091e39f185beb22b30a11de/1f4su2aac'
 INSTALLED_APPS = [
+    'pages_views',
     'admindashboard',
     'common',
     'Profile',
     'userprofile',
     'django_cleanup',
-    'django_project.apps.SuitConfig',
+    #'django_project.apps.SuitConfig',
     'tawkto',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -129,7 +130,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'machina.core.context_processors.metadata',
-                'grappelli_extras.context_processors.applist',
+                
                 
 
             ],
@@ -192,7 +193,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
