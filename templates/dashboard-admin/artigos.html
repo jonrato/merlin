@@ -11,17 +11,23 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'django_project/css/styles_admin.css' %}" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.24/datatables.min.css"/>
+ 
+
     <title>Admin - Merlin Research</title>
   </head>
-  <body id="body">
+  <body id="body" style="font-family: 'Raleway';">
       
-    <div class="container">
-      <nav class="navbar" style="background: black;">
-        <div class="nav_icon" onclick="toggleSidebar()">
+    <div class="container col-12 offset-0">
+      <nav class="navbar nav col-12 offset-0" style="background: black; margin: 0px;padding-left: 5%;padding-bottom: 6rem;">
+        <div class="nav_icon offset-0" onclick="toggleSidebar()">
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
-        <div class="navbar__left" >
+        <div class="navbar__left" style="padding:0px 0px 0px 0px">
           
           <a class="active_link" href="#" >ADMIN</a>
         </div>
@@ -43,7 +49,7 @@
         <div class="main__container">
           <!-- MAIN TITLE STARTS HERE -->
 
-          <div class="main__title">
+          <div class="main__title" style="padding-bottom: 5rem;">
             <img src="{% static 'django_project/img/hell0.png' %}" alt="" />
             <div class="main__greeting">
               <h1>Painel Administrativo</h1>
@@ -51,99 +57,64 @@
             </div>
           </div>
 
-          <!-- MAIN TITLE ENDS HERE -->
+          
 
-          <!-- MAIN CARDS STARTS HERE -->
-          <div class="main__cards">
-            <div class="card">
-              <i
-                class="fa fa-user-o fa-2x text-lightblue"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Nº de Usuários</p>
-                <span class="font-bold text-title">578</span>
-              </div>
+          <h3 class=" text-center">Todos os Artigos</h3>
+
+            <hr>
+            <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
+              <table class="table table-striped offset-0" id="tabela-listar" style="text-align: justify;background: rgb(236, 240, 241) ">
+                <thead>
+                <tr>
+                  <th style="padding-left: 5px;">Título</th>
+                  <th style="padding-left: 5px;">Tags</th>
+                  <th style="padding-left: 5px;">Imagem</th>
+                  <th style="padding-left: 5px;">Data</th>
+
+                </tr>
+            </thead>
+            <tbody>
+              {% for post in posts %}
+                  <tr>
+                    <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
+                      {{post.title}}
+                    </a>
+                  </td>
+
+                    <td style="padding-left: 5px;">
+                      {% for cat in post.categories.all %}
+                      <a href="#" class="badge badge-pill badge-secondry">{{cat}}</a>
+                      {% endfor %}
+                    </td>
+
+                    <td style="padding-left: 5px;">
+                      {% if post.thumbnail %}
+                      <a href="#">
+                        <img class="card-img-top" src="{{post.thumbnail.url}}" alt="Card image cap"style="max-width: 10rem;">
+                      </a>
+                      {% else %}
+                      <a href="#">
+                        <img class="card-img-top" src="{{post.image_url}}" alt="Card image cap" style="max-width: 20rem;">
+                      </a>
+                      {% endif %}
+                    </td>
+                    
+                    
+                    
+    
+    
+    
+                  </tr>
+                {%empty%}
+                <tr>Nenhum campo registrado</tr>
+                {% endfor %}
+            </tbody>
+              </table>
             </div>
 
-            <div class="card">
-              <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Produtos Vendidos</p>
-                <span class="font-bold text-title">2467</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <i
-                class="fa fa-video-camera fa-2x text-yellow"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Vídeos Assistidos</p>
-                <span class="font-bold text-title">340</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <i
-                class="fa fa-thumbs-up fa-2x text-green"
-                aria-hidden="true"
-              ></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Nº de Visualizações</p>
-                <span class="font-bold text-title">645</span>
-              </div>
-            </div>
-          </div>
-          <!-- MAIN CARDS ENDS HERE -->
-
-          <!-- CHARTS STARTS HERE -->
-          <div class="charts">
-            <div class="charts__left">
-              <div class="charts__left__title">
-                <div>
-                  <h1>Balanço(30 dias)</h1>
-                  <p>Manaus, Amazonas, BR</p>
-                </div>
-                <i class="fa fa-usd" aria-hidden="true"></i>
-              </div>
-              <div id="apex1"></div>
-            </div>
-
-            <div class="charts__right">
-              <div class="charts__right__title">
-                <div>
-                  <h1>Receita</h1>
-                  <p>Manaus, Amazonas, Brasil</p>
-                </div>
-                <i class="fa fa-usd" aria-hidden="true"></i>
-              </div>
-
-              <div class="charts__right__cards">
-                <div class="card1">
-                  <h1>Vendas</h1>
-                  <p>$75,300</p>
-                </div>
-
-                <div class="card2">
-                  <h1>Pagantes</h1>
-                  <p>$124,200</p>
-                </div>
-
-                <div class="card3">
-                  <h1>Não Pagantes</h1>
-                  <p>3900</p>
-                </div>
-
-                <div class="card4">
-                  <h1>Curtidas</h1>
-                  <p>1881</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- CHARTS ENDS HERE -->
+          
+            
+          
         </div>
       </main>
 
@@ -285,7 +256,49 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+    
+    
+
+    <!-- Boostrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.24/datatables.min.js"></script>
     <script src="{% static 'django_project/js/script.js' %}" alt="" > </script>
+
+
+
+    <script>
+      $('#tabela-listar').DataTable({
+        responsive: true,
+        // "bSort": false,
+        "aaSorting": [],
+        "pageLength": 50,
+        "language": {
+            "decimal": "",
+            "emptyTable": "Sem dados disponíveis",
+            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+            "infoFiltered": "(filtrado de _MAX_ registos no total)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ registos",
+            "loadingRecords": "A carregar dados...",
+            "processing": "A processar...",
+            "search": "Procurar:",
+            "zeroRecords": "Não foram encontrados resultados",
+            "paginate": {
+                "first": "Primeiro",
+                "last": "Último",
+                "next": "Seguinte",
+                "previous": "Anterior"
+            },
+            "aria": {
+                "sortAscending": ": ordem crescente",
+                "sortDescending": ": ordem decrescente"
+            }
+        }
+    });
+  </script>
   </body>
 </html>

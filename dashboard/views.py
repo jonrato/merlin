@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from dashboard.models import UpdateHome
-from blog_noticias.models import Postpost
+from blog_noticias.models import Post
 
 #DASHBOARD HOME
 @login_required

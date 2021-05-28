@@ -4,6 +4,8 @@
 
 
 {% block content %}
+
+{% for post in posts %}
     <section class="home col-12" style="font-family: 'Raleway';">
 
         
@@ -16,37 +18,34 @@
     </div>
     <div class="home-nosso-time " style="font-family: 'Raleway';">
         <h1 style="font-weight: bold;">Nosso time</h1>
-        <p >Repleto de profissionais prontos para lhe auxiliar,<br>
-            a Merlin Research busca conciliar conhecimento<br>
-            técnico aliado a uma linguagem simples e prática,<br>
-            guiando você até o seu objetivo
+        <p >{{post.text_nosso_time}}
         </p>
     </div>
     <div class="home-3-colunas">
     <div class="row offset-1">
     <div class="card col-3" style="width: 18rem; background-color: black;">
-        <img class="card-img-top" src="{% static 'django_project/img/home/alessandro.png' %}" alt="Card image cap">
+        <img class="card-img-top" src="{{post.thumbnailA.url}}" alt="Card image cap">
         {% for h in home %}
         {{h.image_professional1}}
         {% endfor %}
         <div class="card-body" >
-          <h5 class="card-title text-center" style="font-weight: bold;">Alessandro</h5>
+          <h5 class="card-title text-center" style="font-weight: bold;">{{post.nameA}}</h5>
           <p class="text-center">CEO da Merlin</p>
           
         </div>
     </div>
     <div class="card col-3" style="width: 18rem; background-color: black;">
-        <img class="card-img-top" src="{% static 'django_project/img/home/jose.png' %}" alt="Card image cap">
+        <img class="card-img-top" src="{{post.thumbnailB.url}}" alt="Card image cap">
         <div class="card-body" >
-          <h5 class="card-title text-center" style="font-weight: bold;">José</h5>
+          <h5 class="card-title text-center" style="font-weight: bold;">{{post.nameB}}</h5>
           <p class="text-center">Assistente Financeiro</p>
           
         </div>
     </div>
     <div class="card col-3" style="width: 18rem; background-color: black;">
-        <img class="card-img-top" src="{% static 'django_project/img/home/pedro.png' %}" alt="Card image cap">
+        <img class="card-img-top" src="{{post.thumbnailC.url}}" alt="Card image cap">
         <div class="card-body" >
-          <h5 class="card-title text-center" style="font-weight: bold;">Pedro</h5>
+          <h5 class="card-title text-center" style="font-weight: bold;">{{post.nameC}}</h5>
           <p class="text-center">Head de Renda Variável</p>
           
         </div>
@@ -55,29 +54,20 @@
 </div>
 <div>
 <div class="row">
-    <p class="offset-1" ><span style="color:rgba(238, 191, 73, 0.979); font-weight: bold;">Agilidade.</span> No mundo atual,<br>
-        quem não tem agilidade fica<br>
-         para trás. Portanto, aqui na<br>
-         Merlin nós focamos em ensino<br>
-         e não burocracias
+    <p class="offset-1" ><span style="color:rgba(238, 191, 73, 0.979); font-weight: bold;">Agilidade.</span> {{post.paragraphy1}}
     </p>
     <div class="card col-2 offset-4" style="width: 18rem; background-color: black;">
-        <img class="card-img-top" src="{% static 'django_project/img/home/agilidade.png' %}" alt="Card image cap">
+        <img class="card-img-top" src="{{post.paragraphyImage1.url}}" alt="Card image cap">
     </div>
 </div>
 <br>
 <div class="row">
     
     <div class="card col-2 offset-1" style="width: 18rem; background-color: black;">
-        <img class="card-img-top" src="{% static 'django_project/img/home/simplicidade.png' %}" alt="Card image cap">
+        <img class="card-img-top" src="{{post.paragraphyImage2.url}}" alt="Card image cap">
     </div>
 
-    <p class="col-3 offset-4"><span style="color:palevioletred; font-weight: bold;">Simplicidade.</span> Tudo o que fazemos<br>
-        aqui, é para você, e nada disso<br>
-         funcionaria se nossa linguagem fosse<br>
-         exclusiva para profissionais da área.<br>
-         Portanto, não se preocupe, nossa <br>
-         linguagem é simples e feita para você
+    <p class="col-3 offset-4"><span style="color:palevioletred; font-weight: bold;">Simplicidade.</span> {{post.paragraphy2}}
     </p>
 </div>
 
@@ -178,9 +168,7 @@
         <img class="card-img-top offset-3" style="max-width: 2rem;"  src="{% static 'django_project/img/home/aspas-abre.png' %}" alt="Card image cap">
         <p class="text-justify offset-4" style="padding-bottom: 10%; color: white;">
             
-            <br>Desde quando comecei a utilizar a plataforma, sempre recebi o melhor<br>
-            atendimento possível, além disso, as lives são incríveis e ajudam demais<br>
-            no aprendizado. Valeu a pena cada centavo!<br>
+            <br>{{post.comentario}}
             <img class="card-img-top offset-8" style="max-width: 2rem;"  src="{% static 'django_project/img/home/aspas-fecha.png' %}" alt="Card image cap">
             <br>
             <span class="offset-2" style="color: palevioletred;">Rodrigo, 33 anos</span>
@@ -203,5 +191,5 @@
 
     </section>
 
-    
+    {% endfor %}
 {% endblock %}

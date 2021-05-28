@@ -37,7 +37,8 @@ urlpatterns = [
     path('forum/', include(machina_urls)),
     path('', include('sobre.urls')),
     path('', include('django_app.urls')),
-    path('noticias/', include('blog_noticias.urls'), name="noticias"),
+    path('', include('blog_noticias.urls')),
+    #path('', include('blog_noticias.urls'), name="noticias"),
     path('register/', SignUpView.as_view(), name="register"),
     path('login/', auth_views.LoginView.as_view(
         template_name='login.html'

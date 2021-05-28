@@ -16,6 +16,7 @@ from machina import MACHINA_MAIN_STATIC_DIR
 
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -36,6 +37,7 @@ ALLOWED_HOSTS = []
 #SITE_ID=1
 TAWKTO_ID_SITE='https://tawk.to/chat/6091e39f185beb22b30a11de/1f4su2aac'
 INSTALLED_APPS = [
+    'hitcount',
     'pages_views',
     'admindashboard',
     'common',
@@ -198,7 +200,15 @@ STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_BASE_PATH = '/static/ckeditor/ckeditor'
+CKEDITOR_UPLOAD_PATH = 'media/'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 400,
+        'width': '100%',
+    }
+}
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [

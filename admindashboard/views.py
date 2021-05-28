@@ -9,6 +9,27 @@ from userprofile.models import Profile
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from .models import Users
+from hitcount.views import HitCountDetailView
+from django.views.generic.detail import DetailView
+
+#Listar todos os Posts
+from django.core import paginator
+from django.db.models import query
+from django.shortcuts import render, redirect, reverse
+from django.views.generic.detail import DetailView
+from blog_noticias.models import Category, Comment, Post
+from hitcount.views import HitCountDetailView
+from blog_noticias.forms import CommentForm
+from django.core.paginator import Paginator,PageNotAnInteger, EmptyPage
+from django.db.models import Q
+from hitcount.models import HitCount
+
+#End Listar todos os Posts
+
+#Assinaturas e Cursos
+from .models import Assinaturas, Cursos
+#from .models import home_view  assinaturas_view, aprender_view, sobre_view, noticias_view, login_view
+#End Assinaturas e Cursos
 
 #Listar Usuários Cadastrados
 class CampoList(ListView):
@@ -79,7 +100,31 @@ def analitico_dashboard(request):
 
 @login_required
 def artigos_dashboard(request):
-    return render(request, 'dashboard-admin/artigos.html')
+    
+
+    context = {}
+    posts = Post.objects.all()
+    categories = Category.objects.all()
+    popular_posts = Post.objects.order_by('-hit_count_generic')[:4]
+
+    page = request.GET.get("page")
+    paginator = Paginator(posts, 4)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        'popular_posts':popular_posts,
+        'categories':categories,
+        'posts': posts,
+    }
+
+    
+#End Listar todos os Posts
+    return render(request, 'dashboard-admin/artigos.html', context)
 
 @login_required
 def forum_dashboard(request):
@@ -87,7 +132,21 @@ def forum_dashboard(request):
 
 @login_required
 def produtos_dashboard(request):
-    return render(request, 'dashboard-admin/produtos.html')
+    assinaturas = Assinaturas.objects.all()
+    cursos = Cursos.objects.all()
+    context = {
+        'assinaturas': assinaturas,
+        'cursos': cursos,
+    }
+
+
+    return render(request, 'dashboard-admin/produtos.html', context)
+
+
+    
+            
+
+
 
 @login_required
 def usuarios_dashboard(request):

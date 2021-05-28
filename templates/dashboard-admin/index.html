@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   {%load static%}
+  {% load hitcount_tags %}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -73,7 +74,7 @@
             <div class="card">
               <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
               <div class="card_inner">
-                <p class="text-primary-p">Produtos Vendidos</p>
+                <p class="text-primary-p">Nº de Posts</p>
                 <span class="font-bold text-title">2467</span>
               </div>
             </div>
@@ -92,7 +93,7 @@
             <div class="card">
               <i class="fa fa-eye fa-2x" aria-hidden="true"></i>
               <div class="card_inner">
-                <p class="text-primary-p">Nº de Visitas</p>
+                <p class="text-primary-p">Nº de Visitantes</p>
                 <span class="font-bold text-title">{{count}}</span>
               </div>
             </div>
@@ -148,6 +149,34 @@
           </div>
           <!-- CHARTS ENDS HERE -->
         </div>
+        <h3 class=" text-center">Visualizações por página</h3>
+
+            <hr>
+            <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
+              <table class="table table-striped offset-0" id="tabela-listar" style="text-align: justify;background: rgb(236, 240, 241) ">
+                <thead>
+                <tr>
+                  <th style="padding-left: 5px;">página</th>
+                  <th style="padding-left: 5px;"><i class="fa fa-eye" aria-hidden="true"></i>
+                    <i class="fa fa-eye" aria-hidden="true"></i></th>
+                  
+                  
+
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding-left: 5px;">{{hview.home}}</td>
+                <td style="padding-left: 5px;">{{hview.date}}
+
+                  
+                
+              </td>
+              
+               </tr>  
+            </tbody>
+              </table>
+            </div>
       </main>
 
       <div id="sidebar">

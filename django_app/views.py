@@ -1,10 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django_app.models import Home, Assinaturas
+from admindashboard.models import PostHome
 
 #home
 def index(request):
-    return render(request, 'home.html')
+
+    context = {}
+    posts = PostHome.objects.all()
+    
+    context = {
+        
+        'posts': posts,
+    }
+    return render(request, 'home.html', context)
 
 def home(request, home_id):
     home = Home.objects.get(pk=home_id)

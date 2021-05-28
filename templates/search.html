@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    
+
+
+<div class="noticias">
+
+    
+        <div class="text-center" style="padding-top: 7%;padding-bottom: 5%;">
+            <h1>Pesquisar por: {{query}}</h1>
+            <p>{{total}} RESULTADOS ENCONTRADOS</p>
+        </div>
+    
+    
+    <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel" style="padding-top: 5%;padding-left: 2rem; max-height: 10%;">
+       
+        
+    
+      
+      
+      
+    
+
+    <div class="posts col-11" style="border-top: 2px solid gray; margin-bottom: 5rem;">
+    
+
+    <div class="row col-12" style="padding-top: 5%;">
+      <div class=" row col-8">
+    {% for post in posts %}
+    <div class="col-5">
+      
+      <div class="Tags gap-xy-2 text-center mt-6">
+        {% for cat in post.categories.all %}
+        <a href="#" class="badge badge-pill badge-secondry">{{cat}}</a>
+        {% endfor %}
+    </div>
+      {% if post.thumbnail %}
+      <a href="#">
+        <img class="card-img-top" src="{{post.thumbnail.url}}" alt="Card image cap">
+      </a>
+      {% else %}
+      <a href="#">
+        <img class="card-img-top" src="{{post.image_url}}" alt="Card image cap">
+      </a>
+      {% endif %}
+      <div class="p-6 text-center">
+        
+        <h5 class="mb-0">
+          <a class="text" href="{{post.post_link}}">
+            {{post.title}}
+          </a>
+        </h5>
+
+        <h5 class="mb-0">
+          <p>
+            {{post.overview|safe}}
+          </p>
+        </h5>
+      </div>
+    </div>
+    
+    {% endfor %}
+    </div>
+    
+    
+    <div class="col-4">
+      
+      <div class="sid px-4 py-md-0">
+        <h6 class="sidebar-title">
+          Search
+        </h6>
+        <form class="input-group" action="{% url 'search' %}" method="GET" role="form">
+          <input type="text" name="search" id="" class="form-control" placeholder="Search">
+          
+            <span class="input-group-text">
+              <i class=" fa fa-search "></i>
+            </span>
+          
+        </form>
+      </div>
+      <hr>
+      <h5 class="sidebar-title">
+        Tags
+      </h5>
+      <div class="row link-color-default fs-14 1h-24">
+        {% for category in categories %}
+        <div class="col-6">{{category}}</div>
+        {% endfor %}
+        
+      </div>
+      <hr>
+      <h6 class="sidebar-title">Polpular Posts</h6>
+      {% for pop in popular_posts %}
+                <a class="media text-default align-items-center mb-5" href="{{pop.post_link}}">
+                  {% if pop.thumbnail %}
+                  <img src="{{pop.thumbnail.url}}" alt="popular-post-image" class="rounded w-65px mr-4" style="max-width: 8rem;">
+                  {% else %}
+                  <img src="{{pop.image_url}}" alt="popular-post-image" class="rounded w-65px mr-4">
+                  {% endif %}
+                  <p class="media-body small-2 1h-4 mb-0">{{pop.title}}</p>
+                </a>
+      {% endfor %}
+
+      </div>  
+    </div>
+    <nav class="d-flex justify-content-center" style="padding-top: 8%;">
+      <ul class="pagination">
+          {% if posts.has_previous %}
+        <li class="page-item"><a href="?search={{query}}&page={{posts.previous_page_number}}" class="page-link">Anterior</a></li>
+        {%else%}
+        <li class="page-item disabled"><a href="#" class="page-link">Anterior</a></li>
+        {% endif %}
+
+        {% if 4 in posts.paginator.page_range %}
+            {% if page|add:"-1" >= 1 %}
+        <li class="page-item"><a href="?search={{query}}&page={{page|add:"-1"}}" class="page-link">{{page|add:"-1"}}</a></li>
+            {%endif%}
+            <li class="page-item"><a href="?search={{query}}&page={{page}}" class="page-link">{{page}}</a></li>
+            {% if page|add:"1" in posts.paginator.page_range %}
+            <li class="page-item"><a href="?search={{query}}&page={{page|add:"1"}}" class="page-link">{{page|add:"1"}}</a></li>
+            {%endif%}
+        
+        {%else%}
+        
+        {% for number in posts.paginator.page_range %}
+        <li class="page-item"><a href="?search={{query}}&page={{number}}" class="page-link">{{number}}</a></li>
+        {% endfor %}
+
+        {% endif %}
+        
+        {% if posts.has_next %}
+        <li class="page-item"><a href="?search={{query}}&page={{posts.next_page_number}}" class="page-link">Próximo</a></li>
+        {%else%}
+        
+        <li class="page-item disabled"><a href="#" class="page-link">Próximo</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    
+    
+    
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}
