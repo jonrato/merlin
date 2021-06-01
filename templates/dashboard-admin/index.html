@@ -2,6 +2,7 @@
 <html lang="en">
   {%load static%}
   {% load hitcount_tags %}
+  {% load humanize %}
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -124,8 +125,8 @@
 
               <div class="charts__right__cards">
                 <div class="card1">
-                  <h1>Vendas</h1>
-                  <p>$75,300</p>
+                  <h1>Assinaturas</h1>
+                  <p></p>
                 </div>
 
                 <div class="card2">
@@ -151,29 +152,31 @@
         </div>
         <h3 class=" text-center">Visualizações por página</h3>
 
-            <hr>
-            <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
-              <table class="table table-striped offset-0" id="tabela-listar" style="text-align: justify;background: rgb(236, 240, 241) ">
-                <thead>
-                <tr>
-                  <th style="padding-left: 5px;">página</th>
-                  <th style="padding-left: 5px;"><i class="fa fa-eye" aria-hidden="true"></i>
-                    <i class="fa fa-eye" aria-hidden="true"></i></th>
+        <hr>
+        <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
+          <table class="table table-striped offset-0" id="tabela-listar" style="text-align: justify;background: rgb(236, 240, 241) ">
+            <thead>
+            <tr>
                   
                   
-
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding-left: 5px;">{{hview.home}}</td>
-                <td style="padding-left: 5px;">{{hview.date}}
-
-                  
-                
-              </td>
-              
-               </tr>  
+                    
+                      
+                          <th scope="col">Page</th>
+                          <th style="padding-left: 5px;"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <i class="fa fa-eye" aria-hidden="true"></i></th>
+                          <th scope="col">Delete</th>
+                      
+                      </thead>
+                      <tbody>
+                      
+                      {% for history in history_list %}
+                          <tr>
+                              <td>{{ history.content_object }}</td>
+                              <td>{{ history.viewed_on|naturaltime }}</td>
+                              <td><a href="{% url 'history_delete' history.pk  %}" class="btn btn-danger">Delete</a></td>
+                          </tr>
+                      {% endfor %}
+               
             </tbody>
               </table>
             </div>
@@ -317,6 +320,38 @@
         </div>
       </div>
     </div>
+    <script>
+      $('#tabela-listar').DataTable({
+        responsive: true,
+        // "bSort": false,
+        "aaSorting": [],
+        "pageLength": 50,
+        "language": {
+            "decimal": "",
+            "emptyTable": "Sem dados disponíveis",
+            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+            "infoFiltered": "(filtrado de _MAX_ registos no total)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ registos",
+            "loadingRecords": "A carregar dados...",
+            "processing": "A processar...",
+            "search": "Procurar:",
+            "zeroRecords": "Não foram encontrados resultados",
+            "paginate": {
+                "first": "Primeiro",
+                "last": "Último",
+                "next": "Seguinte",
+                "previous": "Anterior"
+            },
+            "aria": {
+                "sortAscending": ": ordem crescente",
+                "sortDescending": ": ordem decrescente"
+            }
+        }
+    });
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="{% static 'django_project/js/script.js' %}" alt="" > </script>
   </body>

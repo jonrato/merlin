@@ -39,9 +39,9 @@ class Post(models.Model):
     slug = AutoSlugField(populate_from='title')
     thumbnail = models.ImageField(upload_to="", null=True, blank=True)
     image_url = models.CharField(max_length=500, default=None, null=True, blank=True)
-    overview = RichTextField()
+    overview = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = RichTextField(null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     categories = models.ManyToManyField(Category)
     published = models.BooleanField()
@@ -52,6 +52,9 @@ class Post(models.Model):
         return reverse("post", kwargs={
             'slug':self.slug
         })
+    
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title

@@ -39,7 +39,6 @@ class CampoList(ListView):
 
 
 
-
 #DASHBOARD HOME
 @login_required
 def admin_dashboard(request):

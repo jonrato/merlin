@@ -3,10 +3,20 @@ from django.db.models import query
 from django.shortcuts import render, redirect, reverse
 from django.views.generic.detail import DetailView
 from blog_noticias.models import Category, Comment, Post
+from admindashboard.models import PostNoticias
 from hitcount.views import HitCountDetailView
 from blog_noticias.forms import CommentForm
 from django.core.paginator import Paginator,PageNotAnInteger, EmptyPage
 from django.db.models import Q
+
+
+from django.views.generic import ListView, DetailView
+from history.mixins import ObjectViewMixin
+
+
+
+
+
 
 
 def searchBlog(request):
@@ -26,6 +36,7 @@ def searchBlog(request):
             posts = paginator.page(paginator.num_pages)
         total = queryset.count()
         context.update({
+            
             "page":page,
             "total":total,
             "query":query,
@@ -35,9 +46,17 @@ def searchBlog(request):
 
         return render(request, "search.html", context)
 
+class PostList(ListView):
+        model = Post
+
 def blog(request):
+    
+
+
+    
 
     context = {}
+    carrossel = PostNoticias.objects.all()
     posts = Post.objects.all()
     categories = Category.objects.all()
     popular_posts = Post.objects.order_by('-hit_count_generic')[:4]
@@ -52,14 +71,15 @@ def blog(request):
         posts = paginator.page(paginator.num_pages)
 
     context = {
+        'carrossel': carrossel,
         'popular_posts':popular_posts,
         'categories':categories,
         'posts': posts,
     }
 
-    return render(request, "noticias.html",context)
+    return render(request, "blog_noticias/post_list.html",context)
 
-class PostDetailView(HitCountDetailView):
+class PostDetailView(ObjectViewMixin, HitCountDetailView):
     model = Post
     template_name = "post.html"
     slug_field = "slug"

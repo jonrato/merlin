@@ -30,6 +30,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     
     path('admin/', admin.site.urls),
+    path('history/', include('history.urls')),
     path('', include('admindashboard.urls')),
     path('', include('assinaturas.urls')),
     path('', include('aprender.urls')),

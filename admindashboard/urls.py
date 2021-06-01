@@ -1,5 +1,7 @@
 from django.urls import path
 from admindashboard import views
+from history.views import HistoryList
+
 from .views import CampoList
 urlpatterns = [
     path('admin-dashboard/', views.admin_dashboard, name=('admin-dashboard')),

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from sobre.models import Sobre
+from admindashboard.models import PostQuemSomos
 
 def sobre(request):
     
@@ -8,6 +9,13 @@ def sobre(request):
 
 #sobre
 def sobre(request):
-    sobre = Sobre.objects.get
-    return render(request, 'sobre.html', {'sobre': sobre})
+    context = {}
+    posts = PostQuemSomos.objects.all()
+    
+    context = {
+        
+        'posts': posts,
+    }
+    return render(request, 'sobre.html', context)
+    
 #end sobre

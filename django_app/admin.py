@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_app.models import Home
-from django_app.models import Assinaturas
+from django_app.models import Category_Assinaturas, Author_Assinaturas
 
 
 class ExpenseAdmin(admin.ModelAdmin):
@@ -14,4 +14,6 @@ class MyModelAdmin(admin.ModelAdmin):
    list_filter = ['field_01', 'field_02']
 admin.site.site_header = 'Research Merlin'
 admin.site.register(Home)
-admin.site.register(Assinaturas)
+admin.site.register(Category_Assinaturas)
+admin.site.register(Author_Assinaturas)
+#admin.site.register(Assinaturas)
