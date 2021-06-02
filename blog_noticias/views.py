@@ -14,7 +14,14 @@ from django.views.generic import ListView, DetailView
 from history.mixins import ObjectViewMixin
 
 
-
+def boracontar(request,self):
+    
+    contar = Post.objects.all()
+    cont = contar.count()
+    context = {
+        'cont': cont
+    }
+    return render(request,'dashboard-admin/index.html',context)
 
 
 
@@ -84,6 +91,7 @@ class PostDetailView(ObjectViewMixin, HitCountDetailView):
     template_name = "post.html"
     slug_field = "slug"
     count_hit = True
+    
 
     form = CommentForm
 
@@ -110,3 +118,4 @@ class PostDetailView(ObjectViewMixin, HitCountDetailView):
         })
 
         return context
+

@@ -6,7 +6,7 @@ from .models import History
 
 class HistoryList(ListView):
     def get_queryset(self):
-        user_history = History.objects.filter(user=self.request.user)
+        user_history = History.objects.filter(user=self.request.user).order_by('-viewed_on')[:20]
         return user_history
 
 

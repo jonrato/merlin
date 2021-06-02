@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card-header" style="margin-top: 15%;background-color: black;">
+   <div class="col-md-4 order-md-2 mb-4 offset-4" >
+       <h4 class="d-flex justify-content-between align item-center mb-3">
+        <span class="text-muted">Pagamento com Cartão</span>
+        <span class="badge badge-secondary badge-pill" >1</span>
+       </h4>
+       <ul class="list-group mb-3">
+           <li class="list-group-item d-flex justify-content-between">
+               <div>
+                   <h6 class="my-0">Invista como um Lobo</h6>
+                   <small class="text-muted">{{price}}</small>
+               </div>
+               <span class="text-muted">R${{original_amt}}</span>
+            </li>
+               {% if coupon != 'none' %}
+               <li class="list-group-item d-flex justify-content-between">
+                   <div class="text-sucess">
+                       <h6 class="my-0">Promo code</h6>
+                       <small>{{coupon}}</small>
+                   </div>
+                   <span class="text-sucess">R${{coupon_amt}}</span>
+               </li>
+               {%endif%}
+               <li class="list-group-item d-flex justify-content-between">
+                   <span>Total R$</span>
+                   <strong>R${{final_amt}}</strong>
+               </li>            
+       </ul>
+
+       <form class="card p-2" action="{% url 'checkout' %}" method="GET">
+           <div class="input-group">
+               <input type="text" class="form-control" placeholder="Promo Code" name="coupon" />
+               <input type="hidden" value="{{price}}" name="price" />
+               <div class="input-group-append">
+                   <button type="submit" class="btn btn-danger">Usar</button>
+               </div>
+           </div>
+       </form>
+   </div>
+   
+   <div class="text-center pt-3">
+       <form action="{% url 'checkout' %}" method="POST">
+           {% csrf_token %}
+           <script
+           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+           data-key="pk_test_51Ixem2AjWsDHngBzWkrQZarGIWRT0j9cvYTqHjJrPR7bwOQsArZYdk8IVyyiKIZjuLEU4qRlkT6mbYiptZY0N0ca00b3S9KnNh"
+           data-amount="{{amount}}"
+           data-name = "Dream Cones, LLC"
+           data-description = "Premium Membership"
+           data-email = "{{user.email}}"
+           data-image = "https://stripe.com/img/documentation/checkout/marketplace.png"
+           data-locale = "auto"
+           >
+           </script>
+           <input type="hidden" value="{{ price }}" name="price" />
+           <input type="hidden" value="{{ coupon }}" name="coupon" />
+       </form>
+   </div>
+</div>
+{% endblock %}

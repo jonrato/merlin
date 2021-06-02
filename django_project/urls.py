@@ -31,6 +31,7 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('history/', include('history.urls')),
+    path('', include('stripe_app.urls')),
     path('', include('admindashboard.urls')),
     path('', include('assinaturas.urls')),
     path('', include('aprender.urls')),

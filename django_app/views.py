@@ -80,35 +80,10 @@ def Assinaturas(request):
 class APostDetailView(ObjectViewMixin, HitCountDetailView):
     model = Post_Assinaturas
     template_name = "assinaturas_post.html"
-    slug = "slug"
-    count_hit = True
+    slug_field = "slug"
+#    count_hit = True
 
-    form = CommentForm
-
-    def post(self, request, *args, **kwargs):
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            apost = self.get_object()
-            form.instance.user = request.user
-            form.instance.apost = apost
-            form.save()
-
-            return redirect(reverse("apost", kwargs={
-                'slug': apost.slug
-            }))
-
-    def get_context_data(self, **kwargs):
-        post_comments_count = Comment_Assinaturas.objects.all().filter(apost=self.object.id).count()
-        post_comments = Comment_Assinaturas.objects.all().filter(apost=self.object.id)
-        context = super().get_context_data(**kwargs)
-        context.update({
-            'form': self.form,
-            'post_comments': post_comments,
-            'post_comments_count': post_comments_count,
-        })
-
-        return context
-
+    
 
 
 

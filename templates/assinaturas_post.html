@@ -8,15 +8,15 @@
         <div class="section" >
             <div class="container">
                 <div class="text-center mt-8">
-                    <h2>{{apost.title}}</h2>
-                    <p> {{apost.date|date}} | {{apost.categories.all.0}} | 
+                    <h2>{{post.title}}</h2>
+                    <p> {{post.date|date}} | {{apost.categories.all.0}} | 
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </p>
                 </div>
 
-                {% if apost.thumbnail.url %}
+                {% if apost.thumbnails.url %}
                 <div class=" text-center mt-8" >
-                    <img src="{{apost.thumbnail.url}}" style="max-width: 35rem;">
+                    <img src="{{apost.thumbnails.url}}" style="max-width: 35rem;">
                 </div>
 
                 {% else %}
@@ -46,38 +46,7 @@
                 </div>
 
                 <!--comments-->
-                <div class="section">
-                    <div class="container">
-                     <!---->   <h2>Comentários({{post_comments_count}})</h2>
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <!--display comment-->
-                                    <div class="media-list">
-                                        {% for comment in post_comments %}
-                                        <div style="color:black">
-                                            <img class="avatar avatar-sm mr-4" src="{{user.profile.image}}">
-                                            <div class="media-body" style="color:black">
-                                                <div class="small-1">
-                                                    <b>{{comment.user}}</b>
-                                                    <time class="ml-4 opacity-70 small-3">{{comment.date}}</time>
-                                                </div>
-                                                <p style="color:black">{{comment.content}}</p>
-                                            </div>
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                <!--display form-->
-                                <form method="POST" action="{% url 'post' slug=post.slug %}" style="color:black">
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                        {{form}}
-                                    </div>
-                                    <button class="btn btn-danger btn-block" type="submit">Comentar</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
         </div>
