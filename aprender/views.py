@@ -1,5 +1,10 @@
 from django.shortcuts import render
+from django_app.models import Cursos
 
 def aprender(request):
-    
-    return render(request, 'aprender.html')
+    template_name="aprender.html"
+    context = {}
+    cursos = Cursos.objects.all()
+    context = {'cursos': cursos}
+    return render(request, 'aprender.html', context)
+

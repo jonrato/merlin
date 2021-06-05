@@ -59,20 +59,50 @@
 
           
 
-          <h3 class=" text-center">Produtos</h3>
+          <h3 class=" text-center"style="color: honeydew;font-weight: bold;">Produtos</h3>
 
-          <h4 class="text-left">Assinaturas</h4>
+          <h4 class="text-left" style="color: honeydew;font-weight: bold;">Assinaturas</h4>
 
-          <form class="form-inline" action="create" method="POST">
+          <form class="form-group "  action="create" method="POST">
             {% csrf_token %}
             <div class="form-group">
-              <label for="Nome">Nome do Produto</label>
-              <input type="text" name="nome" class="form control" required="required">
-              <label for="price">Preço do Produto</label>
-              <input type="text" name="price" class="form control" required="required">
-              <button type="submit" class="btn btn-danger"><span class="glyphicon"></span>ADD</button>
+              <div class="row col-9 offset-1">
+
+                
+                <input type="text" name="titulo" placeholder="Nome" class="form-control offset-1" style="width:30%;" required="required"/>
+            
+                
+                
+              
+              </div> 
+              <hr>
+              <div class="row col-9 offset-1">
+                
+                <input type="text" name="preco" placeholder="Preço" class="form-control offset-1" style="width:30%;" required="required"/>
+              
+
+              
+                
+                
+              </div>
+              <hr>
+              <div class="row col-9 offset-1">
+                
+                
+
+                
+                
+                <input type="file" class="danger offset-1" id="images" name="images" placeholder="Imagem">
+              </div>
+              <hr>
+              <div class="row col-9 offset-1">
+                
+                
+                
+                <button type="submit" class="btn btn-sm btn-danger offset-1" style="width:30%;"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+              </div>
             </div>
-          </form>
+        </form>
 
             <hr>
             <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
@@ -87,57 +117,71 @@
                 </tr>
             </thead>
             <tbody>
-              {% for assinatura in assinaturas %}
-                  <tr>
-                    <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
-                      {{assinatura.name}}
-                    </a>
-                  </td>
+            {% for apost in A %}
+              <div class="row col-12" style="padding-bottom: 8%;">
+                  {% if apost.images %}
+              <img class="img offset-1"  style="padding-right: 1rem;" src="{{apost.images.url}}" alt="Card image cap">
+                  {% else %}
+              <img class="img offset-1"  style="padding-right: 1rem;" src="{{apost.image_url}}" alt="Card image cap">
+                  {%endif%}
+              <div>
+              <p><span style="color: rgb(185, 64, 121);font-weight: bold;">{{apost.title}}</span> {{apost.overview|safe}}</p>
+                  <a class="text" href="{{apost.post_link}}"> <button type="button" class="btn btn-danger">Saiba mais</button></a>
+              </div>
+              </div>
 
-                  <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
-                    {{assinatura.price}}
-                  </a>
-                </td>
-
-                <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
-                  {{assinatura.created}}
-                </a>
-              </td>
-                    
-
-                    <td style="padding-left: 5px;">
-                      
-                      <a href="#">
-                        <img class="card-img-top" src="{{assinatura.thumbnail.url}}" alt="Card image cap"style="max-width: 10rem;">
-                      </a>
-                      
-                    </td>
-                    
-                    
-                    
-    
-    
-    
-                  </tr>
-                {%empty%}
-                <tr>Nenhum campo registrado</tr>
-                {% endfor %}
+              
+              
+                          
+            {%endfor%}
             </tbody>
               </table>
             </div>
-            <hr>
-            <h4 class="text-left">Cursos</h4>
 
-            <form class="form-inline" action="create" method="POST">
+
+            <hr>
+            <h4 class="text-left" style="color: honeydew;font-weight: bold;">Cursos</h4>
+
+            <form class="form-group "  action="create" method="POST">
               {% csrf_token %}
               <div class="form-group">
-                <label for="Nome">Nome do Curso</label>
-                <input type="text" name="nome" class="form control" required="required">
-                <label for="price">Preço do Curso</label>
-                <input type="text" name="price" class="form control" required="required">
-                <button type="submit" class="btn btn-danger"><span class="glyphicon"></span>ADD</button>
+                <div class="row col-9 offset-1">
+
+                  
+                  <input type="text" name="titulo" placeholder="Titulo" class="form-control offset-1" style="width:30%;" required="required"/>
+              
+                  
+                  <input type="text" name="professor" placeholder="Professor" class="form-control offset-1" style="width:30%;" required="required"/>
+                
+                </div> 
+                <hr>
+                <div class="row col-9 offset-1">
+                  
+                  <input type="text" name="preco" placeholder="Preço" class="form-control offset-1" style="width:30%;" required="required"/>
+                
+
+                
+                  
+                  <input type="text" name="parcela" placeholder="Parcela" class="form-control offset-1" style="width:30%;" required="required"/>
+                </div>
+                <hr>
+                <div class="row col-9 offset-1">
+                  
+                  <input type="text" name="link" placeholder="Link" class="form-control offset-1" style="width:30%;" required="required"/>
+
+                  
+                  
+                  <input type="file" class="danger offset-1" name="imagem" id="imagem"  placeholder="Imagem" accept="image/png, image/jpeg">>
+                </div>
+                <hr>
+                <div class="row col-9 offset-1">
+                  
+                  
+                  
+                  <button type="submit" class="btn btn-sm btn-danger offset-1" style="width:30%;"><span class="glyphicon glyphicon-plus"></span> ADD</button>
+                </div>
               </div>
-            </form>
+          </form>
 
             <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
               <table class="table table-striped offset-0" id="tabela-listar" style="text-align: justify;background: rgb(236, 240, 241) ">
@@ -145,43 +189,34 @@
                 <tr>
                   <th style="padding-left: 5px;">Nome</th>
                   <th style="padding-left: 5px;">Preço</th>
-                  <th style="padding-left: 5px;">Data</th>
+                  <th style="padding-left: 5px;">Descrição</th>
                   <th style="padding-left: 5px;">Imagem</th>
+                  <th style="padding-left: 5px;">Data</th>
 
                 </tr>
             </thead>
             <tbody>
               {% for curso in cursos %}
                   <tr>
-                    <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
-                      {{curso.name}}
-                    </a>
+                    <td style="padding-left: 5px;">
+                      {{curso.titulo}}
+                    
                   </td>
 
-                  <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
-                    {{curso.price}}
-                  </a>
+                  <td style="padding-left: 5px;">
+                    {{curso.preco}}
+                  
                 </td>
 
-                <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
-                  {{curso.created}}
-                </a>
+                <td style="padding-left: 5px;">
+                  <img class="card-img-top" src="{{curso.imagem.url}}" alt="Card image cap"style="max-width: 10rem;">
+                
               </td>
-                    
 
-                    <td style="padding-left: 5px;">
-                      
-                      <a href="#">
-                        <img class="card-img-top" src="{{assinatura.thumbnail.url}}" alt="Card image cap"style="max-width: 10rem;">
-                      </a>
-                      
-                    </td>
-                    
-                    
-                    
-    
-    
-    
+                <td style="padding-left: 5px;">
+                  {{curso.data}}
+                  <td><a class="btn btn-sm btn-warning" href="edit_produtos/{{ curso.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="{{ curso.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+              </td>
                   </tr>
                 {%empty%}
                 <tr>Nenhum campo registrado</tr>

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 
+
 /*  styling scrollbars  */
 ::-webkit-scrollbar {
   width: 5px;
@@ -42,7 +43,7 @@ body {
 }
 
 .text-title {
-  color: #2e4a66;
+  color: red;
 }
 
 .text-lightblue {
@@ -129,7 +130,7 @@ body {
 }
 
 main {
-  background: #f3f4f6;
+  background: rgba(0, 0, 0, 0.945);
   grid-area: main;
   overflow-y: auto;
   padding-left: 0;
@@ -146,14 +147,14 @@ main {
 }
 
 .main__title > img {
-  max-height: 100px;
+  max-height: 10rem;
   object-fit: contain;
   margin-right: 20px;
 }
 
 .main__greeting > h1 {
   font-size: 24px;
-  color: #2e4a66;
+  color:red;
   margin-bottom: 5px;
 }
 
@@ -168,6 +169,7 @@ main {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
   margin: 20px 0;
+  
 }
 
 .card {
@@ -177,8 +179,8 @@ main {
   height: 70px;
   padding: 25px;
   border-radius: 5px;
-  background: #ffffff;
-  box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
+  /*background: #ffffff;
+  /*box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;*/
 }
 
 .card_inner {
@@ -199,7 +201,7 @@ main {
 }
 
 .charts__left {
-  padding: 25px;
+  padding: 35rem;
   border-radius: 5px;
   background: #ffffff;
   box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
@@ -237,8 +239,8 @@ main {
 .charts__right {
   padding: 25px;
   border-radius: 5px;
-  background: #ffffff;
-  box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
+  /*background: #ffffff;*/
+  /*box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;*/
 }
 
 .charts__right__title {
@@ -249,8 +251,9 @@ main {
 
 .charts__right__title > div > h1 {
   font-size: 24px;
-  color: #2e4a66;
+  color: red;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .charts__right__title > div > p {
@@ -262,7 +265,7 @@ main {
 .charts__right__title > i {
   color: #ffffff;
   font-size: 20px;
-  background: #39447a;
+  background:red;
   border-radius: 200px 0px 200px 200px;
   -moz-border-radius: 200px 0px 200px 200px;
   -webkit-border-radius: 200px 0px 200px 200px;
@@ -278,7 +281,7 @@ main {
 }
 
 .card1 {
-  background: #d1ecf1;
+  background: gray;
   color: #35a4ba;
   text-align: center;
   padding: 25px;
@@ -287,7 +290,7 @@ main {
 }
 
 .card2 {
-  background: #d2f9ee;
+  background: gray;
   color: #38e1b0;
   text-align: center;
   padding: 25px;

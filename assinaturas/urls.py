@@ -4,6 +4,8 @@ from assinaturas import views
 
 urlpatterns = [
     
+    path('produtos-dashboard/', views.assinaturas_admin, name=('assinaturas_admin')),
+    
     path('assinaturas-acoes/', views.assinaturas_acoes, name=('assinaturas-acoes')),
     path('assinaturas-completo/', views.assinaturas_completo, name=('assinaturas-completo')),
     path('assinaturas-dividendos/', views.assinaturas_dividendos, name=('assinaturas-dividendos')),

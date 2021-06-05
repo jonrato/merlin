@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_app.models import Home
-from django_app.models import Category_Assinaturas, Author_Assinaturas
+from django_app.models import Category_Assinaturas, Author_Assinaturas, Cursos
 
 
 class ExpenseAdmin(admin.ModelAdmin):
@@ -16,4 +16,5 @@ admin.site.site_header = 'Research Merlin'
 admin.site.register(Home)
 admin.site.register(Category_Assinaturas)
 admin.site.register(Author_Assinaturas)
+admin.site.register(Cursos)
 #admin.site.register(Assinaturas)

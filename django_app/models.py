@@ -60,7 +60,7 @@ class Comment_Assinaturas(models.Model):
 class Post_Assinaturas(models.Model):
     title = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from='title')
-    thumbnails = models.ImageField(upload_to="", null=True, blank=True)
+    images = models.ImageField(upload_to="", null=True, blank=True)
     image_url = models.CharField(max_length=500, default=None, null=True, blank=True)
     overview = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now=True)
@@ -85,3 +85,17 @@ class Post_Assinaturas(models.Model):
 
 #end página assinaturas
     
+class Cursos(models.Model):
+    titulo = models.CharField(max_length=200)
+    professor = models.CharField(max_length=200)
+    preco = models.CharField(max_length=200)
+    parcela = models.CharField(max_length=200)
+    link = models.CharField(max_length=200)
+    imagem = models.ImageField(upload_to="", null=True, blank=True)
+    data = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.titulo
+
+    class Meta:
+        ordering = ['data']

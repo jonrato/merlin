@@ -184,8 +184,44 @@
         <div class="vamos_conversar" style="color: white;">
             <p class="text-center" style="font-weight: bold; font-size: 2rem;">VAMOS CONVERSAR?</p>
             <p class="text-center">Está com alguma dúvida ou precisando de ajuda? Nos mande uma mensagem </p>
+            <!--Envio de Mensagens por Email-->
+            <div class="hero-form field field-grouped is-revealing offset-3" style="padding-top: 5%;">
+                <div class="row">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://smtpjs.com/v3/smtp.js"></script>
+                <script type="text/javascript">
+                    function sendEmail() {
+                        var mailSubject = document.getElementById("mailSubject").value
+                        //var mailBody = document.getElementById("mailBody").value
+                         Email.send({
+                            // Host: "smtp.gmail.com",
+                            //  Username: "Your mail here",
+                            //  Password: "Your Password here",
+                            SecureToken: "caf0df25-a769-4aa4-a905-ef29abaf1774",
+                            From: 'alessandro@merlinresearch.com.br',
+                            To: 'jonatas_ferreira@usp.br',
+                            Subject: "HOMEPAGE VAMOS CONVERSAR",
+                            Body: mailSubject
+                        })
+                            .then(function (message) {
+                                alert("Email Enviado Com Sucesso!!!")
+                            });
+                    }
+                </script>
+                <div class="col-12" style="padding-bottom: 3%">
+                    <textarea rows="4" cols="50" id="mailSubject" class="col-8" placeholder="ESCREVE SUA MENSAGEM" style="border-radius: 7px; height: 8rem;background-color:gray;text-align: left;color:blanchedalmond"></textarea>
+                
+                </div>
 
-            
+                <div class="col-12 offset-0" style="padding-bottom: 12%">
+                    <input type="button" class="btn btn-danger col-8" onclick="sendEmail();" value="ENVIAR"/>
+                </div>	
+                    
+                
+                
+            </div>
+            </div>
+            <!--END Envio de Mensagens por Email-->
 
         </div>
 

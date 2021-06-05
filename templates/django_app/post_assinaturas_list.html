@@ -11,8 +11,8 @@
     <h3 class="text-center" style="padding-bottom: 15%;">Confira nossas assinaturas abaixo</h3>
     {% for apost in aposts %}
     <div class="row col-12" style="padding-bottom: 8%;">
-        {% if apost.thumbnails %}
-    <img class="img offset-1"  style="padding-right: 1rem;" src="src={{apost.thumbnails.url}}" alt="Card image cap">
+        {% if apost.images %}
+    <img class="img offset-1"  style="padding-right: 1rem;" src="{{apost.images.url}}" alt="Card image cap">
         {% else %}
     <img class="img offset-1"  style="padding-right: 1rem;" src="{{apost.image_url}}" alt="Card image cap">
         {%endif%}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django_app.models import Category_Assinaturas, Comment_Assinaturas, Home, Post_Assinaturas
+from django_app.models import Category_Assinaturas, Comment_Assinaturas, Home, Post_Assinaturas, Cursos
 from admindashboard.models import PostHome
 from hitcount.views import HitCountDetailView
 from django_app.forms import CommentForm
@@ -46,6 +46,8 @@ from django.core.paginator import Paginator,PageNotAnInteger, EmptyPage
 from django.db.models import Q
 from django.shortcuts import render, redirect, reverse
 
+
+
 class AssinaturasList(ListView):
     model = Post_Assinaturas
 
@@ -88,9 +90,53 @@ class APostDetailView(ObjectViewMixin, HitCountDetailView):
 
 
 
-def assinaturas(request):
-    acount = Assinaturas.objects.all().count()
-    return render(request, 'django_app/dashboardadmin/index.html', {'assinaturas': assinaturas})
+
 
 #end assinaturas
 
+#Cursos
+
+def index_curso(request):
+    context = {
+        
+        }
+    
+    
+    cursos = Cursos.objects.all()
+    context = {'cursos': cursos,}
+    return render(request, 'dashboard-admin/produtos.html', context)
+
+def create_curso(request):
+    curso = Cursos(titulo=request.POST['titulo'], professor=request.POST['professor'], 
+                    preco=request.POST['preco'], parcela=request.POST['parcela'], 
+                    link=request.POST['link'], imagem=request.POST['imagem'],
+                     ) #data=request.POST['imagem']
+    curso.save()
+    return redirect('produtos-dashboard')
+ 
+def edit_curso(request, id):
+    context = {}
+    cursos = Cursos.objects.get(id=id)
+    context = {'titulo': titulo,'professor': professor,'preco': preco,
+                'parcela': parcela,'link': link,'imagem': imagem,
+                'data': data,}
+    return render(request, 'dashboard-admin/edit_produtos.html', context)
+ 
+def update_curso(request, id):
+    curso = Cursos.objects.get(id=id)
+    curso.titulo = request.POST['titulo']
+    curso.professor = request.POST['professor']
+    curso.preco = request.POST['preco']
+    curso.parcela = request.POST['parcela']
+    curso.link = request.POST['link']
+    curso.imagem = request.POST['imagem']
+    
+    curso.save()
+    return redirect('/')
+ 
+def delete_curso(request, id):
+    curso = Cursos.objects.get(id=id)
+    curso.delete()
+    return redirect('produtos-dashboard')
+
+#END Cursos

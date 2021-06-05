@@ -24,6 +24,7 @@ from django.contrib import admin
 from common.views import SignUpView, ProfileUpdateView, ProfileView
 from django.contrib.auth import views as auth_views
 
+app_name = 'aprender'
 
 
 

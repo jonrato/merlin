@@ -57,12 +57,12 @@
             </div>
           </div>
 
-          <div class="contaier" style="padding-top: 15%; padding-bottom: 10%;">
+          <div class="contain" style="padding-top: 10%; padding-bottom: 10%;">
             
             
         
                 <div class="row">
-                    <div class="col-12 offset-3" >
+                    <div class="col-9 offset-3"  style="color: honeydew;font-weight: bold;">
                         <h2 style="margin-bottom: 5%;">HISTÓRICO DE VISUALIZAÇÃO</h2>
                         
                         <table class="tabela-listar">
@@ -78,9 +78,9 @@
                         
                         {% for history in history_list %}
                             <tr>
-                                <td>{{ history.content_object }}</td>
-                                <td>{{ history.viewed_on|naturaltime }}</td>
-                                <td><a href="{% url 'history_delete' history.pk  %}" class="btn btn-danger">Delete</a></td>
+                                <td class="offset-1" style="padding-right: 5rem;padding-bottom: 1rem;">{{ history.content_object }}</td>
+                                <td class="offset-1" style="padding-right: 5rem;padding-bottom: 1rem;">{{ history.viewed_on|naturaltime }}</td>
+                                <td class="offset-1" style="padding-right: 5rem;padding-bottom: 1rem;"><a href="{% url 'history_delete' history.pk  %}" class="btn btn-danger">Delete</a></td>
                             </tr>
                         {% endfor %}
                             
