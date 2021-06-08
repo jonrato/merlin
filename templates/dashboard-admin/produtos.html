@@ -50,7 +50,7 @@
           <!-- MAIN TITLE STARTS HERE -->
 
           <div class="main__title" style="padding-bottom: 5rem;">
-            <img src="{% static 'django_project/img/hell0.png' %}" alt="" />
+            <img src="{% static 'django_project/img/dashboard.png' %}" alt="" />
             <div class="main__greeting">
               <h1>Painel Administrativo</h1>
               <p>Aqui você poderá ter controle total da plataforma</p>
@@ -158,9 +158,6 @@
                 <div class="row col-9 offset-1">
                   
                   <input type="text" name="preco" placeholder="Preço" class="form-control offset-1" style="width:30%;" required="required"/>
-                
-
-                
                   
                   <input type="text" name="parcela" placeholder="Parcela" class="form-control offset-1" style="width:30%;" required="required"/>
                 </div>
@@ -168,10 +165,7 @@
                 <div class="row col-9 offset-1">
                   
                   <input type="text" name="link" placeholder="Link" class="form-control offset-1" style="width:30%;" required="required"/>
-
-                  
-                  
-                  <input type="file" class="danger offset-1" name="imagem" id="imagem"  placeholder="Imagem" accept="image/png, image/jpeg">>
+                  <input type="file" class="danger offset-1" name="imagem" id="imagem"  placeholder="Imagem" accept="image/png, image/jpeg">
                 </div>
                 <hr>
                 <div class="row col-9 offset-1">
@@ -215,7 +209,7 @@
 
                 <td style="padding-left: 5px;">
                   {{curso.data}}
-                  <td><a class="btn btn-sm btn-warning" href="edit_produtos/{{ curso.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="{{ curso.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+                  <td><a class="btn btn-sm btn-warning" href="edit_cursos/{{ curso.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="{{ curso.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
               </td>
                   </tr>
                 {%empty%}

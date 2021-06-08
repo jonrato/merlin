@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django_app.models import Category_Assinaturas, Comment_Assinaturas, Home, Post_Assinaturas, Cursos
 from admindashboard.models import PostHome
 from hitcount.views import HitCountDetailView
-from django_app.forms import CommentForm
+from django_app.forms import CommentForm, CursosForm
 
 #home
 def index(request):
@@ -115,12 +115,13 @@ def create_curso(request):
     return redirect('produtos-dashboard')
  
 def edit_curso(request, id):
-    context = {}
     cursos = Cursos.objects.get(id=id)
-    context = {'titulo': titulo,'professor': professor,'preco': preco,
-                'parcela': parcela,'link': link,'imagem': imagem,
-                'data': data,}
-    return render(request, 'dashboard-admin/edit_produtos.html', context)
+    form = CursosForm(request.POST, instance = cursos)  
+    if form.is_valid():  
+        form.save()  
+        return redirect("produtos-dashboard")  
+
+    return render(request, 'dashboard-admin/edit_cursos.html', {'cursos':cursos})
  
 def update_curso(request, id):
     curso = Cursos.objects.get(id=id)
