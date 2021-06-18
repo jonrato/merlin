@@ -63,36 +63,30 @@
 
           <h4 class="text-left" style="color: honeydew;font-weight: bold;">Assinaturas</h4>
 
-          <form class="form-group "  action="create" method="POST">
+          <form class="form-group "  action="create_assinatura" method="POST">
             {% csrf_token %}
             <div class="form-group">
               <div class="row col-9 offset-1">
 
                 
-                <input type="text" name="titulo" placeholder="Nome" class="form-control offset-1" style="width:30%;" required="required"/>
+                <input type="text" name="title" placeholder="Titulo" class="form-control offset-1" style="width:30%;" required="required"/>
             
                 
-                
+                <input type="text" name="overview" placeholder="Overview" class="form-control offset-1" style="width:30%;" required="required"/>
               
               </div> 
               <hr>
               <div class="row col-9 offset-1">
                 
-                <input type="text" name="preco" placeholder="Preço" class="form-control offset-1" style="width:30%;" required="required"/>
-              
-
-              
+                <input type="text" name="content" placeholder="Conteúdo" class="form-control offset-1" style="width:30%;" required="required"/>
                 
-                
+                <input type="text" name="categories" placeholder="Categorias" class="form-control offset-1" style="width:30%;" required="required"/>
               </div>
               <hr>
               <div class="row col-9 offset-1">
                 
-                
-
-                
-                
-                <input type="file" class="danger offset-1" id="images" name="images" placeholder="Imagem">
+                <input type="text" name="author" placeholder="Autor" class="form-control offset-1" style="width:30%;"/>
+                <input type="file" class="danger offset-1" name="images" id="images"  placeholder="Imagem" accept="image/png, image/jpeg">
               </div>
               <hr>
               <div class="row col-9 offset-1">
@@ -109,31 +103,60 @@
               <table class="table table-striped offset-0" id="tabela-listar" style="text-align: justify;background: rgb(236, 240, 241) ">
                 <thead>
                 <tr>
-                  <th style="padding-left: 5px;">Nome</th>
-                  <th style="padding-left: 5px;">Preço</th>
-                  <th style="padding-left: 5px;">Data</th>
+                  <th style="padding-left: 5px;">Titulo</th>
                   <th style="padding-left: 5px;">Imagem</th>
+                  <th style="padding-left: 5px;">Data</th>
+                  <th style="padding-left: 5px;">Overview</th>
+                  <th style="padding-left: 5px;">Conteúdo</th>
+                  <th style="padding-left: 5px;">Autor</th>
+                  <th style="padding-left: 5px;">Categorias</th>
 
                 </tr>
             </thead>
             <tbody>
-            {% for apost in A %}
-              <div class="row col-12" style="padding-bottom: 8%;">
-                  {% if apost.images %}
-              <img class="img offset-1"  style="padding-right: 1rem;" src="{{apost.images.url}}" alt="Card image cap">
-                  {% else %}
-              <img class="img offset-1"  style="padding-right: 1rem;" src="{{apost.image_url}}" alt="Card image cap">
-                  {%endif%}
-              <div>
-              <p><span style="color: rgb(185, 64, 121);font-weight: bold;">{{apost.title}}</span> {{apost.overview|safe}}</p>
-                  <a class="text" href="{{apost.post_link}}"> <button type="button" class="btn btn-danger">Saiba mais</button></a>
-              </div>
-              </div>
+              {% for assinaturas in assinatura %}
+                  <tr>
+                    <td style="padding-left: 5px;">
+                      {{assinaturas.title}}
+                    
+                  </td>
 
+                  <td style="padding-left: 5px;">
+                    <img class="card-img-top" src="{{assinaturas.images.url}}" alt="Card image cap"style="max-width: 10rem;">
+                  
+                </td>
+
+                <td style="padding-left: 5px;">
+                  {{assinaturas.data}}
+                </td>
+
+                  <td style="padding-left: 5px;">
+                    {{assinaturas.overview}}
+                  
+                </td>
+                <td style="padding-left: 5px;">
+                  {{assinaturas.content}}
+                
+              </td>
+
+              <td style="padding-left: 5px;">
+                {{assinaturas.author}}
+              
+            </td> 
+
+            <td style="padding-left: 5px;">
+              {{assinaturas.categories}}
+            
+          </td>
+
+                
+              <td><a class="btn btn-sm btn-warning" href="edit_cursos/{{ assinaturas.id }}"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-sm btn-danger" href="{{ curso.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
               
               
-                          
-            {%endfor%}
+                  </tr>
+                {%empty%}
+                <tr>Nenhum campo registrado</tr>
+                {% endfor %}
             </tbody>
               </table>
             </div>

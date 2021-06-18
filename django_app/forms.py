@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.contenttypes import fields
+from django.forms import widgets
 from django_app.models import Comment_Assinaturas
 
 class CommentForm(forms.ModelForm):
@@ -27,3 +29,21 @@ class CursosForm(forms.ModelForm):
             'link': forms.TextInput(attrs={ 'class': 'form-control' }),
             'imagem': forms.FileInput(attrs={ 'class': 'form-control' }),
       }
+
+from .models import Post_Assinaturas
+class AssinaturaForm(forms.ModelForm):
+    class Meta:
+        model = Post_Assinaturas
+        fields = [
+            'title', 'images','overview', 'content', 'author', 'categories'
+        ]
+        widgets = {
+            'title': forms.TextInput(attrs={'class':'form-control'}),
+            'images': forms.FileInput(attrs={'class':'form-control'}),
+            'overview': forms.TextInput(attrs={'class':'form-control'}),
+            'content': forms.TextInput(attrs={'class':'form-control'}),
+            'author': forms.TextInput(attrs={'class':'form-control'}),
+            'categories': forms.TextInput(attrs={'class':'form-control'}),
+        }
+
+

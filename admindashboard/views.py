@@ -1,3 +1,4 @@
+from admindashboard.models import PostHome
 from common.views import ProfileView
 from typing import List
 from django.shortcuts import render
@@ -129,7 +130,7 @@ def artigos_dashboard(request):
 def forum_dashboard(request):
     return render(request, 'dashboard-admin/forum.html')
 
-from django_app.models import Cursos
+from django_app.models import Cursos, Post_Assinaturas
 
 @login_required
 def produtos_dashboard(request):
@@ -137,7 +138,12 @@ def produtos_dashboard(request):
     template_name="dashboard-admin/produtos.html"
     context = {}
     cursos = Cursos.objects.all()
-    context = {'cursos': cursos}
+    assinatura = Post_Assinaturas.objects.all()
+    context = {
+        'cursos': cursos,
+        'assinatura': assinatura
+
+    }
     
 
     return render(request, 'dashboard-admin/produtos.html', context)
@@ -160,7 +166,7 @@ def vendas_dashboard(request):
 #CUSTOM PAGES HOME, ASSINATURAS, APRENDER, SOBRE, NOTÍCIAS
 
 #HOME
-from admindashboard.models import PostHome
+
 
 def custom_home(request):
 
