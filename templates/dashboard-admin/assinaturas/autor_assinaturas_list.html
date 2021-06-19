@@ -1,0 +1,30 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+
+{% block title %}
+Listagem de Produtos
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-lg-12" style="padding-top: 10rem;padding-bottom: 10rem;">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição do Produto</th>
+      <th>Preço do Produto</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for produto in autores %}
+    <tr>
+      <td>{{ produto.title }}</td>
+      <td>{{ produto.author }}</td>
+      
+      
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}
+

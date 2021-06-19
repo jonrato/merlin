@@ -1,0 +1,27 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+
+{% block title %}
+Listagem de Produtos
+{% endblock title %}
+
+{% block content %}
+<div class="col-lg-12">
+    <h2>Produtos da categoria {{ categorias }}</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Descrição do Produto</th>
+          <th>Preço do Produto</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for produto in assinaturas %}
+        <tr>
+          <td>{{ produto.title }}</td>
+          <td>{{ produto.price }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock content %}

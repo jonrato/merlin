@@ -23,13 +23,13 @@ urlpatterns = [
     url(r'^assinatura_dashboard/cadastrar/', cadastrar_assinatura, name='cadastrar_assinatura'),
     url(r'^assinatura_dashboard/listar/', listar_assinatura, name='listar_assinatura'),
     url(r'^assinatura_dashboard/editar/(?P<pk>[0-9]+)', editar_assinatura, name='editar_assinatura'),
-    url(r'^assinatura_dashboard/produto/(?P<pk>[0-9]+)', listar_autor_assinatura, name='listar_autor_assinatura'),
+    url(r'^assinatura_dashboard/autor/assinatura/(?P<pk>[0-9]+)', listar_autor_assinatura, name='listar_autor_assinatura'),
     url(r'^assinatura_dashboard/remover/(?P<pk>[0-9]+)', remover_assinatura, name='remover_assinatura'),
 
     url(r'^author/cadastrar/', cadastrar_autor, name='cadastrar_autor'),
     url(r'^author/listar/', listar_autor, name='listar_autor'),
     url(r'^author/editar/(?P<pk>[0-9]+)', editar_autor, name='editar_autor'),
-    url(r'^author/remover/(?P<pk>[0-9]+)', remover_autor, name='remover_remover_autor'),
+    url(r'^author/remover/(?P<pk>[0-9]+)', remover_autor, name='remover_autor'),
     url(r'^author/perfil/(?P<pk>[0-9]+)', perfil_autor, name='perfil_autor'),
 
     url(r'^categoria/cadastrar/', cadastrar_categoria, name='cadastrar_categoria'),
