@@ -91,45 +91,10 @@ class APostDetailView(ObjectViewMixin, HitCountDetailView):
 
 #CRUD ASSINATURAS
 def index_assinaturas(request):
-    context = {
-
-    }
-    assinatura = Post_Assinaturas.objects.all()
-    context = {'assinatura': assinatura}
-    return render(request, 'dashboard-admin/produtos.html', context)
-
-def create_assinaturas(request):
-    assinar = Post_Assinaturas(title=request.POST['title'], images=request.POST['images'],
-                                overview=request.POST['overview'],content=request.POST['content'],
-                                author=request.POST['author'],categories=request.POST['categories'],)
-    assinar.save()
-    return redirect('produtos-dashboard')
-
-def edit_assinaturas(request, id):
-    ed_assinar = Post_Assinaturas.objects.get(id=id)
-    form = AssinaturaForm(request.POST, instance = ed_assinar)  
-    if form.is_valid():  
-        form.save()  
-        return redirect("produtos-dashboard")  
-
-    return render(request, 'dashboard-admin/assinaturas/assinatura_form.html', {'ed_assinar':ed_assinar})
-
-def update_assinatura(request, id):
-    assinar = Post_Assinaturas.objects.get(id=id)
-    assinar.title = request.POST['title']
-    assinar.images = request.POST['images']
-    assinar.overview = request.POST['overview']
-    assinar.content = request.POST['content']
-    assinar.author = request.POST['author']
-    assinar.categories = request.POST['categories']
     
-    assinar.save()
-    return redirect('/')
- 
-def delete_assinatura(request, id):
-    assinar = Post_Assinaturas.objects.get(id=id)
-    assinar.delete()
-    return redirect('produtos-dashboard')
+    return render(request, 'dashboard-admin/assinaturas/a.html')
+
+
 
 #END CRUD ASSINATURAS
 from django.forms import ModelForm

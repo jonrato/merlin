@@ -57,9 +57,9 @@
             </div>
           </div>
 
-          
+          <h4><a href="" style="text-decoration: none;">Adicionar Postagem <i class="fa fa-plus" ></i> </a></h4>
 
-          <h3 class=" text-center">Todos os Artigos</h3>
+          <h3 class="text-center" style="color: blanchedalmond;">Todos os Artigos</h3>
 
             <hr>
             <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
@@ -100,6 +100,14 @@
                     </td>
                     <td style="padding-left: 5px;"><a class="text" href="{{post.post_link}}">
                       {{post.date}}
+                      </a>
+                    </td>
+                    <td style="padding-left: 5px;"><a class="text" href="{% url 'editar_noticia' pk=post.pk %}">
+                      <i class="fa fa-edit"></i>
+                      </a>
+                    </td>
+                    <td style="padding-left: 5px;"><a class="text" href="{% url 'remover_noticia' pk=post.pk %}">
+                      <i class="fa fa-trash"></i>
                       </a>
                     </td>
                   </tr>

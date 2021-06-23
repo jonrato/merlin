@@ -21,7 +21,7 @@ Listagem de Categorias
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Produtos</th>
+      <th>Assinaturas</th>
       <th>Ação</th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@ Listagem de Categorias
   {% for categoria in lista %}
     <tr>
         <td>{{ categoria.title }}</td>
-        <td><a href="{% url 'listar_assinaturas_categoria' pk=categoria.pk %}">Assinaturas</a></td>
+        <td><a href="{% url 'listar_assinaturas_categoria' pk=categoria.pk %}">Assinaturas Por Categoria</a></td>
 
       <td>
         <a href="{% url 'editar_categoria' pk=categoria.pk %}">

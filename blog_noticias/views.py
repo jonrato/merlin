@@ -1,8 +1,9 @@
 from django.core import paginator
 from django.db.models import query
+from django.forms.models import ModelForm
 from django.shortcuts import render, redirect, reverse
 from django.views.generic.detail import DetailView
-from blog_noticias.models import Category, Comment, Post
+from blog_noticias.models import Author, Category, Comment, Post
 from admindashboard.models import PostNoticias
 from hitcount.views import HitCountDetailView
 from blog_noticias.forms import CommentForm
@@ -119,3 +120,75 @@ class PostDetailView(ObjectViewMixin, HitCountDetailView):
 
         return context
 
+
+#CRUD NOTÍCIAS
+from django.shortcuts import get_object_or_404
+
+class AuthorForm(ModelForm):
+    class Meta:
+        model = Author
+        fields = ['user']
+
+class CategoriaForm(ModelForm):
+    class Meta:
+        model = Category
+        fields = ['title']
+
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title','thumbnail','overview','content','author','categories','published']
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['user','post','content']
+
+#Cadastrar, Editar, Deletar Postagens
+def cadastrar_noticia(request, template_name="dashboard-admin/noticias/noticia_form.html"):
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('artigos-dashboard')
+    return render(request, template_name, {'form':form})
+
+
+def editar_noticia(request, pk, template_name='dashboard-admin/noticias/noticia_form.html'):
+    noticia = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=noticia)
+        if form.is_valid():
+            form.save()
+            return redirect('artigos-dashboard')
+    else:
+        form = PostForm(instance=noticia)
+    return render(request, template_name, {'form': form})
+
+def remover_noticia(request, pk, template_name='dashboard-admin/noticias/noticia_delete.html'):
+    noticia = Post.objects.get(pk=pk)
+    if request.method == "POST":
+        noticia.delete()
+        return redirect('artigos-dashboard')
+    return render(request, template_name, {'noticia': noticia})
+
+#Comentários Notícias
+def listar_comentario(request, template_name="dashboard-admin/noticias/comentario_list.html"):
+    query = request.GET.get("busca")
+    if query:
+        comentario = Comment.objects.filter(title__contains=query)
+    else:
+        comentario = Comment.objects.all()
+    
+    comentarios = {'lista': comentario}
+    return render(request, template_name, comentarios)
+
+def remover_comentario(request, pk, template_name='dashboard-admin/assinaturas/assinatura_delete.html'):
+    comentario = Comment.objects.get(pk=pk)
+    if request.method == "POST":
+        comentario.delete()
+        return redirect('listar_comentario')
+    return render(request, template_name, {'comentario': comentario})
+
+def listar_comentario_noticia(request, pk, template_name="dashboard-admin/noticias/comentario_autor_list.html"):
+    comentarios = Comment.objects.filter(post = pk)
+    return render(request, template_name, {'comentarios': comentarios})

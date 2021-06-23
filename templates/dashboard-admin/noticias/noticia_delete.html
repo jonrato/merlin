@@ -1,12 +1,12 @@
 {% extends 'dashboard-admin/assinaturas/base.html' %}
 
 {% block tituloPagina %}
-Remoção de Assinaturas
+Remoção de Noticia
 {% endblock tituloPagina %}
 
 {% block content %}
 <form method="post" style="padding-bottom: 10rem;padding-top: 10rem;">{% csrf_token %}
-    <h4>Tem certeza que deseja excluir a assinatura "{{ assinatura.title }}"?</h4>
+    <h4>Tem certeza que deseja excluir a noticia "{{ noticia.title }}"?</h4>
     <br/>
 <button type="submit" class="btn btn-primary">
     Remover
