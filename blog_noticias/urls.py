@@ -1,6 +1,6 @@
 from django.urls import path
 from blog_noticias import views
-from blog_noticias.views import PostDetailView ,cadastrar_noticia, editar_noticia, listar_comentario, listar_comentario_noticia, remover_comentario ,remover_noticia, searchBlog, PostList
+from blog_noticias.views import PostDetailView ,cadastrar_noticia,cadastrar_noticia_categoria,editar_noticia_categoria,remover_noticia_categoria, editar_noticia, listar_comentario, listar_noticia_categoria, remover_comentario ,remover_noticia, searchBlog, PostList
 from django.conf.urls import url
 
 urlpatterns = [
@@ -12,12 +12,18 @@ urlpatterns = [
     path("admin-dashboard/", views.boracontar, name="boracontar"),
     path("q/", searchBlog, name="search"),
 
-
+    #noticia
     url(r'^noticia_dashboard/cadastrar/', cadastrar_noticia, name='cadastrar_noticia'),
     url(r'^noticia_dashboard/editar/(?P<pk>[0-9]+)', editar_noticia, name='editar_noticia'),
     url(r'^noticia_dashboard/remover/(?P<pk>[0-9]+)', remover_noticia, name='remover_noticia'),
-
+    #noticia -> comentario
     url(r'^comentario/listar/', listar_comentario, name='listar_comentario'),
     url(r'^comentario/remover/(?P<pk>[0-9]+)', remover_comentario, name='remover_comentario'),
-    url(r'^comentario/noticia/(?P<pk>[0-9]+)', listar_comentario_noticia, name='listar_comentario_noticia'),
+    
+    #noticia -> categoria
+    url(r'^noticia_dashboard/categoria/cadastrar/',cadastrar_noticia_categoria , name='cadastrar_noticia_categoria'),
+    url(r'^noticia_dashboard/categoria/listar', listar_noticia_categoria, name='listar_noticia_categoria'),
+    url(r'^noticia_dashboard/categoria/editar/(?P<pk>[0-9]+)',editar_noticia_categoria , name='editar_noticia_categoria'),
+    url(r'^noticia_dashboard/categoria/remover/(?P<pk>[0-9]+)', remover_noticia_categoria, name='remover_noticia_categoria'),
+
     ]

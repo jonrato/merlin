@@ -95,10 +95,31 @@ class PostNoticias(models.Model):
             
         })
 
-    def __str__(self):
-        return self.thumbnailCarrossel1
+    #def __str__(self):
+    #    return self.thumbnailCarrossel1
     #END Model Página Notícias
 
+
+#Model Dashboard home, análises, vídeos
+class Dashboard_home(models.Model):
+    image_header = models.ImageField(upload_to="", null=True, blank=True)
+    text_header = models.TextField()
+    link_header = models.TextField()
+    noticias_hoje = models.ImageField(upload_to="", null=True, blank=True)
+    link_noticias_hoje = models.TextField()
+    bolsa_hoje = models.ImageField(upload_to="", null=True, blank=True)
+    link_bolsa_hoje = models.TextField()
+    published = models.BooleanField(null=True)
+
+#class dashboard_analises(models.Model):
+
+class Dashboard_videos(models.Model):
+    image_capa = models.ImageField(upload_to="", null=True, blank=True)
+    titulo_capa = models.TextField()
+    text_capa = models.TextField()
+    link_capa = models.TextField()
+    published = models.BooleanField(null=True)
+#END Model Dashboard home, análises, vídeos
 
 
 

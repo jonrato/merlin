@@ -1,4 +1,4 @@
-from admindashboard.models import PostHome
+from admindashboard.models import PostHome, PostQuemSomos, PostNoticias, Dashboard_home, Dashboard_videos
 from common.views import ProfileView
 from typing import List
 from django.shortcuts import render
@@ -164,218 +164,121 @@ def vendas_dashboard(request):
 
 
 #CUSTOM PAGES HOME, ASSINATURAS, APRENDER, SOBRE, NOTÍCIAS
+from django.shortcuts import get_object_or_404
+from django.forms.models import ModelForm
+
+class HomeForm(ModelForm):
+    class Meta:
+        model = PostHome
+        fields = ['text_nosso_time','thumbnailA','thumbnailB','thumbnailC',
+                    'nameA','nameB','nameC','paragraphy1','paragraphyImage1',
+                    'paragraphy2','paragraphyImage2','comentario','published']
+
+
+class SobreForm(ModelForm):
+    class Meta:
+        model = PostQuemSomos
+        fields = ['thumbnailCapa','text_capa','DescrilcaoMerlin','thumbnailQuemSomos',
+                    'DescricaoQuemSomos','thumbnaiImageA','text_titleA','thumbnaiImageB',
+                    'text_titleB','thumbnaiImageC','text_titleC','published']
+
+class NoticiasForm(ModelForm):
+    class Meta:
+        model = PostNoticias
+        fields = ['thumbnailCarrossel1','title1','text1',
+        'thumbnailCarrossel2','title2','text2',
+        'thumbnailCarrossel3','title3','text3','published']
 
 #HOME
 
 
-def custom_home(request):
-
-    return render(request, 'dashboard-admin/custom/home.html')
-
-def edit_home(request, id):
-    context = {}
-    cursos = PostHome.objects.get(id=id)
-    context = {
-    'text_nosso_time': text_nosso_time,
-    'thumbnailA': thumbnailA,
-    'thumbnailB': thumbnailB,
-    'thumbnailC': thumbnailC,
-    'nameA': nameA,
-    'nameA': nameB,
-    'nameA': nameC,
-    'paragraphy1': paragraphy1,
-    'paragraphyImage1': paragraphyImage1,
-    'paragraphy2': paragraphy2,
-    'paragraphyImage2': paragraphyImage2,
-    'GenericRelation':GenericRelation,
-    }
-    return render(request, 'dashboard-admin/custom/home.html', context)
- 
-def update_home(request, id):
-    home = PostHome.objects.get(id=id)
-    home.text_nosso_time = request.POST['text_nosso_time']
-    home.thumbnailA = request.POST['thumbnailA']
-    home.thumbnailB = request.POST['thumbnailB']
-    home.nameA = request.POST['nameA']
-    home.nameB = request.POST['nameB']
-    home.nameC = request.POST['nameC']
-    home.paragraphy1 = request.POST['paragraphy1']
-    home.paragraphyImage1 = request.POST['paragraphyImage1']
-    home.paragraphy2 = request.POST['paragraphy2']
-    home.paragraphyImage2 = request.POST['paragraphyImage2']
-    home.GenericRelation = request.POST['GenericRelation']
+def custom_home(request, template_name='dashboard-admin/custom/home.html'):
     
-    home.save()
-    return redirect('dashboard-admin/custom/home.html')
+    home = get_object_or_404(PostHome)
+    if request.method == "POST":
+        form = HomeForm(request.POST, instance=home)
+        if form.is_valid():
+            form.save()
+            return redirect('admin-dashboard')
+    else:
+        form = HomeForm(instance=home)
+    return render(request, template_name, {'form': form}) 
+
 #END HOME
 
 
-#ASSINATURAS
-def custom_assinaturas(request):
-
-    return render(request, 'dashboard-admin/custom/assinaturas.html')
-
-def edit_home(request, id):
-    context = {}
-    cursos = PostHome.objects.get(id=id)
-    context = {
-    'text_nosso_time': text_nosso_time,
-    'thumbnailA': thumbnailA,
-    'thumbnailB': thumbnailB,
-    'thumbnailC': thumbnailC,
-    'nameA': nameA,
-    'nameA': nameB,
-    'nameA': nameC,
-    'paragraphy1': paragraphy1,
-    'paragraphyImage1': paragraphyImage1,
-    'paragraphy2': paragraphy2,
-    'paragraphyImage2': paragraphyImage2,
-    'GenericRelation':GenericRelation,
-    }
-    return render(request, 'dashboard-admin/custom/home.html', context)
- 
-def update_home(request, id):
-    home = PostHome.objects.get(id=id)
-    home.text_nosso_time = request.POST['text_nosso_time']
-    home.thumbnailA = request.POST['thumbnailA']
-    home.thumbnailB = request.POST['thumbnailB']
-    home.nameA = request.POST['nameA']
-    home.nameB = request.POST['nameB']
-    home.nameC = request.POST['nameC']
-    home.paragraphy1 = request.POST['paragraphy1']
-    home.paragraphyImage1 = request.POST['paragraphyImage1']
-    home.paragraphy2 = request.POST['paragraphy2']
-    home.paragraphyImage2 = request.POST['paragraphyImage2']
-    home.GenericRelation = request.POST['GenericRelation']
-    
-    home.save()
-    return redirect('dashboard-admin/custom/home.html')
-#END ASSINATURAS
-
-#APRENDER
-def custom_aprender(request):
-
-    return render(request, 'dashboard-admin/custom/aprender.html')
-
-def edit_home(request, id):
-    context = {}
-    cursos = PostHome.objects.get(id=id)
-    context = {
-    'text_nosso_time': text_nosso_time,
-    'thumbnailA': thumbnailA,
-    'thumbnailB': thumbnailB,
-    'thumbnailC': thumbnailC,
-    'nameA': nameA,
-    'nameA': nameB,
-    'nameA': nameC,
-    'paragraphy1': paragraphy1,
-    'paragraphyImage1': paragraphyImage1,
-    'paragraphy2': paragraphy2,
-    'paragraphyImage2': paragraphyImage2,
-    'GenericRelation':GenericRelation,
-    }
-    return render(request, 'dashboard-admin/custom/home.html', context)
- 
-def update_home(request, id):
-    home = PostHome.objects.get(id=id)
-    home.text_nosso_time = request.POST['text_nosso_time']
-    home.thumbnailA = request.POST['thumbnailA']
-    home.thumbnailB = request.POST['thumbnailB']
-    home.nameA = request.POST['nameA']
-    home.nameB = request.POST['nameB']
-    home.nameC = request.POST['nameC']
-    home.paragraphy1 = request.POST['paragraphy1']
-    home.paragraphyImage1 = request.POST['paragraphyImage1']
-    home.paragraphy2 = request.POST['paragraphy2']
-    home.paragraphyImage2 = request.POST['paragraphyImage2']
-    home.GenericRelation = request.POST['GenericRelation']
-    
-    home.save()
-    return redirect('dashboard-admin/custom/home.html')
-#END APRENDER
 
 #SOBRE
-def custom_sobre(request):
+def custom_sobre(request, template_name='dashboard-admin/custom/sobre.html'):
 
-    return render(request, 'dashboard-admin/custom/sobre.html')
+    sobre = get_object_or_404(PostQuemSomos)
+    if request.method == "POST":
+        form = SobreForm(request.POST, instance=sobre)
+        if form.is_valid():
+            form.save()
+            return redirect('admin-dashboard')
+    else:
+        form = SobreForm(instance=sobre)
+    return render(request, template_name, {'form': form})
 
-def edit_home(request, id):
-    context = {}
-    cursos = PostHome.objects.get(id=id)
-    context = {
-    'text_nosso_time': text_nosso_time,
-    'thumbnailA': thumbnailA,
-    'thumbnailB': thumbnailB,
-    'thumbnailC': thumbnailC,
-    'nameA': nameA,
-    'nameA': nameB,
-    'nameA': nameC,
-    'paragraphy1': paragraphy1,
-    'paragraphyImage1': paragraphyImage1,
-    'paragraphy2': paragraphy2,
-    'paragraphyImage2': paragraphyImage2,
-    'GenericRelation':GenericRelation,
-    }
-    return render(request, 'dashboard-admin/custom/home.html', context)
- 
-def update_home(request, id):
-    home = PostHome.objects.get(id=id)
-    home.text_nosso_time = request.POST['text_nosso_time']
-    home.thumbnailA = request.POST['thumbnailA']
-    home.thumbnailB = request.POST['thumbnailB']
-    home.nameA = request.POST['nameA']
-    home.nameB = request.POST['nameB']
-    home.nameC = request.POST['nameC']
-    home.paragraphy1 = request.POST['paragraphy1']
-    home.paragraphyImage1 = request.POST['paragraphyImage1']
-    home.paragraphy2 = request.POST['paragraphy2']
-    home.paragraphyImage2 = request.POST['paragraphyImage2']
-    home.GenericRelation = request.POST['GenericRelation']
-    
-    home.save()
-    return redirect('dashboard-admin/custom/home.html')
+
 #END SOBRE
 
 #NOTICIAS
-def custom_noticias(request):
+def custom_noticias(request, template_name='dashboard-admin/custom/sobre.html'):
 
-    return render(request, 'dashboard-admin/custom/noticias.html')
+    noticias = get_object_or_404(PostNoticias)
+    if request.method == "POST":
+        form = NoticiasForm(request.POST, instance=noticias)
+        if form.is_valid():
+            form.save()
+            return redirect('admin-dashboard')
+    else:
+        form = NoticiasForm(instance=noticias)
+    return render(request, template_name, {'form': form})
 
-def edit_home(request, id):
-    context = {}
-    cursos = PostHome.objects.get(id=id)
-    context = {
-    'text_nosso_time': text_nosso_time,
-    'thumbnailA': thumbnailA,
-    'thumbnailB': thumbnailB,
-    'thumbnailC': thumbnailC,
-    'nameA': nameA,
-    'nameA': nameB,
-    'nameA': nameC,
-    'paragraphy1': paragraphy1,
-    'paragraphyImage1': paragraphyImage1,
-    'paragraphy2': paragraphy2,
-    'paragraphyImage2': paragraphyImage2,
-    'GenericRelation':GenericRelation,
-    }
-    return render(request, 'dashboard-admin/custom/home.html', context)
- 
-def update_home(request, id):
-    home = PostHome.objects.get(id=id)
-    home.text_nosso_time = request.POST['text_nosso_time']
-    home.thumbnailA = request.POST['thumbnailA']
-    home.thumbnailB = request.POST['thumbnailB']
-    home.nameA = request.POST['nameA']
-    home.nameB = request.POST['nameB']
-    home.nameC = request.POST['nameC']
-    home.paragraphy1 = request.POST['paragraphy1']
-    home.paragraphyImage1 = request.POST['paragraphyImage1']
-    home.paragraphy2 = request.POST['paragraphy2']
-    home.paragraphyImage2 = request.POST['paragraphyImage2']
-    home.GenericRelation = request.POST['GenericRelation']
-    
-    home.save()
-    return redirect('dashboard-admin/custom/home.html')
+
 #END NOTICIAS
 
 #END CUSTOM PAGES HOME, ASSINATURAS, APRENDER, SOBRE, NOTÍCIAS
+
+#CUSTOM PAGES DASHBOARD HOME, ANÁLISES, VÍDEOS
+class DashboardHomeForm(ModelForm):
+    class Meta:
+        model = Dashboard_home
+        fields = ['image_header','text_header','link_header','noticias_hoje',
+                    'link_noticias_hoje','bolsa_hoje','link_bolsa_hoje',]
+
+
+
+
+class DashboardVideosForm(ModelForm):
+    class Meta:
+        model = Dashboard_videos
+        fields = ['image_capa','titulo_capa','text_capa',
+        'link_capa']
+
+
+def custom_dashboard_home(request, template_name='dashboard-admin/custom/dashboard/home.html'):
+    custom_home = get_object_or_404(Dashboard_home)
+    if request.method == "POST":
+        form = DashboardHomeForm(request.POST, instance=custom_home)
+        if form.is_valid():
+            form.save()
+            return redirect('admin-dashboard')
+    else:
+        form = DashboardHomeForm(instance=custom_home)
+    return render(request, template_name, {'form': form})
+
+
+def custom_dashboard_videos(request, template_name='dashboard-admin/custom/dashboard/videos.html'):
+    videos = get_object_or_404(Dashboard_videos)
+    if request.method == "POST":
+        form = DashboardVideosForm(request.POST, instance=videos)
+        if form.is_valid():
+            form.save()
+            return redirect('admin-dashboard')
+    else:
+        form = DashboardVideosForm(instance=videos)
+    return render(request, template_name, {'form': form})
+#END CUSTOM PAGES DASHBOARD HOME, ANÁLISES, VÍDEOS

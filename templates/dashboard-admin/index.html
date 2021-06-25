@@ -304,31 +304,11 @@
                     
                     <div class="card-body" style="max-height: 9rem;">
                         
-                     <a href="{% url 'custom_sobre' %}"> <button type="button" class="btn btn-danger offset-0" href>HOME</button></a>
+                     <a href="{% url 'custom_home'  %}"> <button type="button" class="btn btn-danger offset-0" href>HOME</button></a>
                     </div>
                 </div>
                 </div>
-                <div class="home-completo">
-    
-                  <div class="card text-white bg-dark mb-3 align-items-center" style="max-width: 28rem;">
-                      
-                      <div class="card-body" style="max-height: 9rem;">
-                          
-                        <a href="{% url 'custom_assinaturas' %}"> <button type="button" class="btn btn-danger offset-0">ASSINATURAS</button> </a>
-                      </div>
-                  </div>
-                  </div>
-
-                  <div class="home-completo">
-    
-                    <div class="card text-white bg-dark mb-3 align-items-center" style="max-width: 28rem;">
-                        
-                        <div class="card-body" style="max-height: 9rem;">
-                            
-                          <a href="{% url 'custom_aprender' %}"> <button type="button" class="btn btn-danger offset-0">APRENDER</button> </a>
-                        </div>
-                    </div>
-                    </div>
+                
 
                     <div class="home-completo">
     
@@ -375,7 +355,7 @@
             </div>
 
             <div class="charts__right__cards">
-              <a href="/dashboard" style=" padding-bottom: 1rem;">
+              <a href="{% url 'Dashboard_home' %}" style=" padding-bottom: 1rem;" target="_blank">
                 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
             
                   <div class="card-body" style="max-height: 9rem;">
@@ -384,26 +364,8 @@
                   </div>
               </div>
             </a>
-              <a href="/dashboard-analises" style="padding-bottom: 1rem;">
-              <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            
-                <div class="card-body" style="max-height: 9rem;">
-                  <img class="card-img-top offset-3" style="max-width: 3rem; "  src="{% static 'django_project/img/dashboard/icon1.png' %}" alt="Card image cap"> 
-                  Análises
-                </div>
-            </div>
-          </a>
-
-            <a href="/dashboard-assinaturas" style="padding-bottom: 1rem">
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
               
-              <div class="card-body" style="max-height: 9rem;">
-                <img class="card-img-top offset-3" style="max-width: 3rem; "  src="{% static 'django_project/img/dashboard/icon3.png' %}" alt="Card image cap"> 
-                Assinaturas
-              </div>
-          </div>
-        </a>
-          <a href="/dashboard-videos" style="padding-bottom: 1rem">
+        <a href="{% url 'Dashboard_videos' %}" style=" padding-bottom: 1rem;" target="_blank">
           <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
             
             <div class="card-body" style="max-height: 9rem;">

@@ -1,0 +1,37 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+
+{% block title %}
+Listagem de Produtos
+{% endblock title %}
+
+{% block content %}
+<div class="col-lg-12">
+    <h2>Tag de Notícias {{ categorias }}</h2>
+    <table class="table">
+      <thead>
+        
+      </thead>
+      <tbody>
+      {% for cat in lista %}
+        <tr>
+          <td>{{ cat.title }}</td>
+          <td>
+            <a href="{% url 'editar_noticia_categoria' pk=cat.pk %}">
+                <i class="fa fa-edit"></i>
+            </a>
+            
+          </td>
+        </tr>
+        
+          
+        
+      {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url 'cadastrar_noticia_categoria' %}">
+      <button type="submit" class="btn btn-primary">
+          Cadastrar
+      </button>
+    </a>
+</div>
+{% endblock content %}

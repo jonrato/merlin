@@ -13,6 +13,7 @@ from django.db.models import Q
 
 from django.views.generic import ListView, DetailView
 from history.mixins import ObjectViewMixin
+from django.shortcuts import get_object_or_404
 
 
 def boracontar(request,self):
@@ -103,11 +104,9 @@ class PostDetailView(ObjectViewMixin, HitCountDetailView):
             form.instance.user = request.user
             form.instance.post = post
             form.save()
-
             return redirect(reverse("post", kwargs={
                 'slug': post.slug
             }))
-
     def get_context_data(self, **kwargs):
         post_comments_count = Comment.objects.all().filter(post=self.object.id).count()
         post_comments = Comment.objects.all().filter(post=self.object.id)
@@ -118,11 +117,12 @@ class PostDetailView(ObjectViewMixin, HitCountDetailView):
             'post_comments_count': post_comments_count,
         })
 
-        return context
+        return context 
+        
 
 
 #CRUD NOTÍCIAS
-from django.shortcuts import get_object_or_404
+
 
 class AuthorForm(ModelForm):
     class Meta:
@@ -189,6 +189,39 @@ def remover_comentario(request, pk, template_name='dashboard-admin/assinaturas/a
         return redirect('listar_comentario')
     return render(request, template_name, {'comentario': comentario})
 
-def listar_comentario_noticia(request, pk, template_name="dashboard-admin/noticias/comentario_autor_list.html"):
-    comentarios = Comment.objects.filter(post = pk)
-    return render(request, template_name, {'comentarios': comentarios})
+
+#categoria
+def cadastrar_noticia_categoria(request, template_name="dashboard-admin/noticias/categoria_form.html"):
+    form = CategoriaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('artigos-dashboard')
+    return render(request, template_name, {'form':form})
+
+
+def listar_noticia_categoria(request, template_name="dashboard-admin/noticias/categoria_list.html"):
+    query = request.GET.get("busca")
+    if query:
+        categoria = Category.objects.filter(title__contains=query)
+    else:
+        categoria = Category.objects.all()
+    categoria = {'lista':categoria}
+    return render(request, template_name, categoria)
+
+def editar_noticia_categoria(request, pk, template_name='dashboard-admin/noticias/categoria_form.html'):
+    categoria = get_object_or_404(Category, pk=pk)
+    if request.method == "POST":
+        form = CategoriaForm(request.POST, instance=categoria)
+        if form.is_valid():
+            form.save()
+            return redirect('artigos-dashboard')
+    else:
+        form = CategoriaForm(instance=categoria)
+    return render(request, template_name, {'form': form})
+
+def remover_noticia_categoria(request, pk, template_name='dashboard-admin/noticias/categoria_delete.html'):
+    categoria = Post.objects.get(pk=pk)
+    if request.method == "POST":
+        categoria.delete()
+        return redirect('artigos-dashboard')
+    return render(request, template_name, {'categoria': categoria})

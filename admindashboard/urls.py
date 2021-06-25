@@ -1,14 +1,18 @@
+from admindashboard.models import Dashboard_home, Dashboard_videos
 from django.urls import path
 from admindashboard import views
 from history.views import HistoryList
+from django.conf.urls import url
 
-from .views import CampoList
+from .views import CampoList, custom_noticias, custom_sobre
 urlpatterns = [
     path('custom-home/', views.custom_home, name=('custom_home')),
-    path('custom-assinaturas/', views.custom_assinaturas, name=('custom_assinaturas')),
-    path('custom-aprender/', views.custom_aprender, name=('custom_aprender')),
-    path('custom-sobre/', views.custom_sobre, name=('custom_sobre')),
-    path('custom-noticias/', views.custom_noticias, name=('custom_noticias')),
+    
+    url(r'^custom-sobre/', custom_sobre, name='custom_sobre'),
+    url(r'^custom-noticias/', custom_noticias, name='custom_noticias'),
+
+    url(r'^custom-dashboard-home/', Dashboard_home, name='Dashboard_home'),
+    url(r'^custom-dashboard-videos/', Dashboard_videos, name='Dashboard_videos'),
 
     path('admin-dashboard/', views.admin_dashboard, name=('admin-dashboard')),
     path('analitico-dashboard/', views.analitico_dashboard, name=('analitico-dashboard')),
