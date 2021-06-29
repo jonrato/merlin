@@ -22,7 +22,7 @@
                     <td><a href='{{product.get_absolute_url}}'>{{product.title}}</a></td>
                     <td>{{product.preco}}</td>
                 </tr>
-            {% endfor %}
+            {% endfor %}    
                 <tr>
                     <td colspan="2"></td>
                     <td><b>Subtotal</b>{{cart.subtotal}}</td>
@@ -30,6 +30,12 @@
                 <tr>
                     <td colspan="2"></td>
                     <td><b>Total</b>{{{cart.total}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        <a class="btn btn-lg btn-danger" href="{% url 'cart:checkout' %}">Conferir Compra</a>
+                    </td>
                 </tr>
         </tbody>
     </table>
