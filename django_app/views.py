@@ -80,11 +80,19 @@ def Assinaturas(request):
     }
 
     return render(request, "django_app/post_assinaturas_list.html",context)
+from cart.models import Cart
 
-class APostDetailView(ObjectViewMixin, HitCountDetailView):
+class APostDetailView(ObjectViewMixin, HitCountDetailView,):
     model = Post_Assinaturas
     template_name = "assinaturas_post.html"
     slug_field = "slug"
+    def get_context_data(self,*args, **kwargs):
+        context = super(APostDetailView, self).get_context_data(*args,**kwargs)
+        cart_obj,new_obj = Cart.objects.new_or_get(self.request)
+        context['cart'] = cart_obj
+        return context
+
+    
 #    count_hit = True
 
     

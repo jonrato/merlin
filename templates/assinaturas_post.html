@@ -4,10 +4,19 @@
 
 {% block content %}
     <main class="main-content" style="padding-top: 15%;color: black;">
+        <div class>
+            {{ cart }}
 
+            {% if object in cart.products.all %}
+            Produto no Carrinho <button class="btn btn-link">Excluir</button>
+            {%else%}
+            <button class="btn btn-danger">Adicionar ao carrinho</button>
+            {%endif%}
+            {% include 'snippets/update-cart.html' with product=object cart=cart %}
+        </div>
         <section class="assinaturas-1">
             <div class="container">
-                <div class="text-center mt-8">
+                <div class="text-center mt-8">instance.total = instance.subtotal + 0
                     <h2>{{post.title}}</h2>
                     <p> {{post.date|date}} | {{apost.categories.all.0}} | 
                         <i class="fa fa-eye" aria-hidden="true"></i>

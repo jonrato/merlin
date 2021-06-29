@@ -1,0 +1,26 @@
+<div class="row col-12" style="padding-top: 5%;">
+    <div class=" row col-8">
+  {% for post in chats %}
+  <div class="col-5">
+    
+    
+    
+    
+    <div class="p-6 text-center">
+      
+      <h5 class="mb-0">
+        <a class="text" href="{{post.chat_link}}">
+          {{post.assunto}}
+        </a>
+      </h5>
+
+      <h5 class="mb-0">
+        <p>
+          {{post.mensagem|safe}}
+        </p>
+      </h5>
+    </div>
+  </div>
+  
+  {% endfor %}
+  </div>

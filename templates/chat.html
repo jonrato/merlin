@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load hitcount_tags %}
+
+{% block content %}
+    <main class="main-content" style="padding-top: 15%;color: black;">
+
+        <div class="section" >
+            <div class="container">
+                <div class="text-center mt-8">
+                    <h2>{{post.assunto}}</h2>
+                    <p> {{post.date|date}}
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </p>
+                </div>
+
+                
+
+                <div class="post-content row mt-5">
+                    <div class="col-lg-8 mx-auto" style="color: black">
+                        
+                        <div>
+                            {{post.assunto|safe}}
+                        </div>
+                        <hr class="w-100px">
+                        
+
+                    </div>
+                </div>
+
+                
+
+                <!--comments-->
+                <div class="section">
+                    <div class="container">
+                        <h2>Mensagens({{post_comments_count}})</h2>
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <!--display comment-->
+                                    <div class="media-list">
+                                        {% for comment in post_comments %}
+                                        <div style="color:black">
+                                            <img class="avatar avatar-sm mr-4" src="{{user.profile.image}}">
+                                            <div class="media-body" style="color:black">
+                                                <div class="small-1">
+                                                    <b>{{comment.user}}</b>
+                                                    <time class="ml-4 opacity-70 small-3">{{comment.date}}</time>
+                                                </div>
+                                                <p style="color:black">{{comment.content}}</p>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                <!--display form-->
+                                <form method="POST" action="{% url 'chat_post' slug=post.slug %}" style="color:black">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        {{form}}
+                                    </div>
+                                    <button class="btn btn-danger btn-block" type="submit">Enviar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+{% endblock %}
