@@ -90,6 +90,7 @@ urlpatterns = [
     path('', include('blog_noticias.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('django_app.urls')),
+    path('', include('payments.urls')),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

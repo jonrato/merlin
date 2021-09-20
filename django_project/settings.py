@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     
     'dashboard',
     'sobre',
+    'payments',
     
     
     
@@ -255,3 +256,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 django_heroku.settings(locals())
+
+#STRIPE
+if DEBUG:
+    STRIPE_PUBLISHABLE_KEY = 'tpk_test_51Ixem2AjWsDHngBzWkrQZarGIWRT0j9cvYTqHjJrPR7bwOQsArZYdk8IVyyiKIZjuLEU4qRlkT6mbYiptZY0N0ca00b3S9KnNh'
+    STRIPE_SECRET_KEY = 'sk_test_51Ixem2AjWsDHngBzTLVjXKp4XcUgm1N6ji0okggVu7Mua0SL2lu55unuBP1O01YuDPJPfWEKJ9PwgVJCL8gq3luB00stlvkTnH'
+# Uncomment these lines if you have a live keys
+# else:
+#     STRIPE_PUBLISHABLE_KEY = 'production_publishable_key'
+#     STRIPE_SECRET_KEY = 'production_secret_key'
