@@ -30,7 +30,7 @@ Listagem de Marcas
   {% for marca in lista %}
     <tr>
     <td>{{ marca.user }}</td>
-    <td><a href="{% url 'listar_comentario_noticia' pk=marca.pk %}">Comentário por Notícia</a></td>
+    <td><a href="{% url 'listar_comentario'  %}">Comentário por Notícia</a></td>
     <td>{{ marca.date }}</td>
       
 

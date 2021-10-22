@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'dashboard',
     'sobre',
     'payments',
+    'charts',
     
     
     

@@ -4,10 +4,10 @@
 
 {% block content %}
 <div class="card offset-2" style="padding-top: 15%; padding-bottom: 10%;">
-<form method="POST" enctype="multipart/form-data">
+<form method="POST">
     {% csrf_token %}
     {{user_form | crispy}}
-    {{profile_form | crispy}}
+    {{profile_form.image_url | crispy}}
     <button type="submit" class="btn btn-danger btn">Atualizar</button>
     </form>
 </div>

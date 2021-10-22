@@ -20,7 +20,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 class ProfileUpdateView(LoginRequiredMixin, TemplateView):
     user_form = UserForm
     profile_form = ProfileForm
-    template_name = 'profile-update.html'
+    template_name = 'profile-update-upload.html'
 
     def post(self, request):
 

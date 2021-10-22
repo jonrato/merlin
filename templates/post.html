@@ -49,23 +49,27 @@
                 <div class="section">
                     <div class="container">
                         <h2>Comentários({{post_comments_count}})</h2>
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <!--display comment-->
-                                    <div class="media-list">
+                         <div class="media-list" style="margin-top:3rem">
                                         {% for comment in post_comments %}
-                                        <div style="color:black">
-                                            <img class="avatar avatar-sm mr-4" src="{{user.profile.image}}">
-                                            <div class="media-body" style="color:black">
-                                                <div class="small-1">
+                                        <div style="color:silver;border-style:solid;border-radius: 1rem;margin-bottom:2rem">
+                                            
+                                            <div class=" media-body" style="color:black">
+                                                <div class="small-2">
+                                                    <img src="{{user.profile.profile_image.url}}" class=""  style="border-radius: 50%;width:4rem;">
                                                     <b>{{comment.user}}</b>
                                                     <time class="ml-4 opacity-70 small-3">{{comment.date}}</time>
+                                                    
                                                 </div>
-                                                <p style="color:black">{{comment.content}}</p>
+                                                
                                             </div>
+                                            <p class="offset-1" style="color:black">{{comment.content}}</p>
                                         </div>
                                         {% endfor %}
                                     </div>
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <!--display comment-->
+                                   
                                 <!--display form-->
                                 <form method="POST" action="{% url 'post' slug=post.slug %}" style="color:black">
                                     {% csrf_token %}

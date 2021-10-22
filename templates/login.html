@@ -9,7 +9,9 @@
     Research é necessário possuir cadastro, mas
     não se preocupe, é rápido e fácil se cadastrar.
 </p>
-<button type="button" class="btn btn-danger"><a href="/register"> CRIAR CONTA </a></button>
+<a href="/register">
+    <button type="button" class="btn btn-danger"> CRIAR CONTA</button>
+</a>
 </div>
 <div class="login col-3">
     <h1>Fazer login</h1>
@@ -19,7 +21,9 @@
         <button type="submit" class="btn btn-danger btn-block">Login</button>
       </form>
       <a href="{% url 'change-password' %}"><span>Change Password</span></a>
-      <button type="submit" class="btn btn-danger btn-block"><a href="{% url 'password_reset' %}">Forgot Password</a></button>
+      <a href="{% url 'password_reset' %}">
+      <button type="submit" class="btn btn-danger btn-block">Forgot Password</button>
+      </a>
 </div>
 </section>
 {%endblock%}

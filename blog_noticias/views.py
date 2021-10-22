@@ -88,15 +88,12 @@ def blog(request):
 
     return render(request, "blog_noticias/post_list.html",context)
 
-class PostDetailView(ObjectViewMixin, HitCountDetailView):
+class PostDetailView(HitCountDetailView):
     model = Post
     template_name = "post.html"
     slug_field = "slug"
     count_hit = True
-    
-
     form = CommentForm
-
     def post(self, request, *args, **kwargs):
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -117,7 +114,8 @@ class PostDetailView(ObjectViewMixin, HitCountDetailView):
             'post_comments_count': post_comments_count,
         })
 
-        return context 
+        return context
+
         
 
 
@@ -139,24 +137,20 @@ class PostForm(ModelForm):
         model = Post
         fields = ['title','thumbnail','overview','content','author','categories','published']
 
-class CommentForm(ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['user','post','content']
 
 #Cadastrar, Editar, Deletar Postagens
-def cadastrar_noticia(request, template_name="dashboard-admin/noticias/noticia_form.html"):
-    form = PostForm(request.POST or None)
+def cadastrar_noticia(request, template_name="dashboard-admin/noticias/noticia_form-upload.html"):
+    form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return redirect('artigos-dashboard')
     return render(request, template_name, {'form':form})
 
 
-def editar_noticia(request, pk, template_name='dashboard-admin/noticias/noticia_form.html'):
+def editar_noticia(request, pk, template_name='dashboard-admin/noticias/noticia_form-upload.html'):
     noticia = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=noticia)
+        form = PostForm(request.POST or None, request.FILES or None, instance=noticia)
         if form.is_valid():
             form.save()
             return redirect('artigos-dashboard')
@@ -209,7 +203,7 @@ def listar_noticia_categoria(request, template_name="dashboard-admin/noticias/ca
     return render(request, template_name, categoria)
 
 def editar_noticia_categoria(request, pk, template_name='dashboard-admin/noticias/categoria_form.html'):
-    categoria = get_object_or_404(Category, pk=pk)
+    categoria = get_object_or_404(Category, pk=slug)
     if request.method == "POST":
         form = CategoriaForm(request.POST, instance=categoria)
         if form.is_valid():

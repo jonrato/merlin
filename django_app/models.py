@@ -33,7 +33,7 @@ User = get_user_model()
 
 class Author_Assinaturas(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_image = models.ImageField(upload_to="")
+    profile_image = models.ImageField(upload_to="profile")
 
     def __str__(self):
         return self.user.username
@@ -61,7 +61,7 @@ class Post_Assinaturas(models.Model):
     title = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from='title')
     preco = models.FloatField(null=True, blank=True)
-    images = models.ImageField(upload_to="", null=True, blank=True)
+    images = models.ImageField(upload_to="upload/", null=True, blank=True)
     image_url = models.CharField(max_length=500, default=None, null=True, blank=True)
     overview = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now=True)

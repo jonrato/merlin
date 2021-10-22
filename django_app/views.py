@@ -109,7 +109,7 @@ from django.forms import ModelForm
 class AuthorForm(ModelForm):
     class Meta:
         model = Author_Assinaturas
-        fields = ['user']
+        fields = ['user','profile_image']
 
 class CategoriaForm(ModelForm):
     class Meta:
@@ -125,8 +125,8 @@ class AssinaturaForm(ModelForm):
 
 
 #Cadastrar Assinatura
-def cadastrar_assinatura(request, template_name="dashboard-admin/assinaturas/assinatura_form.html"):
-    form = AssinaturaForm(request.POST or None)
+def cadastrar_assinatura(request, template_name="dashboard-admin/assinaturas/assinatura_form-upload.html"):
+    form = AssinaturaForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return redirect('listar_assinatura')
@@ -142,10 +142,10 @@ def listar_assinatura(request, template_name="dashboard-admin/assinaturas/assina
     assinaturas = {'lista': assinatura}
     return render(request, template_name, assinaturas)
 
-def editar_assinatura(request, pk, template_name='dashboard-admin/assinaturas/assinatura_form.html'):
+def editar_assinatura(request, pk, template_name='dashboard-admin/assinaturas/assinatura_form-upload.html'):
     assinatura = get_object_or_404(Post_Assinaturas, pk=pk)
     if request.method == "POST":
-        form = AssinaturaForm(request.POST, instance=assinatura)
+        form = AssinaturaForm(request.POST, request.FILES or None, instance=assinatura)
         if form.is_valid():
             form.save()
             return redirect('listar_assinatura')
@@ -164,7 +164,7 @@ def listar_autor_assinatura(request, pk, template_name="dashboard-admin/assinatu
     autores = Post_Assinaturas.objects.filter(author = pk)
     return render(request, template_name, {'autores': autores})
 
-def cadastrar_autor(request, template_name='dashboard-admin/assinaturas/autor_form.html'):
+def cadastrar_autor(request, template_name='dashboard-admin/assinaturas/autor_form-upload.html'):
     form =  AuthorForm(request.POST or None)
     if form.is_valid():
         form.save()

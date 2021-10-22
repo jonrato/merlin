@@ -5,10 +5,68 @@ from userprofile.models import Profile
 
 
 class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=50, required=False, help_text='Optional1')
-    last_name = forms.CharField(max_length=50, required=False, help_text='Optional1')
-    email = forms.EmailField(max_length=100, help_text="Insira um endereco de email valido")
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["username"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'username',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'digite seu nome de usuario',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        self.fields["email"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'email',
+            'type': 'email',
+            'class': 'text-center',
+            'placeholder': 'digite seu email',
+            
+        })
+        self.fields["first_name"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'first_name',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Digite seu primeiro nome',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        self.fields["last_name"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'last_name',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'digite seu sobrenome',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        self.fields["password1"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'password1',
+            'type': 'password',
+            'class': 'text-center',
+            'placeholder': 'digite sua sennha',
+            'maxlength':'50',
+            'minlength': '8'
+        })
+        self.fields["password2"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'password2',
+            'type': 'password',
+            'class': 'text-center',
+            'placeholder': 'confirme sua senha',
+            'maxlength':'50',
+            'minlength': '8'
+        })
+        
     class Meta:
         model = User
         fields = [

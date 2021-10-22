@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="card offset-2" style="padding-top: 15%; padding-bottom: 10%;margin-bottom:15%">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form | crispy}}
+    {{profile_form.image_url | crispy}}
+    <button type="submit" class="btn btn-danger btn">Atualizar</button>
+    </form>
+</div>
+{%endblock%}
