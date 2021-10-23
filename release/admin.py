@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import ReleaseCategory, ReleasePost
 
-# Register your models here.
+admin.site.register(ReleasePost)
+admin.site.register(ReleaseCategory)

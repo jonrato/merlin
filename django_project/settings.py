@@ -198,7 +198,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-USE_L10N = True
+
 
 USE_TZ = True
 
@@ -267,3 +267,7 @@ if DEBUG:
 # else:
 #     STRIPE_PUBLISHABLE_KEY = 'production_publishable_key'
 #     STRIPE_SECRET_KEY = 'production_secret_key'
+
+
+DATE_FORMAT = "Y-m-d"
+USE_L10N = False

@@ -7,6 +7,7 @@ from ckeditor.fields import RichTextField
 from django.shortcuts import reverse
 from hitcount.models import HitCount
 from django.contrib.contenttypes.fields import GenericRelation
+from ckeditor.fields import RichTextField
 
 User = get_user_model()
 
@@ -27,7 +28,7 @@ class ReleasePost(models.Model):
     slug = AutoSlugField(populate_from='title')
     thumbnail = models.ImageField(upload_to="upload/", null=True, blank=True)
     image_url = models.CharField(max_length=500, default=None, null=True, blank=True)
-    overview = models.TextField(null=True, blank=True)
+    overview = RichTextField(null=True, blank=True)
     date = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(ReleaseCategory)
     published = models.BooleanField()
@@ -44,3 +45,5 @@ class ReleasePost(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        ordering = ('-date',)

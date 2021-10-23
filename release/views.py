@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from .models import ReleasePost, ReleaseCategory
+from django.core.paginator import Paginator,PageNotAnInteger, EmptyPage
 
 # Create your views here.
 def releaseblog(request):
 
     context = {}
     posts = ReleasePost.objects.all()
-    categories = Category.objects.all()
+    categories = ReleaseCategory.objects.all()
 
     page = request.GET.get("page")
     paginator = Paginator(posts, 5)

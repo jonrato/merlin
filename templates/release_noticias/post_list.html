@@ -6,27 +6,59 @@
 {% block content%}
 <div class="noticias">
 
-    <div class="header-noticias" >
-        <h1 style="font-weight: bold; padding-left: 1%;">Novidades</h1>
+    <div class="header-noticias col-11 row" style="border-bottom: 2px solid gray;" >
+        <h1 class="col-6" style="font-weight: bold;">Novidades</h1>
+
+    
+      
+      <div class="col-5 sid px-4 py-md-0 mb-2">
+        
+        <form class="input-group" action="{% url 'search' %}" method="GET" role="form">
+          <input type="text" name="search" id="" class="form-control" placeholder="Pesquisar">
+          
+            <span class="input-group-text">
+              <i class=" fa fa-search "></i>
+            </span>
+          
+        </form>
+      </div>
+
+      
+    
     </div>
       
       
       
     
 
-    <div class="posts col-11" style="border-top: 2px solid gray; margin-bottom: 5rem;">
-    <h1 style="padding-top: 5%; font-weight: bold;">ARTIGOS RECENTES</h1>
+    <div class="posts  text-center align-center " style="margin-left:30%;martin-top:5%; margin-bottom: 5%rem%;">
+    
 
-    <div class="row col-12" style="padding-top: 5%;">
-      <div class=" row col-8">
+    <div class="row col-11" style="padding-top: 5%;">
+      <div class=" row col-9">
     {% for post in posts %}
-    <div class="col-5">
+    <div class="col-10">
       
-      <div class="Tags gap-xy-2 text-center mt-6">
+    
+        <h2 class="mb-0">
+        
+          <a class="text" style="text-decoration:none; margin-right: 2rem" href="{{post.post_link}}">
+            <button type="button" class="btn btn-light btn-rounded">{{post.date|date:'Y-m-d'}}</button>
+          </a>
+            {{post.title}}
+            
+          
+        </h2>
+
+        
+
+        <div class="Tags text-center gap-xy-1  mt-4" style="margin-top:3rem">
         {% for cat in post.categories.all %}
-        <a href="#" class="badge badge-pill badge-secondry">{{cat}}</a>
+        <span class="badge badge-pill badge-danger">
+        {{cat}}
+        </span>
         {% endfor %}
-    </div>
+        </div>
       {% if post.thumbnail %}
       <a href="#">
         <img class="card-img-top" src="{{post.thumbnail.url}}" alt="Card image cap">
@@ -38,15 +70,11 @@
       {% endif %}
       <div class="p-6 text-center">
         
-        <h5 class="mb-0">
-          <a class="text" href="{{post.post_link}}">
-            {{post.title}}
-          </a>
-        </h5>
+        
 
         <h5 class="mb-0">
           <p>
-            {{post.overview|safe}}
+            {{post.overview|safe|linebreaks}}
           </p>
         </h5>
       </div>
@@ -56,36 +84,15 @@
     </div>
     
     
-    <div class="col-4">
-      
-      <div class="sid px-4 py-md-0">
-        <h6 class="sidebar-title">
-          Search
-        </h6>
-        <form class="input-group" action="{% url 'search' %}" method="GET" role="form">
-          <input type="text" name="search" id="" class="form-control" placeholder="Search">
-          
-            <span class="input-group-text">
-              <i class=" fa fa-search "></i>
-            </span>
-          
-        </form>
-      </div>
-      <hr>
-      <h5 class="sidebar-title">
-        Tags
-      </h5>
-      <div class="row link-color-default fs-14 1h-24">
-        {% for category in categories %}
-        <div class="col-6">{{category}}</div>
-        {% endfor %}
-        
-      </div>
-      <hr>
+    
+    
 
-      </div>  
-    </div>
-    <nav class="flexbox mt-30">
+    
+    
+    
+</div>
+</div>
+<nav class="flexbox text-center mt-30">
       {% if posts.has_previous %}
       <a href="?page={posts.previous_page_number}" class="btn btn-danger ">
         <i class="ti-arrow-left fs-9 mr-4">Anterior</i>
@@ -105,12 +112,6 @@
       </a>
       {%endif%}
     </nav>
-
-    
-    
-    
-</div>
-</div>
 </div>
 
 {% endblock %}
