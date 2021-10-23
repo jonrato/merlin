@@ -5,23 +5,37 @@
 {% block content %}
     <main class="main-content" style="padding-top: 15%;color: black;">
         <div class>
-            {{ cart }}
+           {% if product_list %}
+    
 
-            {% if object in cart.products.all %}
-            Produto no Carrinho <button class="btn btn-link">Excluir</button>
-            {%else%}
-            <button class="btn btn-danger">Adicionar ao carrinho</button>
-            {%endif%}
-            {% include 'snippets/update-cart.html' with product=object cart=cart %}
+
+        {% for p in product_list %}
+        <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" src="https://dummyimage.com/200x150.jpg?text={{ p.name }}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{ p.name }}</h4>
+                    <p class="card-text">{{ p.description }}</p>
+                </div>
+                <div class="card-footer d-flex">
+                    <a href="{% url 'detail' id=p.id %}" class="btn btn-success ml-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    
+    {% else %}
+    <div class="alert alert-info text-center mt-5">
+        The product list is empty. Please add some products first.
+    </div>
+    {% endif %}
+
+            
         </div>
         <section class="assinaturas-1">
             <div class="container">
-                <div class="text-center mt-8">instance.total = instance.subtotal + 0
-                    <h2>{{post.title}}</h2>
-                    <p> {{post.date|date}} | {{apost.categories.all.0}} | 
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </p>
-                </div>
+                
 
                 {% if apost.thumbnails.url %}
                 <div class=" text-center mt-8" >

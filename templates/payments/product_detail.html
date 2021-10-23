@@ -1,19 +1,19 @@
-{% extends 'payments/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <h1 class="text-center">Product Detail</h1>
 <div class="container">
 
-    <div class="card">
+    <div class="card" style="margin-top: 10rem; margin-bottom:10rem;color:black">
         <div class="card-header">
             <h2>Product Detail</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="color:black">
             <div class="container row">
-                <div class="col-md-2">
-                    <img src="https://dummyimage.com/150x150.gif?text={{ object.name }}" alt="">
+                <div class="card-body">
+                    <img src="{{ object.Image.url }}" alt="">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="color:black">
                     <h1>Nome: {{ object.name }}</h1>
                     <p>Descrição: {{ object.description }}</p>
                     <p>Preço: {{ object.price }}</p>

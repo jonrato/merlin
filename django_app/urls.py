@@ -8,10 +8,10 @@ urlpatterns = [
     path('', views.index, name=('index')),
     
     
-    path('assinaturas/', views.Assinaturas, name=('assinaturas')),
-    path("assinaturas/", AssinaturasList.as_view(), name="assinaturas"),
-    path("assinaturas/<slug>", APostDetailView.as_view(), name="apost"),
-    path('admin-dashboard/', views.index_admin, name=('index_admin')),
+    #path('assinaturas/', views.Assinaturas, name=('assinaturas')),
+    #path("assinaturas/", AssinaturasList.as_view(), name="assinaturas"),
+    #path("assinaturas/<slug>", APostDetailView.as_view(), name="apost"),
+    #path('admin-dashboard/', views.index_admin, name=('index_admin')),
     
     
     #assinaturas

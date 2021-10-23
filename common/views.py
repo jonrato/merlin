@@ -14,6 +14,10 @@ from userprofile.models import Profile
 
 from django.contrib import messages
 
+class ProfilePay(LoginRequiredMixin, TemplateView):
+    template_name = 'payments/order_history.html'
+
+
 class ProfileView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard-perfil.html'
 
@@ -27,8 +31,8 @@ class ProfileUpdateView(LoginRequiredMixin, TemplateView):
         post_data = request.POST or None
         file_data = request.FILES or None
 
-        user_form = UserForm(post_data, instance=request.user)
-        profile_form = ProfileForm(post_data, instance=request.user.profile)
+        user_form = UserForm(post_data,file_data, instance=request.user)
+        profile_form = ProfileForm(post_data,file_data, instance=request.user.profile)
 
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()

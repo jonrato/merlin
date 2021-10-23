@@ -11,6 +11,7 @@
                 <thead>
                 <tr>
                   <th style="padding-left: 5px;">Usuario</th>
+                  <th style="padding-left: 5px;">Pagante</th>
                   <th style="padding-left: 5px;">Nome</th>
                   <th style="padding-left: 5px;">Sobrenome</th>
                   <th style="padding-left: 5px;">Email</th>
@@ -24,6 +25,14 @@
                 {% for campo in object_list %}
                   <tr>
                     <td style="padding-left: 5px;">{{campo.user}}</td>
+                    
+                    <td>
+                            {% if object_list.has_paid %}
+                                <b class="text-success">Pagante</b>
+                            {% else %}
+                                <b class="text-danger">Não Pagante</b>
+                            {% endif %}
+                        </td>
                     <td style="padding-left: 5px;">{{campo.user.first_name}}</td>
                     <td style="padding-left: 5px;">{{campo.user.last_name}}</td>
                     <td style="padding-left: 5px;">{{campo.email}}</td>
@@ -31,6 +40,7 @@
                     <td style="padding-left: 5px;">{{campo.sexo}}</td>
                     <td style="padding-left: 5px;">{{campo.cidade}}</td>
                     <td style="padding-left: 5px;">{{campo.estado}}</td>
+                    
                   </tr>
                 {%empty%}
                 <tr>Nenhum campo registrado</tr>

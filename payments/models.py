@@ -1,9 +1,12 @@
 
 from django.db import models
 from django.core import validators
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Product(models.Model):
+    
+
     id = models.BigAutoField(
         primary_key=True
     )
@@ -25,8 +28,13 @@ class Product(models.Model):
             validators.MaxValueValidator(100000)
         ]
     )
+    Image = models.ImageField(upload_to="upload/", blank="True", null="True")
 
 class OrderDetail(models.Model):
+
+    user = models.ForeignKey(
+        User,on_delete=models.CASCADE, blank=True, null=True
+        )
 
     id = models.BigAutoField(
         primary_key=True

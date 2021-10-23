@@ -38,6 +38,7 @@ ALLOWED_HOSTS = []
 #SITE_ID=1
 TAWKTO_ID_SITE='https://tawk.to/chat/6091e39f185beb22b30a11de/1f4su2aac'
 INSTALLED_APPS = [
+    'release',
     'billing',
     'orders',
     'cart',
@@ -260,8 +261,8 @@ django_heroku.settings(locals())
 
 #STRIPE
 if DEBUG:
-    STRIPE_PUBLISHABLE_KEY = 'tpk_test_51Ixem2AjWsDHngBzWkrQZarGIWRT0j9cvYTqHjJrPR7bwOQsArZYdk8IVyyiKIZjuLEU4qRlkT6mbYiptZY0N0ca00b3S9KnNh'
-    STRIPE_SECRET_KEY = 'sk_test_51Ixem2AjWsDHngBzTLVjXKp4XcUgm1N6ji0okggVu7Mua0SL2lu55unuBP1O01YuDPJPfWEKJ9PwgVJCL8gq3luB00stlvkTnH'
+    STRIPE_PUBLISHABLE_KEY = 'pk_test_51Jcb7sHzZv41h9bNo7Uvv7P7AZGNoB1l8pTTn36t7ZUYxPZmTpoKbqjjXE0lBOGYJKSCIebBM328uQvb19egsQ7o00h1jtGiV9'
+    STRIPE_SECRET_KEY = 'sk_test_51Jcb7sHzZv41h9bN8NHHFJYxtnSCdHRUpArjxQ5BYRLWFILCDy957s17nez8L3SHgSm11P1wtyWxszB7SRvRjVQR00KuTYm054'
 # Uncomment these lines if you have a live keys
 # else:
 #     STRIPE_PUBLISHABLE_KEY = 'production_publishable_key'

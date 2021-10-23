@@ -19,7 +19,7 @@ class ProductListView(ListView):
 class ProductCreateView(CreateView):
     model = Product
     fields = '__all__'
-    template_name = "payments/product_create.html"
+    template_name = "payments/product_create-upload.html"
     success_url = reverse_lazy("Product_List_View")
 
 
@@ -48,7 +48,7 @@ def create_checkout_session(request, id):
         line_items=[
             {
                 'price_data': {
-                    'currency': 'inr',
+                    'currency': 'BRL',
                     'product_data': {
                     'name': product.name,
                     },
@@ -102,3 +102,7 @@ class PaymentFailedView(TemplateView):
 class OrderHistoryListView(ListView):
     model = OrderDetail
     template_name = "payments/order_history.html"
+
+class StatusPay(ListView):
+    model = OrderDetail
+    template_name = "userprofile/profile_list.html"

@@ -125,6 +125,7 @@ class AssinaturaForm(ModelForm):
 
 
 #Cadastrar Assinatura
+
 def cadastrar_assinatura(request, template_name="dashboard-admin/assinaturas/assinatura_form-upload.html"):
     form = AssinaturaForm(request.POST or None, request.FILES or None)
     if form.is_valid():

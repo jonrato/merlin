@@ -7,7 +7,7 @@
 <form method="POST">
     {% csrf_token %}
     {{user_form | crispy}}
-    {{profile_form.image_url | crispy}}
+    {{profile_form.image_url.url | crispy}}
     <button type="submit" class="btn btn-danger btn">Atualizar</button>
     </form>
 </div>
