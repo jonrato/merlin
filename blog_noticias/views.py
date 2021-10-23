@@ -62,8 +62,6 @@ def blog(request):
     
 
 
-    
-
     context = {}
     carrossel = PostNoticias.objects.all()
     posts = Post.objects.all()
