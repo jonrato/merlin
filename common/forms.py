@@ -79,6 +79,50 @@ class SignUpForm(UserCreationForm):
         ]
 
 class UserForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["username"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'username',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'nome de usuario',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        self.fields["first_name"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'first_name',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Seu Nome',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+
+        self.fields["last_name"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'last_name',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Seu Sobrenome',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        self.fields["email"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'email',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Seu Email',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        
     class Meta:
         model = User
         fields = [
@@ -86,10 +130,53 @@ class UserForm(forms.ModelForm):
             'first_name', 
             'last_name',
             'email',
+            
 
         ]
 
 class ProfileForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["telefone"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'telefone',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Seu Telefone',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        self.fields["cidade"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'cidade',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Sua Cidade',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+
+        self.fields["estado"].widget.attrs.update({
+            'size':'50rem',
+            'required':'',
+            'name':'estado',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Estado',
+            'maxlength':'50',
+            'minlength': '5'
+        })
+        self.fields["profile_image"].widget.attrs.update({
+            'size':'50rem',
+            'name':'profile_image',
+            'type': 'text',
+            'class': 'text-center',
+            'placeholder': 'Imagem de Perfil',
+            'maxlength':'50',
+            'minlength': '5'
+        })
     class Meta:
         model = Profile
         fields = [

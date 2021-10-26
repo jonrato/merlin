@@ -15,7 +15,7 @@ class Profile(models.Model):
 
 @property
 def image_url(self):
-    if self.image and hasattr(self.image, 'url'):
+    if self.profile_image and hasattr(self.profile_image, 'url'):
         return self.image_url
 
 @receiver(post_save, sender=User)

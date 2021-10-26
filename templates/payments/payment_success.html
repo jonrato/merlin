@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<div class="container" style="margin-top:10rem">
-    <div class="jumbotron text-center mt-5">
-        <h1 class="text-success">Payment Realizado com Sucesso</h1>
+<div class="container" style="margin-top:15rem;margin-bottom:10rem">
+    <div class="card-body text-center mt-5">
+    <i style="color:dark-pink" class="fa fa-shopping-cart fa-5x"></i>
+        
+        <h1 class="text-danger">Pagamento Realizado com Sucesso</h1>
         <p>Nós Recebemos seu pagamento. Sua Assinatura estará disponível em instantes.
-            <a href="{% url 'Product_List_View' %}">Voltar para Assinaturas</a>.
+            <a href="{% url 'Product_List_View' %}" style="text-decoration:none"><button class="btn-danger btn-block">Voltar para Assinaturas</button></a>.
         </p>
     </div>
 </div>

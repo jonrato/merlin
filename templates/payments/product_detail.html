@@ -1,34 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="text-center">Product Detail</h1>
+<h1 class="text-center">Detalhes da Assinatura</h1>
 <div class="container">
 
     <div class="card" style="margin-top: 10rem; margin-bottom:10rem;color:black">
         <div class="card-header">
-            <h2>Product Detail</h2>
+            <h2 class="text-center">Detalhes da Assinatura</h2>
         </div>
         <div class="card-body" style="color:black">
             <div class="container row">
                 <div class="card-body">
-                    <img src="{{ object.Image.url }}" alt="">
+                    <img src="{{ object.Image_pic.url }}" alt="">
                 </div>
                 <div class="col-md-10" style="color:black">
-                    <h1>Nome: {{ object.name }}</h1>
+                    <h1>Assinatura: {{ object.name }}</h1>
                     <p>Descrição: {{ object.description }}</p>
-                    <p>Preço: {{ object.price }}</p>
+                    <h3 class="text-center">Preço: {{ object.price }}</h3>
 
                     <div class="form-group">
-                        <label for="email">Email: </label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-                        <small>Please enter your email address</small>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Seu Melhor Email">
+                        <small>Insira um endereço de Email válido</small>
                     </div>
 
                 </div>
             </div>
         </div>
         <div class="card-footer d-flex">
-            <button class="btn btn-success ml-auto" id="checkout-button">Checkout</button>
+            <button class="btn btn-danger btn-block ml-auto" id="checkout-button">Obter Assinatura</button>
         </div>
     </div>
 </div>

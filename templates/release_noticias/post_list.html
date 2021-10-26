@@ -8,23 +8,6 @@
 
     <div class="header-noticias col-11 row" style="border-bottom: 2px solid gray;" >
         <h1 class="col-6" style="font-weight: bold;">Novidades</h1>
-
-    
-      
-      <div class="col-5 sid px-4 py-md-0 mb-2">
-        
-        <form class="input-group" action="{% url 'search' %}" method="GET" role="form">
-          <input type="text" name="search" id="" class="form-control" placeholder="Pesquisar">
-          
-            <span class="input-group-text">
-              <i class=" fa fa-search "></i>
-            </span>
-          
-        </form>
-      </div>
-
-      
-    
     </div>
       
       
@@ -41,13 +24,8 @@
       
     
         <h2 class="mb-0">
-        
-          <a class="text" style="text-decoration:none; margin-right: 2rem" href="{{post.post_link}}">
             <button type="button" class="btn btn-light btn-rounded">{{post.date|date:'Y-m-d'}}</button>
-          </a>
             {{post.title}}
-            
-          
         </h2>
 
         

@@ -33,8 +33,9 @@
                   <ul class="navbar-nav mr-auto offset-5" style="font-weight: bold; color: white;">
                       <li class="nav-item"><a class="nav-link" href="{% url 'Product_List_View' %}"> ASSINATURAS</a></li>
                       <li class="nav-item"><a class="nav-link" href="{% url 'aprender' %}"> APRENDER</a></li>
-                      <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}"> SOBRE</a></li>
                       <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}"> NOTÍCIAS</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{% url 'releaseblog' %}"> NOVIDADES</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}"> SOBRE</a></li>
                       <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"> LOGIN</a></li>
                       <li class="nav-item {% if request.path == cart_url %} active {%endif%}"><a class="nav-link" href="{ cart_url }"> {{ request.session.cart_items }} <i class="fa fa-shopping-cart"></i></a></li>
                   </ul>            

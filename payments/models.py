@@ -28,7 +28,7 @@ class Product(models.Model):
             validators.MaxValueValidator(100000)
         ]
     )
-    Image = models.ImageField(upload_to="upload/", blank="True", null="True")
+    Image_pic = models.ImageField(upload_to="upload/", blank="True", null="True")
 
 class OrderDetail(models.Model):
 
