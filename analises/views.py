@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from analises.models import FileHandler
-from analises.models import FileHandlerForm
+from django.core.files.storage import FileSystemStorage
 
-class IndexView(TemplateView):
-    template_name=''
+def upload(request):
+    context = {}
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        fs = FileSystemStimport osorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
+    return render(request, 'dashboard-admin/analises.html', context)
 
-    def def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context = {'form', FileHandlerForm}
-    
+def upload_list(request):
+    return render(request, 'dashboard-analises.html')
+
+def upload_book(request):
+    return render(request, 'upload_book.html')

@@ -1,0 +1,44 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <input type="file" name="document">
+        <button type="submit">Upload File</button>
+    </form>
+    
+
+
+    <form method="get">
+        <div class="col-lg-12">
+        <div class="input-group">
+        <input type="text" class="form-control" name="busca" placeholder="Buscar marca">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Pesquisar</button>
+        </span>
+        </div>
+        </div>
+    </form>
+    <div class="col-lg-12">
+    <table class="table">
+    <thead>
+        <tr>
+        <th>Nome</th>
+        <th>Produtos</th>
+        <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+    </tbody>
+    </table>
+    <a href="{% url 'cadastrar_assinatura' %}">
+    <button type="submit" class="btn btn-primary">
+        Cadastrar
+    </button>
+    </a>
+    </div>
+{% endblock content %}
+
