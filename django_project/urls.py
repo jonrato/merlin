@@ -45,6 +45,7 @@ urlpatterns = [
     path('', include('django_app.urls')),
     path('', include('blog_noticias.urls')),
     path('', include('release.urls')),
+    path('', include('analises.urls')),
     #path('', include('blog_noticias.urls'), name="noticias"),
     path('register/', SignUpView.as_view(), name="register"),
     path('login/', auth_views.LoginView.as_view(
