@@ -3,15 +3,19 @@
 
 {% block content %}
 
+    <h2> Upload Analises </h2>
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %} 
-        <input type="file" name="document">
-        <button type="submit">Upload File</button>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-danger">
+            Upload Analise
+        </button>
     </form>
     
 
 
     <form method="get">
+        {% csrf_token %}
         <div class="col-lg-12">
         <div class="input-group">
         <input type="text" class="form-control" name="busca" placeholder="Buscar marca">

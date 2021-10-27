@@ -6,7 +6,6 @@ from .models import FileUpload
 
 from django.contrib.auth.decorators import login_required
 
-
 @login_required
 def upload(request):
     context = {}
