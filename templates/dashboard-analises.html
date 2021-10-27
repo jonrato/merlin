@@ -27,31 +27,24 @@
         <thead>
             <tr>
                 <th scope="col"></th>
-                <th scope="col">Id</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
+                <th scope="col">Resumo</th>
+                <th scope="col">PDF</th>
                 <th scope="col">Data</th>
-                <th scope="col">Fone</th>
-                <th scope="col">Email</th>
-                <th scope="col">site</th>
-                <th scope="col">Obs</th>
             </tr>
         </thead>
         <tbody>
+            {% for file in files %}
             <tr class="clickable">
                 <td>
                     <div class="row-fluid summary">
                         <button class="btn-danger btn-block" data-toggle="collapse" data-target="#col1-row1">+</button>
                     </div>
                 </td>
-                <td>1</td>
-                <td>Vanessa</td>
-                <td>Tonini</td>
-                <td>24/05/2017</td>
-                <td>(11) 0 0000-000</td>
-                <td>(11) 0 0000-000</td>
-                <td>(11) 0 0000-000</td>
-                <td>Voce ligou para Testeeeeee para falar em comercial!</td>
+                <td>{{file.name}}</td>
+                <td>{{file.resume}}</td>
+                <td>{{file.pdf}}</td>
+                <td>{{file.created}}</td>
             </tr>
             <tr id="col1-row1" class="collapse">
                 <td colspan="9">
@@ -82,6 +75,7 @@
                     </div>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

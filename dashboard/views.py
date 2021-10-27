@@ -13,9 +13,7 @@ def update(request, update_id):
     return render(request, 'dashboard.html', {'update': update})
 
 #END DASHBOARD HOME
-@login_required
-def analise(request):
-    return render(request, 'dashboard-analises.html')
+
 
 @login_required
 def assinatura(request):
