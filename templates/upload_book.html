@@ -2,23 +2,21 @@
 {% load static %}
 
 {% block content %}
-
-    <h2> Upload Analises </h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="btn btn-danger">
-            Upload Analise
-        </button>
-    </form>
     
+    <div style="margin-bottom:5%;display:flex;justify-content:center;align-itens:center">
+        <a href="{% url 'dashboard-analises-upload' %}">
+            <button class="btn btn-danger">
+                Anexar Análise
+            </button>
+        </a>
+    </div>    
 
-
-    <form method="get">
+    <div style="margin-bottom:5%">
+        <form method="get">
         {% csrf_token %}
         <div class="col-lg-12">
         <div class="input-group">
-        <input type="text" class="form-control" name="busca" placeholder="Buscar marca">
+        <input type="text" class="form-control" name="busca" placeholder="Buscar Análise">
         <span class="input-group-btn">
             <button class="btn btn-default" type="submit">Pesquisar</button>
         </span>
@@ -26,23 +24,36 @@
         </div>
     </form>
     <div class="col-lg-12">
-    <table class="table">
+    <table class="table" style="background:gray;">
     <thead>
-        <tr>
-        <th>Nome</th>
-        <th>Produtos</th>
-        <th>Ação</th>
-        </tr>
-    </thead>
-    <tbody>
-    
-    </tbody>
+            <tr>
+                
+                <th scope="col">Nome</th>
+                <th scope="col">Resumo</th>
+                <th scope="col">Local PDF</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <tr class="clickable">
+                
+                <td>{{file.name}}</td>
+                <td>{{file.resume}}</td>
+                <td>{{file.pdf.url}}</td>
+                <td>{{file.created}}</td>
+            </tr>
+            <tr id="col1-row1" class="collapse">
+                <td colspan="9">
+                    <div class="row-fluid summary">
+                            <a href="{{file.pdf.url}}" target="_blank" class="btn btn-danger">Download</a>
+                    </div>
+                </td>
+            </tr>
+          
+            {% endfor %}
+        </tbody>
     </table>
-    <a href="{% url 'cadastrar_assinatura' %}">
-    <button type="submit" class="btn btn-primary">
-        Cadastrar
-    </button>
-    </a>
     </div>
 {% endblock content %}
 

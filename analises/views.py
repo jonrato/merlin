@@ -23,12 +23,22 @@ def upload_list(request):
     )
 
 @login_required
+def upload_list_dashboard(request):
+    files = FileUpload.objects.all()
+    return render(request, 'upload_book.html',
+    {'files':files}
+    )
+
+@login_required
 def upload_book(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('dashboard-analises')
+            return redirect('dashboard-analises-dashboard')
     else:
         form = UploadFileForm()
-    return render(request, 'upload_book.html', {'form':form})
+    return render(request, 'upload_upload_book.html', {'form':form})
+
+#Link p/ deletar arquivos
+## https://www.youtube.com/watch?v=roYopMO4Eo8
