@@ -38,6 +38,7 @@ ALLOWED_HOSTS = []
 #SITE_ID=1
 TAWKTO_ID_SITE='https://tawk.to/chat/6091e39f185beb22b30a11de/1f4su2aac'
 INSTALLED_APPS = [
+    'stockVisualizer',
     'analises',
     'release',
     'billing',
@@ -63,8 +64,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'bootstrapform',
-    #'bootstrap',
+    'bootstrapform',
+    'bootstrap',
     
     'crispy_forms',
     'django_app',
