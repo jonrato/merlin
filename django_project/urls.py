@@ -47,7 +47,7 @@ urlpatterns = [
     path('', include('release.urls')),
     path('', include('analises.urls')),
     path('', include('stockVisualizer.urls')),
-    #path('', include('blog_noticias.urls'), name="noticias"),
+    path('', include('helpers.urls')),
     path('register/', SignUpView.as_view(), name="register"),
     path('login/', auth_views.LoginView.as_view(
         template_name='login.html'
@@ -105,3 +105,5 @@ from django.conf.urls.static import static
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = "helpers.views.handle_not_found"

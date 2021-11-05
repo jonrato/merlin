@@ -30,9 +30,12 @@ class Product(models.Model):
     )
     Image_pic = models.ImageField(upload_to="upload/", blank="True", null="True")
 
+    def __str__(self):
+        return '%s %s' % (self.user.first_name, self.user.last_name)
+
 class OrderDetail(models.Model):
 
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         User,on_delete=models.CASCADE, blank=True, null=True
         )
 
@@ -72,3 +75,6 @@ class OrderDetail(models.Model):
     updated_on = models.DateTimeField(
         auto_now_add=True
     )
+
+    def __str__(self):
+        return '%s %s' % (self.user.first_name, self.user.last_name)

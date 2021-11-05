@@ -1,12 +1,15 @@
 from django.http.response import HttpResponseNotFound, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
+
+from userprofile.models import Profile
 from .models import *
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 import stripe
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 import json
+from userprofile.models import Profile
 
 # Create your views here.
 
@@ -44,6 +47,7 @@ def create_checkout_session(request, id):
         # Customer Email is optional,
         # It is not safe to accept email directly from the client side
         customer_email = request_data['email'],
+        user = ['user'],
         payment_method_types=['card'],
         line_items=[
             {
@@ -71,6 +75,7 @@ def create_checkout_session(request, id):
 
     order = OrderDetail()
     order.customer_email = request_data['email']
+    order.user = ['user']
     order.product = product
     order.stripe_payment_intent = checkout_session['payment_intent']
     order.amount = int(product.price * 100)
@@ -105,4 +110,5 @@ class OrderHistoryListView(ListView):
 
 class StatusPay(ListView):
     model = OrderDetail
+    model = Profile
     template_name = "userprofile/profile_list.html"
