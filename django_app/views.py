@@ -249,49 +249,40 @@ def listar_assinaturas_categoria(request, pk, template_name="dashboard-admin/ass
 #end assinaturas
 
 #Cursos
+class PostList(ListView):
+        model = Cursos
 
 def index_curso(request):
-    context = {
-        
-        }
-    
-    
-    cursos = Cursos.objects.all()
-    context = {'cursos': cursos,}
-    return render(request, 'dashboard-admin/produtos.html', context)
+    cursos_show = Cursos.objects.all()
+    context = {'cursos_show': cursos_show}
+    return render(request, 'dashboard-admin/cursos/produtos.html', context)
 
-def create_curso(request):
-    curso = Cursos(titulo=request.POST['titulo'], professor=request.POST['professor'], 
-                    preco=request.POST['preco'], parcela=request.POST['parcela'], 
-                    link=request.POST['link'], imagem=request.POST['imagem'],
-                     ) #data=request.POST['imagem']
-    curso.save()
-    return redirect('produtos-dashboard')
- 
-def edit_curso(request, id):
-    cursos = Cursos.objects.get(id=id)
-    form = CursosForm(request.POST, instance = cursos)  
-    if form.is_valid():  
-        form.save()  
-        return redirect("produtos-dashboard")  
 
-    return render(request, 'dashboard-admin/edit_cursos.html', {'cursos':cursos})
- 
-def update_curso(request, id):
-    curso = Cursos.objects.get(id=id)
-    curso.titulo = request.POST['titulo']
-    curso.professor = request.POST['professor']
-    curso.preco = request.POST['preco']
-    curso.parcela = request.POST['parcela']
-    curso.link = request.POST['link']
-    curso.imagem = request.POST['imagem']
-    
-    curso.save()
-    return redirect('/')
- 
-def delete_curso(request, id):
-    curso = Cursos.objects.get(id=id)
-    curso.delete()
-    return redirect('produtos-dashboard')
+#Cadastrar, Editar, Deletar Postagens
+def cadastrar_curso(request, template_name="dashboard-admin/cursos/curso_form-upload.html"):
+    form = CursosForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('index_curso')
+    return render(request, template_name, {'form':form})
+
+
+def editar_curso(request, pk, template_name='dashboard-admin/cursos/curso_form-upload.html'):
+    cursos_show = get_object_or_404(Cursos, pk=pk)
+    if request.method == "POST":
+        form = CursosForm(request.POST or None, request.FILES or None, instance=cursos_show)
+        if form.is_valid():
+            form.save()
+            return redirect('index_curso')
+    else:
+        form = CursosForm(instance=cursos_show)
+    return render(request, template_name, {'form': form})
+
+def remover_curso(request, pk, template_name='dashboard-admin/cursos/curso_delete.html'):
+    cursos_show = Cursos.objects.get(pk=pk)
+    if request.method == "POST":
+        cursos_show.delete()
+        return redirect('index_curso')
+    return render(request, template_name, {'cursos_show': cursos_show})
 
 #END Cursos

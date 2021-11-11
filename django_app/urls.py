@@ -1,6 +1,6 @@
 from django.urls import path
 from django_app import views
-from django_app.views import AssinaturasList, APostDetailView, cadastrar_assinatura, cadastrar_autor, cadastrar_categoria, editar_assinatura, editar_autor, editar_categoria, index_assinaturas, listar_assinatura, listar_assinaturas_categoria, listar_autor, listar_autor_assinatura, listar_categoria, perfil_autor, remover_assinatura, remover_autor, remover_categoria
+from django_app.views import AssinaturasList, APostDetailView,index_curso, cadastrar_curso, editar_curso, remover_curso, cadastrar_assinatura, cadastrar_autor, cadastrar_categoria, editar_assinatura, editar_autor, editar_categoria, index_assinaturas, listar_assinatura, listar_assinaturas_categoria, listar_autor, listar_autor_assinatura, listar_categoria, perfil_autor, remover_assinatura, remover_autor, remover_categoria
 
 from django.conf.urls import url
 
@@ -8,10 +8,11 @@ urlpatterns = [
     path('', views.index, name=('index')),
     
     
-    #path('assinaturas/', views.Assinaturas, name=('assinaturas')),
-    #path("assinaturas/", AssinaturasList.as_view(), name="assinaturas"),
-    #path("assinaturas/<slug>", APostDetailView.as_view(), name="apost"),
-    #path('admin-dashboard/', views.index_admin, name=('index_admin')),
+    #curso
+    path('produtos-dashboard/', views.index_curso, name=('index_curso')),
+    url(r'^curso_dashboard/', cadastrar_curso, name='cadastrar_curso'),
+    url(r'^curso_dashboard/editar/(?P<pk>[0-9]+)', editar_curso, name='editar_curso'),
+    url(r'^curso_dashboard/remover/(?P<pk>[0-9]+)', remover_curso, name='remover_curso'),
     
     
     #assinaturas

@@ -6,15 +6,7 @@ from django.views.generic.list import ListView
 from django.views.generic import ListView, DetailView
 from django_app.models import Post_Assinaturas, Category_Assinaturas
 
-def assinaturas_admin(request):
-    context = {}
-    category = Category_Assinaturas.objects.all()
-    apost = Post_Assinaturas.objects.all()
-    context = {
-        'category': category,
-        'apost': apost,
-    }
-    return render(request, 'dashboard-admin/produtos.html')
+
 
 
 def assinaturas_acoes(request):

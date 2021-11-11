@@ -123,8 +123,8 @@ def artigos_dashboard(request):
     }
 
     
-#End Listar todos os Posts
     return render(request, 'dashboard-admin/artigos.html', context)
+#End Listar todos os Posts
 
 @login_required
 def forum_dashboard(request):
@@ -132,21 +132,6 @@ def forum_dashboard(request):
 
 from django_app.models import Cursos, Post_Assinaturas
 
-@login_required
-def produtos_dashboard(request):
-    
-    template_name="dashboard-admin/produtos.html"
-    context = {}
-    cursos = Cursos.objects.all()
-    assinatura = Post_Assinaturas.objects.all()
-    context = {
-        'cursos': cursos,
-        'assinatura': assinatura
-
-    }
-    
-
-    return render(request, 'dashboard-admin/produtos.html', context)
 
 
     
