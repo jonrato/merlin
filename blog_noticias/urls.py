@@ -1,9 +1,10 @@
 from django.urls import path
 from blog_noticias import views
-from blog_noticias.views import PostDetailView ,cadastrar_noticia,cadastrar_noticia_categoria,editar_noticia_categoria,remover_noticia_categoria, editar_noticia, listar_comentario, listar_noticia_categoria, remover_comentario ,remover_noticia, searchBlog, PostList
+from blog_noticias.views import PostDetailView,noticia ,cadastrar_noticia,cadastrar_noticia_categoria,editar_noticia_categoria,remover_noticia_categoria, editar_noticia, listar_comentario, listar_noticia_categoria, remover_comentario ,remover_noticia, searchBlog, PostList
 from django.conf.urls import url
 
 urlpatterns = [
+    path('dashboard-noticias/', views.noticia, name=('dashboard-noticias')),
     #path("", home, name="home"),
     path("noticias/", views.blog, name="blog"),
     path("noticias/", PostList.as_view(), name="blog"),

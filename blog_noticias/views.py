@@ -26,7 +26,32 @@ def boracontar(request,self):
     return render(request,'dashboard-admin/index.html',context)
 
 
+#dashboard noticias
+from django.contrib.auth.decorators import login_required
+@login_required
+def noticia(request):
 
+    context = {}
+    posts = Post.objects.all()
+    categories = Category.objects.all()
+
+    page = request.GET.get("page")
+    paginator = Paginator(posts, 4)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        'categories':categories,
+        'posts': posts,
+    }
+
+    return render(request, "dashboard-noticias.html",context)
+
+#end dashboard noticias
 
 def searchBlog(request):
     context = {}
@@ -133,7 +158,7 @@ class CategoriaForm(ModelForm):
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = ['title','thumbnail','overview','content','author','categories','published']
+        fields = ['title','thumbnail','overview','content','author','categories','published','favorite']
 
 
 #Cadastrar, Editar, Deletar Postagens

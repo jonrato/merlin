@@ -23,12 +23,7 @@ def assinatura(request):
 def especialista(request):
     return render(request, 'dashboard-especialista.html')
 
-#dashboard noticias
-@login_required
-def noticia(request):
-    return render(request, 'dashboard-noticias.html')
 
-#end dashboard noticias
 
 @login_required
 def perfil(request):
