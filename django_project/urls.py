@@ -31,6 +31,7 @@ app_name = 'aprender'
 urlpatterns = [
     
     path('admin/', admin.site.urls),
+    path('', include('videos.urls')),
     path('', include('charts.urls')),
     path('history/', include('history.urls')),
     path('', include('stripe_app.urls')),
