@@ -30,7 +30,7 @@ class ReleasePost(models.Model):
     image_url = models.CharField(max_length=500, default=None, null=True, blank=True)
     overview = RichTextField(null=True, blank=True)
     date = models.DateTimeField(auto_now=True)
-    categories = models.ManyToManyField(ReleaseCategory)
+    categorias = models.ManyToManyField(ReleaseCategory)
     published = models.BooleanField()
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', related_query_name='hit_count_generic_relation')
 

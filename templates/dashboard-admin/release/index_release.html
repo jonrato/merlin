@@ -65,7 +65,7 @@
         </div>
 
         <div class="row text-center" style="position:float;justify-content:center;align-items:center">
-          <a href="{% url 'cadastrar_release' %}" style="text-decoration: none;">        
+          <a href="{% url 'listar_release_categoria' %}" style="text-decoration: none;">        
           <h4 class=" text-center"style="color: honeydew;font-weight: bold;margin:2rem;border-radius:2rem;padding:2rem;background-color:red">Cadastrar Categoria</h4>
           <a/>
         </div>
@@ -114,10 +114,12 @@
                       {% endif %}
                     </td>
 
-                    <td style="padding-left: 5px;"><a class="text" >
-                      {{releases.categories}}
-                      </a>
+                    <td style="padding-left: 5px;">
+                      {% for cat in releases.categorias.all %}
+                      <a href="#" class="badge badge-pill badge-secondry">{{cat}}</a>
+                      {% endfor %}
                     </td>
+
 
                     <td style="padding-left: 5px;"><a class="text" href="{% url 'editar_release' pk=releases.pk %}">
                       <i class="fa fa-edit"></i>
