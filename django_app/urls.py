@@ -10,9 +10,9 @@ urlpatterns = [
     
     #curso
     path('produtos-dashboard/', views.index_curso, name=('index_curso')),
-    url(r'^curso_dashboard/', cadastrar_curso, name='cadastrar_curso'),
     url(r'^curso_dashboard/editar/(?P<pk>[0-9]+)', editar_curso, name='editar_curso'),
     url(r'^curso_dashboard/remover/(?P<pk>[0-9]+)', remover_curso, name='remover_curso'),
+    url(r'^curso_dashboard/', cadastrar_curso, name='cadastrar_curso'),
     
     
     #assinaturas

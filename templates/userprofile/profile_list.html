@@ -23,16 +23,22 @@
             </thead>
             <tbody>
                 {% for campo in object_list %}
+                  
                   <tr>
-                    <td style="padding-left: 5px;">{{campo.user}}</td>
-                    
-                    <td>
-                            {% if object_list.has_paid %}
-                                <b class="text-success">Pagante</b>
+                    {% if campo.has_paid %}
+                                <b class="text-success">campo.has_paid</b>
                             {% else %}
                                 <b class="text-danger">Não Pagante</b>
                             {% endif %}
-                        </td>
+                    <td style="padding-left: 5px;">{{campo.user}}</td>
+                    
+                    <td>
+                            {% if campo.has_paid %}
+                                <b class="text-success">campo.has_paid</b>
+                            {% else %}
+                                <b class="text-danger">Não Pagante</b>
+                            {% endif %}
+                    </td>
                     <td style="padding-left: 5px;">{{campo.user.first_name}}</td>
                     <td style="padding-left: 5px;">{{campo.user.last_name}}</td>
                     <td style="padding-left: 5px;">{{campo.email}}</td>

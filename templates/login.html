@@ -2,8 +2,8 @@
 {% load crispy_forms_tags %}
 {%block content%}
 
-<section class="row-login col-12 mr-auto" style="font-family: 'Raleway';">
-<div class="content-register col-5">
+<section class="row-login  mr-auto " style="position:float;justify-content:center;algin-items:center;font-family: 'Raleway';">
+<div class="content-register col-5 ">
 <h1>Ainda não tem cadastro?</h1>
 <p>Para acessar todos os benefícios da Merlin
     Research é necessário possuir cadastro, mas
@@ -19,7 +19,7 @@
         {% csrf_token %}
         {{form | crispy}}
         <button style="margin-top: 2rem" type="submit" class="btn btn-danger btn-block">Login</button>
-      </form>
+    </form>
 </div>
 </section>
 {%endblock%}

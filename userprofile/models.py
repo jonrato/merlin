@@ -9,6 +9,10 @@ class Profile(models.Model):
     cidade = models.CharField(max_length=50, blank=True)
     estado = models.CharField(max_length=5, blank=True)
     profile_image = models.ImageField(upload_to='users/', null=True, blank=True, default='user.png')
+    has_paid = models.BooleanField(
+        default=False,
+        verbose_name='Payment Status'
+    )
 
     def __str__(self):
         return '%s %s' % (self.user.first_name, self.user.last_name)

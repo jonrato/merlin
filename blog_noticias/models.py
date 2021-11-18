@@ -46,7 +46,7 @@ class Post(models.Model):
     categories = models.ManyToManyField(Category)
     published = models.BooleanField()
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', related_query_name='hit_count_generic_relation')
-
+    favorite = models.BooleanField(blank=True, null=True)
     @property
     def post_link(self):
         return reverse("post", kwargs={
