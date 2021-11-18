@@ -59,7 +59,7 @@
 
           
         <div class="row text-center" style="position:float;justify-content:center;align-items:center">
-          <a href="{% url 'cadastrar_curso' %}" style="text-decoration: none;">        
+          <a href="{% url 'cadastrar_video' %}" style="text-decoration: none;">        
           <h4 class=" text-center"style="color: honeydew;font-weight: bold;margin:2rem;border-radius:2rem;padding:2rem;background-color:red">Cadastrar Vídeo</h4>
           <a/>
         </div>
@@ -105,11 +105,11 @@
                       </a>
                       {% endif %}
                     </td>
-                    <td style="padding-left: 5px;"><a class="text" href="{% url 'editar_curso' pk=video.pk %}">
+                    <td style="padding-left: 5px;"><a class="text" href="{% url 'editar_video' pk=videos.pk %}">
                       <i class="fa fa-edit"></i>
                       </a>
                     </td>
-                    <td style="padding-left: 5px;"><a class="text" href="{% url 'remover_curso' pk=video.pk %}">
+                    <td style="padding-left: 5px;"><a class="text" href="{% url 'remover_video' pk=videos.pk %}">
                       <i class="fa fa-trash"></i>
                       </a>
                     </td>

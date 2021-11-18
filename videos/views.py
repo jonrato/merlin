@@ -19,7 +19,7 @@ def cadastrar_video(request, template_name="dashboard-admin/videos/videos_form-u
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        return redirect('index_curso')
+        return redirect('index_video')
     return render(request, template_name, {'form':form})
 
 
@@ -29,7 +29,7 @@ def editar_video(request, pk, template_name='dashboard-admin/videos/videos_form-
         form = PostForm(request.POST or None, request.FILES or None, instance=video)
         if form.is_valid():
             form.save()
-            return redirect('index_curso')
+            return redirect('index_video')
     else:
         form = PostForm(instance=video)
     return render(request, template_name, {'form': form})
@@ -38,7 +38,7 @@ def remover_video(request, pk, template_name='dashboard-admin/videos/videos_dele
     video = Post.objects.get(pk=pk)
     if request.method == "POST":
         video.delete()
-        return redirect('index_curso')
+        return redirect('index_video')
     return render(request, template_name, {'video': video})
 
 #END Cursos

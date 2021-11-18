@@ -7,10 +7,11 @@ from django.conf.urls import url
 urlpatterns = [
     
     #vídeo
-    path('videos-dashboard/', views.index_video, name=('index_video')),
+    
     url(r'^video_dashboard/editar/(?P<pk>[0-9]+)', editar_video, name='editar_video'),
     url(r'^video_dashboard/remover/(?P<pk>[0-9]+)', remover_video, name='remover_video'),
     url(r'^video_form_dashboard/', cadastrar_video, name='cadastrar_video'),
+    url(r'videos-dashboard/', index_video, name=('index_video')),
     
     
     ]

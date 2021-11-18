@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from dashboard.models import UpdateHome
-from blog_noticias.models import Post
+from videos.models import Post
 
 #DASHBOARD HOME
 @login_required
@@ -36,4 +36,6 @@ def perfil(request):
 
 @login_required
 def videos(request):
-    return render(request, 'dashboard-videos.html')
+    video = Post.objects.all()
+    context = {'video': video}
+    return render(request, 'dashboard-videos.html', context)

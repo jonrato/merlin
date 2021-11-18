@@ -22,47 +22,21 @@
 
     </div>
 
-    <div class="row col-12" style="padding-bottom: 8%; padding-top: 5%; color: black;">
-        <img class="img col-6"  style="padding-right: 1rem;" src="{% static 'django_project/img/assinaturas/smallcaps.png' %}" alt="Card image cap">
-        <div>
-        <p><span style="color: rgb(185, 64, 121);font-weight: bold;">Small</span> Caps. Para aqueles que querem se <br>
-            destacar no mercado financeiro com <br>
-            insvestimentos de grande risco, entretanto, <br>
-            que podem gerar grandes riquezas. Você <br>
-            se considera um investidor agressivo?<br>
-            Esta assinatura é para você</p>
-            <button type="button" class="btn btn-danger">Confira no Youtube</button>
-        </div>
-    </div>
-
-
+    {% for videos in video %}
     <div class="row col-12" style="padding-bottom: 8%; color: black;">
-        <img class="img col-6"  style="padding-right: 1rem;" src="{% static 'django_project/img/assinaturas/smallcaps.png' %}" alt="Card image cap">
-        <div>
-        <p><span style="color: rgb(185, 64, 121);font-weight: bold;">Small</span> Caps. Para aqueles que querem se <br>
-            destacar no mercado financeiro com <br>
-            insvestimentos de grande risco, entretanto, <br>
-            que podem gerar grandes riquezas. Você <br>
-            se considera um investidor agressivo?<br>
-            Esta assinatura é para você</p>
-            <button type="button" class="btn btn-danger">Confira no Youtube</button>
+        <img class="img col-5"  style="padding-right: 1rem;max-width:15rem" src="{{videos.image.url}}" alt="Card image cap">
+        <div class="col-4">
+        <p><span style="color: rgb(185, 64, 121);font-weight: bold;">{{videos.title}}</span>. {{videos.description}}
+            <a href="http://{{videos.link}}">
+            <br>
+            <button type="button" class="btn btn-danger">Assistir Agora</button>
+            </a>
         </div>
     </div>
-
-
-    <div class="row col-12" style="padding-bottom: 8%; color: black;">
-        <img class="img col-6"  style="padding-right: 1rem;" src="{% static 'django_project/img/assinaturas/smallcaps.png' %}" alt="Card image cap">
-        <div>
-        <p><span style="color: rgb(185, 64, 121);font-weight: bold;">Small</span> Caps. Para aqueles que querem se <br>
-            destacar no mercado financeiro com <br>
-            insvestimentos de grande risco, entretanto, <br>
-            que podem gerar grandes riquezas. Você <br>
-            se considera um investidor agressivo?<br>
-            Esta assinatura é para você</p>
-            <button type="button" class="btn btn-danger">Confira no Youtube</button>
-        </div>
-    </div>
+    {% endfor %}
 
 </section>
 
 {% endblock %}
+
+    
