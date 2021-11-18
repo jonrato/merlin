@@ -4,7 +4,8 @@ from django.shortcuts import get_object_or_404, render
 from django.shortcuts import render, redirect
 from videos.forms import PostForm
 # Create your views here.
-#Cursos
+
+#Vídeos
 class PostList(ListView):
         model = Post
 
@@ -41,4 +42,4 @@ def remover_video(request, pk, template_name='dashboard-admin/videos/videos_dele
         return redirect('index_video')
     return render(request, template_name, {'video': video})
 
-#END Cursos
+#END Vídeos

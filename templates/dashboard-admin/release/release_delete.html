@@ -1,0 +1,16 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+
+{% block tituloPagina %}
+Remoção de Novidades
+{% endblock tituloPagina %}
+
+{% block content %}
+<form method="post" style="padding-bottom: 10rem;padding-top: 10rem;">{% csrf_token %}
+    <h4>Tem certeza que deseja excluir a novidade "{{ release.title }}"?</h4>
+    <br/>
+<button type="submit" class="btn btn-primary">
+    Remover
+</button>
+</form>
+
+{% endblock content %}
