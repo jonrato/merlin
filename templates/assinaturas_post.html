@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <main class="main-content" style="padding-top: 15%;color: black;">
+        <div class>
+           {% if product_list %}
+    
+
+
+        {% for p in product_list %}
+        <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" src="https://dummyimage.com/200x150.jpg?text={{ p.name }}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{ p.name }}</h4>
+                    <p class="card-text">{{ p.description }}</p>
+                </div>
+                <div class="card-footer d-flex">
+                    <a href="{% url 'detail' id=p.id %}" class="btn btn-success ml-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    
+    {% else %}
+    <div class="alert alert-info text-center mt-5">
+        The product list is empty. Please add some products first.
+    </div>
+    {% endif %}
+
+            
+        </div>
+        <section class="assinaturas-1">
+            <div class="container">
+                
+
+                {% if apost.thumbnails.url %}
+                <div class=" text-center mt-8" >
+                    <img src="{{apost.thumbnails.url}}" style="max-width: 35rem;">
+                </div>
+
+                {% else %}
+                <div class="text-center mt-8">
+                    <img src="{{ apost.image_url }}">
+                </div>
+                {% endif %}
+
+                <div class="post-content row mt-5">
+                    <div class="col-lg-8 mx-auto" style="color: black">
+                        
+                        <div>
+                            {{apost.overview|safe}}
+                        </div>
+                        <hr class="w-100px">
+                        <div>
+                            {{apost.content|safe}}
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="Tags gap-xy-2 text-center mt-6">
+                    {% for cat in apost.categories.all %}
+                    <a href="#" class="badge badge-pill badge-secondry">{{cat}}</a>
+                    {% endfor %}
+                </div>
+
+                <!--comments-->
+                
+
+            </div>
+        </section>
+
+        <section class="assinaturas-2" >
+            <div class="row" style="color: black;">
+
+            <div class="col-6" >
+            
+                <h1>Detalhes da Assinatura</h1>
+            
+            </div>
+            <div class="col-5">
+
+            <p>
+                lives exclusivas
+            </p>
+
+            <p>
+                lives exclusivas
+            </p>
+
+            <p>
+                lives exclusivas
+            </p>
+
+            <p>
+                lives exclusivas
+            </p>
+
+            </div>
+
+            </div>
+        </section>
+            
+        <section class="assinaturas-3">
+            <div class="row">
+                <div class="col-5">
+                    <h1> O Professor:</h1>
+
+                </div>
+
+                <div class="col-5">
+                    <h1>José Carlos</h1>
+                    <p>
+                        Lorem Ipsum Lorem Ipsum
+                        Lorem Ipsum Lorem Ipsum 
+                        Lorem Ipsum Lorem Ipsum 
+                        Lorem Ipsum Lorem Ipsum 
+                        Lorem Ipsum Lorem Ipsum 
+                        Lorem Ipsum Lorem Ipsum 
+                        Lorem Ipsum Lorem Ipsum 
+                        Lorem Ipsum Lorem Ipsum 
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

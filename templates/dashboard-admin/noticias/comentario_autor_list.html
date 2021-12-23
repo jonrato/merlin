@@ -1,0 +1,41 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+
+{% block title %}
+Listagem de Produtos
+{% endblock title %}
+
+{% block content %}
+
+<div class="col-lg-12" style="padding-top: 10rem;padding-bottom: 10rem;">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Data</th>
+      <th>Notícia</th>
+      <th>Comentário</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for produto in comentarios %}
+    <tr>
+      <td>{{ produto.user }}</td>
+      <td>{{ produto.data }}</td>
+      <td>{{ produto.post }}</td>
+      <td>{{ produto.content }}</td>
+      
+      <td>
+        <a href="{% url 'remover_comentario' pk=produto.pk  %}">
+            <i class="fa fa-trash"></i>
+        </a>
+      </td>
+      
+      
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}
+

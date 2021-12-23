@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin-top: 10%;">
+<div class="card-body">
+    <h1 class="card-title pricing-card-title">5,00<small class="text-muted"></small></h1>
+    <ul class="list-unstyled mt-3 mb-4">
+        <li>Accepts cash & online payments</li>
+    </ul>
+    <a href="{% url 'checkout' %}?price=Cup">
+        <button type="button" class="btn btn-danger">Pay</button>
+    </a>
+</div>
+
+<div class="card-body">
+    <h1 class="card-title pricing-card-title">5,00<small class="text-muted"></small></h1>
+    <ul class="list-unstyled mt-3 mb-4">
+        <li>Accepts cash & online payments</li>
+    </ul>
+    <a href="{% url 'checkout' %}?price=Cup">
+        <button type="button" class="btn btn-danger">Pay</button>
+    </a>
+</div>
+
+<div class="card-body">
+    <h1 class="card-title pricing-card-title">5,00<small class="text-muted"></small></h1>
+    <ul class="list-unstyled mt-3 mb-4">
+        <li>Accepts cash & online payments</li>
+    </ul>
+    <a href="{% url 'checkout' %}?price=Cup">
+        <button type="button" class="btn btn-danger">Pay</button>
+    </a>
+</div>
+</div>
+{% endblock %}

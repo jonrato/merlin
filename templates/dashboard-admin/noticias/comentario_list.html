@@ -1,0 +1,44 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+
+{% block title %}
+Listagem de Marcas
+{% endblock title %}
+
+{% block content %}
+
+<form method="get">
+    <div class="col-lg-12">
+    <div class="input-group">
+      <input type="text" class="form-control" name="busca" placeholder="Buscar Comentario">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Pesquisar</button>
+      </span>
+    </div>
+    </div>
+</form>
+<div class="col-lg-12">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Ação</th>
+      <th>Data</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  {% for marca in lista %}
+    <tr>
+    <td>{{ marca.user }}</td>
+    <td><a href="{% url 'listar_comentario'  %}">Comentário por Notícia</a></td>
+    <td>{{ marca.date }}</td>
+      
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock content %}
+

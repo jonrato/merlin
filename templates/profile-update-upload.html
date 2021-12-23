@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="card text-center" style="margin-top: 15%;margin-bottom:15%">
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{user_form | crispy}}
+    {{profile_form | crispy}}
+    <button type="submit" class="btn btn-danger btn-block mt-5 text-center">Atualizar</button>
+    </form>
+</div>
+{%endblock%}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+<body>
+    
+
+{% block content%}
+<div class="noticias">
+
+    <div class="header-noticias col-11 row" style="border-bottom: 2px solid gray;" >
+        <h1 class="col-6" style="font-weight: bold;">Novidades</h1>
+    </div>
+      
+      
+      
+    
+
+    <div class="posts  text-center align-center " style="margin-left:30%;martin-top:5%; margin-bottom: 5%rem%;">
+    
+
+    <div class="row col-11" style="padding-top: 5%;">
+      <div class=" row col-9">
+    {% for post in posts %}
+    <div class="col-10">
+      
+    
+        <h2 class="mb-0">
+            <button type="button" class="btn btn-light btn-rounded">{{post.date|date:'Y-m-d'}}</button>
+            {{post.title}}
+        </h2>
+
+        
+
+        <div class="Tags text-center gap-xy-1  mt-4" style="margin-top:3rem">
+        {% for cat in post.categories.all %}
+        <span class="badge badge-pill badge-danger">
+        {{cat}}
+        </span>
+        {% endfor %}
+        </div>
+      {% if post.thumbnail %}
+      <a href="#">
+        <img class="card-img-top" src="{{post.thumbnail.url}}" alt="Card image cap">
+      </a>
+      {% else %}
+      <a href="#">
+        <img class="card-img-top" src="{{post.image_url}}" alt="Card image cap">
+      </a>
+      {% endif %}
+      <div class="p-6 text-center">
+        
+        
+
+        <h5 class="mb-0">
+          <p>
+            {{post.overview|safe|linebreaks}}
+          </p>
+        </h5>
+      </div>
+    </div>
+    
+    {% endfor %}
+    </div>
+    
+    
+    
+    
+
+    
+    
+    
+</div>
+</div>
+<nav class="flexbox text-center mt-30">
+      {% if posts.has_previous %}
+      <a href="?page={posts.previous_page_number}" class="btn btn-danger ">
+        <i class="ti-arrow-left fs-9 mr-4">Anterior</i>
+      </a>
+      {% else %}
+      <a href="#" class="btn btn-danger disabled ">
+        <i class="ti-arrow-left fs-9 mr-4">Anterior</i>
+      </a>
+      {% endif %}
+      {% if posts.has_next %}
+      <a href="?page={{posts.next_page_number}}" class="btn btn-danger ">
+        <i class="ti-arrow-right fs-9 mr-4">Próximo</i>
+      </a>
+      {%else%}
+      <a href="#" class="btn btn-danger disabled">
+        <i class="ti-arrow-right fs-9 mr-4">Próximo</i>
+      </a>
+      {%endif%}
+    </nav>
+</div>
+
+{% endblock %}
+</body>

@@ -1,0 +1,53 @@
+{% extends 'dashboard-admin/assinaturas/base.html' %}
+
+{% block title %}
+Listagem de Categorias
+{% endblock title %}
+
+{% block content %}
+
+<form method="get">
+    <div class="col-lg-12">
+    <div class="input-group">
+      <input type="text" class="form-control" name="busca" placeholder="Buscar categoria">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Pesquisar</button>
+      </span>
+    </div>
+    </div>
+</form>
+<div class="col-lg-12">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Assinaturas</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for categoria in lista %}
+    <tr>
+        <td>{{ categoria.title }}</td>
+        <td><a href="{% url 'listar_assinaturas_categoria' pk=categoria.pk %}">Assinaturas Por Categoria</a></td>
+
+      <td>
+        <a href="{% url 'editar_categoria' pk=categoria.pk %}">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="{% url 'remover_categoria' pk=categoria.pk %}">
+          <i class="fa fa-trash"></i>
+        </a>
+      </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'cadastrar_categoria' %}">
+<button type="submit" class="btn btn-primary">
+    Cadastrar
+</button>
+</a>
+</div>
+{% endblock content %}

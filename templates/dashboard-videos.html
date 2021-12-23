@@ -1,0 +1,42 @@
+{% extends 'base-dashboard.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="offset-1" style="color: black; font-family: 'Raleway';">
+    <div class="row col-12 " style="color: black;">
+        <div>
+
+        <h1>VÍDEOS <br>EXCLUSIVOS</h1>
+        <p>
+            Confira nossa seleção de vídeos exclusivos <br>
+            para quem é assinante Merlin.
+        </p>
+
+        </div>
+
+
+        <div class="col-6">
+            <img class="card-img-top offset-4"  style="max-width: 20rem;"  src="{% static 'django_project/img/dashboard/videos_exclusivos.png' %}" alt="Card image cap">
+        </div>
+
+    </div>
+
+    {% for videos in video %}
+    <div class="row col-12" style="padding-bottom: 8%; color: black;">
+        <img class="img col-5"  style="padding-right: 1rem;max-width:15rem" src="{{videos.image.url}}" alt="Card image cap">
+        <div class="col-4">
+        <p><span style="color: rgb(185, 64, 121);font-weight: bold;">{{videos.title}}</span>. {{videos.description}}
+            <a href="http://{{videos.link}}">
+            <br>
+            <button type="button" class="btn btn-danger">Assistir Agora</button>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+</section>
+
+{% endblock %}
+
+    

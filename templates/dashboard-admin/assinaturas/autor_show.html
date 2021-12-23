@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+Listagem de Produtos
+{% endblock title %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item">Descrição: {{produto.descricao}}</li>
+            <li class="list-group-item">Preço: {{produto.preco}}</li>
+            <li class="list-group-item">Marca: {{produto.marca}}</li>
+            <li class="list-group-item">Categorias:
+                {% for categoria in produto.categoria.all %}
+                    <a href="{% url 'categoria_produto' pk=categoria.pk %}">{{categoria}}</a>
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}

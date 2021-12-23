@@ -1,0 +1,335 @@
+html{
+    font-family: 'Raleway';
+}
+
+.navbar-dark {
+    background-color: black;
+    
+    
+    }
+
+
+
+body{
+    background-color: black;
+    height: auto;
+    padding-bottom: 0;
+}
+
+/* home*/
+
+.home-small {
+
+padding-right: 3rem;
+}
+
+.home-dividendos {
+    padding-right: 3rem;
+}
+
+
+.home-fiis {
+padding-right: 3rem;
+}
+
+.home-trader {
+padding-right: 3rem;
+}
+
+.home-completo {
+padding-right: 3rem;
+}
+
+/*end home*/
+
+
+/*footer-base.html*/
+.footer {
+    padding-top:0;
+    background-color: #0d0d0ee3;
+    
+    
+}
+
+.row {
+    color: white;
+    
+}
+
+.footer{
+    padding-bottom: 5%;
+}
+
+.footer-content {
+    margin-left: 0px;
+    padding-top: 4%;
+    
+}
+
+.p-footer {
+    color: gray;
+}
+/*end footer-base.html*/
+
+/* assinaturas */
+
+.assinaturas {
+    background-color: black;
+    padding-top: 15%;
+    padding-bottom: 20%;
+    font-family: 'Raleway';
+}
+
+/* end assinaturas */
+
+/*page login styling*/
+
+.row-login{
+    padding: 25%;
+    background-color: black;
+}
+
+.content-register {
+    
+    float: left;
+    color: white;
+    
+    border-right: 2px solid gray;
+}
+
+.login {
+    margin-left: 50%;
+    border-left: 5px gray;
+    color: white;
+    
+}
+
+.text-login {
+    display: inline;
+}
+
+.button-login {
+    background-color: hotpink;
+    border-radius: 20%;
+    font-size: medium;
+    padding: 2%;
+}
+
+.button-registrar{
+    background-color: hotpink;
+    border-radius: 20%;
+    font-size: medium;
+    padding: 2%;
+}
+
+.register{
+    padding-top:15%;
+    padding-bottom: 10%;
+}
+/*end page login styling*/
+
+
+/*blog noticias*/
+
+.header-noticias {
+    border-left: 8px solid hotpink;
+    margin-left: 3%;
+}
+
+
+    /*carousel*/
+    
+.noticias {
+    
+    background-color: black;
+    color: white;
+    padding-top: 15%;
+    padding-bottom: 5%;
+    
+}
+
+.posts {
+    margin-left: 3%;
+}
+
+/*end blog noticias*/
+
+/*sobre*/
+
+.sobre-content {
+padding-top: 30%;
+background-color: black;
+}
+
+/*end sobre*/
+
+/*página inicial*/
+.home-header {
+    color: white;
+    padding-bottom: 10%;
+}
+
+.home {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    background-color: black;
+    
+}
+
+.home-3-colunas{
+    padding-bottom: 5%;
+}
+
+.home-conta {
+    color: black;
+}
+
+.home-nosso-time {
+    color: white;
+    padding-left: 5%;
+}
+
+/*end página inicial*/
+
+/*aprender*/
+
+.image-header-aprender{
+    
+    padding-top: 10%;
+    padding-bottom: 5%;
+    background-color: black;
+}
+
+.cursos-aprender{
+    background-color: black;
+}
+
+.coluna-3-cursos {
+    padding-top: 2%;
+    padding-bottom: 15%;
+    
+}
+
+.title-cursos {
+    border-left: 8px solid rgb(163, 62, 113);
+    margin-left: 3%;
+    color:blanchedalmond;
+}
+
+.title-ebook {
+    border-left: 8px solid rgb(163, 62, 113);
+    margin-left: 3%;
+    color:blanchedalmond;
+}
+
+.aprender-1{
+ padding-top: 15%;
+ padding-bottom: 5%;
+ background-color: black;
+}
+
+/*end aprender*/
+
+/*dashboard*/
+.dashboard{
+    padding-top: 0;
+    padding-bottom: 0;
+    
+    
+}
+
+.image-home {
+    
+    padding-left: 0%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    height: 10%;
+    
+}
+
+.card-img {
+    
+    height: 15rem;
+    padding-right: 0;
+    
+}
+
+.card-group {
+    padding-top: 5%;
+}
+/* Style the sidebar - fixed full height */
+.sidebar {
+    
+    min-height: 100%;
+    min-width: 5me;
+    float:left;
+    position:fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    margin-bottom: 0%;
+    
+    
+    
+    
+  }
+
+  /* Style sidebar links */
+  .dashboard .sidebar > a:hover {
+    background-color: red;
+    padding-right: 10%;
+    border-spacing: 100%;
+    }
+  
+  .sidebar a {
+    
+    padding: 30%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+  }
+
+  
+  
+  /* Style links on mouse-over */
+ 
+  
+  /* Style the main content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+  }
+
+  /* analises */
+  
+  /* end analises */
+  
+  /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+
+
+/*end dashboard*/
+
+
+
+
+/*template post assinaturas*/
+.assinaturas-1{
+    background-color: rgb(51, 46, 46);
+}
+
+.assinaturas-2{
+    
+    background-color: rgb(236, 234, 231);
+}
+
+.assinaturas-3{
+    background-color: rgb(51, 46, 46);
+}
+/*END template post assinaturas*/

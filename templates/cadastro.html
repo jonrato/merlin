@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+<body>
+  {% block content %}
+
+    
+      {% if registered %}
+        
+      {% else %}
+      <div class="bg-gradient-success btn-dark "
+            style="margin-top: 5rem;padding-bottom:5rem" >
+            <h1 class="btn-danger text-center" style="padding-top:5rem;padding-bottom:5rem">
+            CRIE SUA CONTA DE FORMA RÁPIDA
+            </h1>
+        <form method="POST" class=" offset-1 login-form spacer">
+          {% csrf_token %}
+          <div style="margin-bottom: 3rem; margin-top: 5rem">
+          
+          <i class="fa fa-user fa-2x">
+            {{form.username}}
+          </i>
+          <br>
+          
+          </div>
+
+          <div style="margin-bottom: 3rem">
+          <i class="fa fa-address-book fa-2x">
+          {{form.first_name}}
+          </i>
+          <br>
+          
+          </div>
+
+          <div style="margin-bottom: 3rem">
+          <i class="fa fa-book fa-2x">
+            {{form.last_name}}
+          </i>
+          <br>
+          
+          </div>
+
+          <div style="margin-bottom: 3rem">
+          <i class="fa fa-envelope-open fa-2x">
+          {{form.email}}
+          </i>
+          <br>
+          
+          </div>
+
+          <div style="margin-bottom: 3rem">
+          <i class="fa fa-unlock-alt fa-2x">
+            {{form.password1}}
+          </i>
+          <br>
+          
+          </div>
+
+          <div style="margin-bottom: 3rem">
+          <i class="fa fa-lock fa-2x">
+            {{form.password2}}
+          </i>
+          <br>
+          
+          </div>
+
+          <button type="submit" class="btn btn-danger">Cadastrar</button>
+        </form>
+        
+      {% endif %}
+    </div>
+    
+  
+  {%endblock%}
+</body>

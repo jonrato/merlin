@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+
+{% load static %}
+
+{% block content %}
+
+<section class="assinaturas">
+    
+    
+    <h1 class="text-center" style="color:white; font-weight: bold; font-size: 2.5rem;" >Já pensou em se tornar um
+         <br>investidor de sucesso?</h1>
+    <h3 class="text-center" style="color:white;padding-bottom: 15%;">Confira nossas assinaturas abaixo</h3>
+    {% if product_list %}
+    
+
+
+        {% for p in product_list %}
+        
+            <div class="card col-sm-4" style="color:white;background-color:gray;margin-left:3rem">
+                <img src="{{p.Image_pic.url}}" alt="cade">
+                <div class="card-body">
+                    <h4 class="card-title text-center">{{ p.name }}</h4>
+                    <p class="card-text ">{{ p.description }}</p>
+                    <h5 class="card-text text-center">R${{ p.price }}</h5>
+                </div>
+                <div class="card-footer d-flex">
+                    <a href="{% url 'detail' id=p.id %}" class="btn btn-danger btn-block">Saber Mais</a>
+                </div>
+            </div>
+        
+        {% endfor %}
+
+    
+    {% else %}
+    <div class="alert alert-info text-center mt-5">
+        The product list is empty. Please add some products first.
+    </div>
+    {% endif %}
+</section>
+
+
+
+
+
+{% endblock %}

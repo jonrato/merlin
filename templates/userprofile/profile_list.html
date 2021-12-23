@@ -1,0 +1,57 @@
+{%extends 'dashboard-admin/usuarios.html'%}
+{%load static%}
+
+{%block content%}
+
+<h3 class=" text-center">Listagem de Usuários Registrados</h3>
+
+            <hr>
+            <div class="responsive-table col-10 " style="margin-left: 2rem; padding-bottom: 5%;">
+              <table class="table table-striped offset-0" id="tabela-listar" style="text-align: justify;background: rgb(236, 240, 241) ">
+                <thead>
+                <tr>
+                  <th style="padding-left: 5px;">Usuario</th>
+                  <th style="padding-left: 5px;">Pagante</th>
+                  <th style="padding-left: 5px;">Nome</th>
+                  <th style="padding-left: 5px;">Sobrenome</th>
+                  <th style="padding-left: 5px;">Email</th>
+                  <th style="padding-left: 5px;">Telefone</th>
+                  <th style="padding-left: 5px;">Sexo</th>
+                  <th style="padding-left: 5px;">Cidade</th>
+                  <th style="padding-left: 5px;">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for campo in object_list %}
+                  
+                  <tr>
+                    {% if campo.has_paid %}
+                                <b class="text-success">campo.has_paid</b>
+                            {% else %}
+                                <b class="text-danger">Não Pagante</b>
+                            {% endif %}
+                    <td style="padding-left: 5px;">{{campo.user}}</td>
+                    
+                    <td>
+                            {% if campo.has_paid %}
+                                <b class="text-success">campo.has_paid</b>
+                            {% else %}
+                                <b class="text-danger">Não Pagante</b>
+                            {% endif %}
+                    </td>
+                    <td style="padding-left: 5px;">{{campo.user.first_name}}</td>
+                    <td style="padding-left: 5px;">{{campo.user.last_name}}</td>
+                    <td style="padding-left: 5px;">{{campo.email}}</td>
+                    <td style="padding-left: 5px;">{{campo.telefone}}</td>
+                    <td style="padding-left: 5px;">{{campo.sexo}}</td>
+                    <td style="padding-left: 5px;">{{campo.cidade}}</td>
+                    <td style="padding-left: 5px;">{{campo.estado}}</td>
+                    
+                  </tr>
+                {%empty%}
+                <tr>Nenhum campo registrado</tr>
+                {% endfor %}
+            </tbody>
+              </table>
+            </div>
+{%endblock%}

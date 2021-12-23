@@ -1,0 +1,97 @@
+{% extends 'base-dashboard.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="offset-1" style="color:black">
+    <div class="row">
+
+    <div style="color: black; padding-top: 15%;">
+
+    <h1 style="font-family: 'Raleway'; font-size: 4rem;">ANÁLISES</h1>
+    <p style="font-family: 'Raleway'; ">
+        Suas análises de forma simples, <br>
+         rápida e objetiva
+    </p>
+
+    </div>
+
+
+    <div class="col-6" style="padding-bottom: 10%;">
+        <img class="card-img-top offset-4"  style="max-width: 20rem;"  src="{% static 'django_project/img/dashboard/analises.png' %}" alt="Card image cap">
+    </div>
+
+    </div>
+
+
+
+    
+
+
+    <form method="get">
+            {% csrf_token %}
+            <div class="col-lg-12">
+            <div class="input-group">
+            <input type="text" class="form-control" name="busca" placeholder="Buscar Análise">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Pesquisar</button>
+            </span>
+            </div>
+            </div>
+        </form>
+        <div class="col-lg-12">
+        <table class="table">
+        <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Resumo</th>
+                    <th scope="col">Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in files %}
+                <tr class="clickable">
+                    <td>
+                        <div class="row-fluid summary">
+                            <button class="btn-danger btn-block" data-toggle="collapse" data-target="#col1-row1{{file.id}}">+</button>
+                        </div>
+                    </td>
+
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <td>{{file.name}}</td>
+                                <td>{{file.resume}}</td>
+                                <td>{{file.created}}</td>
+                            </a>
+                        </h4>
+                    </div>
+                    
+                </tr>
+                <tr id="col1-row1{{file.id}}" class="collapse">
+                    
+
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <td colspan="9">
+                                <a href="{{file.pdf.url}}" style="display:flex;justify-content:center;align-itens:center" target="_blank" class="btn btn-danger">Visualizar Arquivo</a>
+                            </td>
+                        </div>
+                    </div>
+                </tr>
+            
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+
+
+    
+</section>
+
+
+
+
+{% endblock %}

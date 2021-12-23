@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load hitcount_tags %}
+
+{% block content %}
+    <main class="main-content" style="padding-top: 15%;color: black;">
+
+        <div class="section" >
+            <div class="container">
+                <div class="text-center mt-8">
+                    <h2>{{post.title}}</h2>
+                    <p> {{post.date|date}} | {{post.categories.all.0}} | {% get_hit_count for post %}
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </p>
+                </div>
+
+                {% if post.thumbnail.url %}
+                <div class=" text-center mt-8" >
+                    <img src="{{post.thumbnail.url}}" style="max-width: 35rem;">
+                </div>
+
+                {% else %}
+                <div class="text-center mt-8">
+                    <img src="{{ post.image_url }}">
+                </div>
+                {% endif %}
+
+                <div class="post-content row mt-5">
+                    <div class="col-lg-8 mx-auto" style="color: black">
+                        
+                        <div>
+                            {{post.overview|safe}}
+                        </div>
+                        <hr class="w-100px">
+                        <div>
+                            {{post.content|safe}}
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="Tags gap-xy-2 text-center mt-6">
+                    {% for cat in post.categories.all %}
+                    <a href="#" class="badge badge-pill badge-secondry">{{cat}}</a>
+                    {% endfor %}
+                </div>
+
+                <!--comments-->
+                <div class="section">
+                    <div class="container">
+                        <h2>Comentários({{post_comments_count}})</h2>
+                         <div class="media-list" style="margin-top:3rem">
+                                        {% for comment in post_comments %}
+                                        <div style="color:silver;border-style:solid;border-radius: 1rem;margin-bottom:2rem">
+                                            
+                                            <div class=" media-body" style="color:black">
+                                                <div class="small-2">
+                                                    <img src="{{user.profile.profile_image.url}}" class=""  style="border-radius: 50%;width:4rem;">
+                                                    <b>{{comment.user}}</b>
+                                                    <time class="ml-4 opacity-70 small-3">{{comment.date}}</time>
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                            <p class="offset-1" style="color:black">{{comment.content}}</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <!--display comment-->
+                                   
+                                <!--display form-->
+                                <form method="POST" action="{% url 'post' slug=post.slug %}" style="color:black">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        {{form}}
+                                    </div>
+                                    <button class="btn btn-danger btn-block" type="submit">Comentar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

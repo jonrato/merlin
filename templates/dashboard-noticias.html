@@ -1,0 +1,62 @@
+{% extends 'base-dashboard.html' %}
+{% load static %}
+
+    
+
+{% block content%}
+<div class=" offset-1 col-9" style="padding-top: 5%;" >
+
+    <div class="header-noticias">
+        
+    </div>
+    
+    
+    
+    
+    <div class="posts col-12" style="color: black;background-color: white;font-family: 'Raleway'; padding-top: 5%;">
+    <div class="row" style="color: black;background-color: white;font-family: 'Raleway';position:float;justify-content:center;align-items:center;">
+        <h1 style="position:float;justify-content:center;align-items:center;">ARTIGOS RECENTES</h1>
+    
+     <div class="row col-12" style="padding-top: 5%;color:black">
+      <div class="row col-8" style="color:black">
+    {% for post in posts %}
+    {% if post.favorite %}
+    <div class="col-5">
+      
+      <div class="Tags gap-xy-2 text-center mt-6">
+        {% for cat in post.categories.all %}
+        <a href="#" class="badge badge-pill badge-secondry">{{cat}}</a>
+        {% endfor %}
+    </div>
+      {% if post.thumbnail %}
+      <a href="#">
+        <img class="card-img-top" src="{{post.thumbnail.url}}" alt="Card image cap">
+      </a>
+      {% else %}
+      <a href="#">
+        <img class="card-img-top" src="{{post.image_url}}" alt="Card image cap">
+      </a>
+      {% endif %}
+      <div class="p-6 text-center">
+        
+        <h5 class="mb-0">
+          <a class="text" href="{{post.post_link}}">
+            {{post.title}}
+          </a>
+        </h5>
+
+        <h5 class="mb-0">
+          <p>
+            {{post.overview|safe}}
+          </p>
+        </h5>
+      </div>
+    </div>
+    {%endif%}
+    {% endfor %}
+    </div>
+    
+</div>
+
+</div>
+{% endblock %}

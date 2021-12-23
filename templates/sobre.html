@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{%for post in posts%}
+<div class="sobre-content" style="padding-top: 5%;">
+    <div class="card bg-dark text-white" >
+        <img class="card-img-aprender"  src="{{post.thumbnailCapa.url}}" alt="Card image">
+        <div class="card-img-overlay offset-0" style="padding-top: 20%; ">
+          <h1 class="card-title">{{post.text_capa}}
+          </h1>
+          
+        </div>
+      </div>
+    <h1 class="offset-1" style="color: white; padding-top: 10%;">Como surgiu a Merlin?</h1>
+    <br>
+    <p class="offset-1" style="color: white;">{{post.DescrilcaoMerlin}}
+    <p></p>
+    <img src="">
+    
+    <div class="row">
+        <img class="card-img-aprender offset-1"  src="{{post.thumbnailQuemSomos.url}}" alt="Card image" style="padding-right: 2%;">
+        <div>
+        <h1 class="offset-0">Quem somos?</h1>
+        <br>
+        <p>
+          {{post.DescricaoQuemSomos}}
+        </p>
+      </div>
+    </div>
+    <section style="padding-top: 5%;" class="offset2">
+    <div class="home-nosso-time " style="font-family: 'Raleway'; padding-bottom: 5%;">
+      <h1 style="font-weight: bold;" class="text-center">Nosso time</h1>
+
+  </div>
+  <div class="home-3-colunas">
+  <div class="row offset-1">
+  <div class="card col-3" style="width: 18rem; background-color: black;">
+      <img class="card-img-top" src="{{post.thumbnaiImageA.url}}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title text-center" style="font-weight: bold;">{{post.text_titleA}}</h5>
+        <p class="text-center">CEO da Merlin</p>
+        
+      </div>
+  </div>
+  <div class="card col-3" style="width: 18rem; background-color: black;">
+      <img class="card-img-top" src="{{post.thumbnaiImageB.url}}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title text-center" style="font-weight: bold;">{{post.text_titleB}}</h5>
+        <p class="text-center">Assistente Financeiro</p>
+        
+      </div>
+  </div>
+  <div class="card col-3" style="width: 18rem; background-color: black;">
+      <img class="card-img-top" src="{{post.thumbnaiImageC.url}}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title text-center" style="font-weight: bold;">{{post.text_titleC}}</h5>
+        <p class="text-center">Head de Renda Variável</p>
+        
+      </div>
+  </div>
+</div>
+</div>
+</section>
+{% endfor %}
+{% endblock %}

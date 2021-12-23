@@ -1,0 +1,61 @@
+{% extends 'base-dashboard.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+
+{%block content%}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<section style="font-family: 'Raleway';padding-top: 5%;">
+
+    <div>
+
+        <div class="row" style="color: black;">
+            <div class="col-7 offset-1">
+             <h1 style="font-size: 4rem; font-weight: bold;">MEU <span style="color: palevioletred;">PERFIL</span></h1>
+             <p style="font-size: 1.5rem; margin-bottom: 10%;">
+                 Edite seu perfil e acesse<br>
+                 quando quiser
+            </p>
+            <div class="card" >
+                <div class="card-body" >
+                    <h2 style=" margin-top: 10%;">Seja Bem-Vindo {{user.first_name}} {{user.last_name}}</h2>
+                    <p><strong>Nome: </strong> {{user.first_name}} </p>
+                    <p><strong>Sobrenome: </strong> {{user.last_name}} </p>
+                    <p><strong>Email: </strong> {{user.email}} </p>
+                    <p><strong>Cidade: </strong> {{user.profile.cidade}} </p>
+                    <p><strong>Estado: </strong> {{user.profile.estado}} </p>
+                    
+                    <a href="{% url 'profile-update' %}" class="btn btn-sm btn-danger shadow-sm">Atualizar Perfil</a>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-4 " >
+                <img class="card-img-top offset-2"  style="max-width: 20rem;"  src="{% static 'django_project/img/dashboard/meu_perfil.png' %}" alt="Card image cap">
+                
+                    <img src="{{user.profile.profile_image.url}}" class="offset-2"  style="max-width: 15rem; margin-top: 10%;border-radius: 50%;">
+                        
+            </div>
+            
+            
+            
+            
+
+        </div>
+
+    </div>
+
+    
+    
+
+</section>
+
+{%endblock%}
