@@ -24,22 +24,22 @@
       <div class=" col-6 offset-0" style="margin-left: 0%; color: black;">
         <div class="card-body" >
           <h5 class="card-title " style="font-weight: bold;">Notícias de hoje</h5>
-          
-          
-        </div> 
-        <img class="card-img" src="{% static 'django_project/img/dashboard/home/noticias.png' %}" alt="Card image">
-          
+        </div>
+        <a href="{% url 'dashboard-noticias' %}">
+          <img class="card-img" src="{% static 'django_project/img/dashboard/home/noticias.png' %}" alt="Card image">
+        </a>
       </div>
+
       <div class=" col-3" style="margin-left: 0%; color: black;">
         
         <div class="card-body" >
           <h5 class="card-title " style="font-weight: bold;">Suas Assinaturas</h5>
-          
-          
         </div>
-        <img class="card-img" src="{% static 'django_project/img/dashboard/home/assinaturas.png' %}" alt="Card image cap">
-          
+        <a href="{% url 'dashboard-assinaturas' %}">
+          <img class="card-img" src="{% static 'django_project/img/dashboard/home/assinaturas.png' %}" alt="Card image cap">
+        </a>
       </div>
+
       <div class=" col-3" style="margin-left: 0%; color: black;">
           
         <div class="card-body" >
@@ -61,21 +61,13 @@
     <div class=" col-4 " style="margin-left: 0%; color: black;">
       <div class="card-body" >
         <h5 class="card-title " style="font-weight: bold;">A bolsa hoje</h5>
-        
-        
       </div> 
-      <img class="card-img" src="{% static 'django_project/img/dashboard/home/bolsa.png' %}" alt="Card image">
-        
     </div>
+
     <div class=" col-7" style="margin-left: 0%; color: black;">
-      
       <div class="card-body" >
         <h5 class="card-title " style="font-weight: bold;">Continue onde parou</h5>
-        
-        
       </div>
-      <img class="card-img" src="{% static 'django_project/img/dashboard/home/continue.png' %}" alt="Card image cap">
-        
     </div>
     
 </div>

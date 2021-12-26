@@ -1,4 +1,4 @@
-#!/home/rato/Documentos/Programming Store/Clientes/Alessandro Manaus/Merlin Research/projeto em si/env/bin/python3
+#!/home/jon/Documentos/doc_ubuntu/Programming Store/Clientes/Alessandro Manaus/Merlin Research/git-clone/merlin/env/bin/python3
 
 import sys
 from os.path import join, dirname, exists

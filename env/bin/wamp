@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/rato/Documentos/Programming Store/Clientes/Alessandro Manaus/Merlin Research/projeto em si/env/bin/python3" "$0" "$@"
+'''exec' "/home/jon/Documentos/doc_ubuntu/Programming Store/Clientes/Alessandro Manaus/Merlin Research/git-clone/merlin/env/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
