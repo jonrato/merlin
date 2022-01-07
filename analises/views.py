@@ -6,7 +6,7 @@ from .models import FileUpload
 
 from django.contrib.auth.decorators import login_required
 
-@login_required
+@login_required(login_url='/login')
 def upload(request):
     context = {}
     if request.method == 'POST':
@@ -15,21 +15,21 @@ def upload(request):
         name = fs.save(uploaded_file.name, uploaded_file)
     return render(request, 'dashboard-admin/analises.html', context)
 
-@login_required
+@login_required(login_url='/login')
 def upload_list(request):
     files = FileUpload.objects.all()
     return render(request, 'dashboard-analises.html',
     {'files':files}
     )
 
-@login_required
+@login_required(login_url='/login')
 def upload_list_dashboard(request):
     files = FileUpload.objects.all()
     return render(request, 'upload_book.html',
     {'files':files}
     )
 
-@login_required
+@login_required(login_url='/login')
 def upload_book(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)

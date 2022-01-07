@@ -41,7 +41,7 @@ class CampoList(ListView):
 
 
 #DASHBOARD HOME
-@login_required
+@login_required(login_url='/login')
 def admin_dashboard(request):
     usuarios_contagem = User.objects.all().count()
     
@@ -94,11 +94,11 @@ def admin_dashboard(request):
     }
     return render(request, 'dashboard-admin/index.html',context)
 
-@login_required
+@login_required(login_url='/login')
 def analitico_dashboard(request):
     return render(request, 'dashboard-admin/analitico.html')
 
-@login_required
+@login_required(login_url='/login')
 def artigos_dashboard(request):
     
 
@@ -126,7 +126,7 @@ def artigos_dashboard(request):
     return render(request, 'dashboard-admin/artigos.html', context)
 #End Listar todos os Posts
 
-@login_required
+@login_required(login_url='/login')
 def forum_dashboard(request):
     return render(request, 'dashboard-admin/forum.html')
 
@@ -139,11 +139,11 @@ from django_app.models import Cursos, Post_Assinaturas
 
 
 
-@login_required
+@login_required(login_url='/login')
 def usuarios_dashboard(request):
     return render(request, 'dashboard-admin/usuarios.html')
 
-@login_required
+@login_required(login_url='/login')
 def vendas_dashboard(request):
     return render(request, 'dashboard-admin/vendas.html')
 

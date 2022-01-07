@@ -95,12 +95,10 @@ class PaymentSuccessView(TemplateView):
         session = stripe.checkout.Session.retrieve(session_id)
 
         order = get_object_or_404(OrderDetail, stripe_payment_intent=session.payment_intent)
+        order.user
         order.has_paid = True
         order.save()
 
-        pay = get_object_or_404(OrderDetail)
-        pay.has_paid = True
-        pay.save()
         return render(request, self.template_name)
 
 class PaymentFailedView(TemplateView):

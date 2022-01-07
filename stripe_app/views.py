@@ -69,7 +69,7 @@ def edit_order(request, pk):
             note = 'Order has been updated'
             return render(request, 'stripe/edit_order.html', {'note':note})
     return render(request, 'stripe/edit_order.html', {'IceForm': form,'icecream':icecream})
-@login_required
+@login_required(login_url='/login')
 def checkout(request):
     coupons = {"diwali":15,"christmas":20}
     if request.method == 'POST':

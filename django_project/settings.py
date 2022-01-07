@@ -264,12 +264,12 @@ django_heroku.settings(locals())
 
 #STRIPE
 if DEBUG:
-    STRIPE_PUBLISHABLE_KEY = 'pk_test_51Jcb7sHzZv41h9bNo7Uvv7P7AZGNoB1l8pTTn36t7ZUYxPZmTpoKbqjjXE0lBOGYJKSCIebBM328uQvb19egsQ7o00h1jtGiV9'
-    STRIPE_SECRET_KEY = 'sk_test_51Jcb7sHzZv41h9bN8NHHFJYxtnSCdHRUpArjxQ5BYRLWFILCDy957s17nez8L3SHgSm11P1wtyWxszB7SRvRjVQR00KuTYm054'
+    STRIPE_PUBLISHABLE_KEY = 'pk_live_51Jcb7sHzZv41h9bNIczPVypLP7rRAZ57lpvhkmkurptzEidLcXt3HRJCbSidoiQYIg2GY9E88U6v1kTozodMpUok00bRR2swpi'
+    STRIPE_SECRET_KEY = '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'
 # Uncomment these lines if you have a live keys
-# else:
-#     STRIPE_PUBLISHABLE_KEY = 'production_publishable_key'
-#     STRIPE_SECRET_KEY = 'production_secret_key'
+else:
+     STRIPE_PUBLISHABLE_KEY = 'pk_live_51Jcb7sHzZv41h9bNIczPVypLP7rRAZ57lpvhkmkurptzEidLcXt3HRJCbSidoiQYIg2GY9E88U6v1kTozodMpUok00bRR2swpi'
+     STRIPE_SECRET_KEY = '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'
 
 
 DATE_FORMAT = "Y-m-d"
