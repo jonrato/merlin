@@ -24,7 +24,7 @@ class Product(models.Model):
     price = models.FloatField(
         verbose_name='Price',
         validators=[
-            validators.MinValueValidator(50),
+            validators.MinValueValidator(1),
             validators.MaxValueValidator(100000)
         ]
     )
