@@ -29,10 +29,6 @@ class Product(models.Model):
         ]
     )
     Image_pic = models.ImageField(upload_to="upload/", blank="True", null="True")
-
-    def __str__(self):
-        return '%s %s' % (self.user.first_name, self.user.last_name)
-
 class OrderDetail(models.Model):
 
     user = models.OneToOneField(
